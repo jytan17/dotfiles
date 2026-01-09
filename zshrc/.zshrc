@@ -8,6 +8,15 @@ fi
 export LANG=C.UTF-8
 export LC_ALL=C.UTF-8
 
+# Initialize Homebrew (must be before Oh My Zsh for plugin loading)
+if [ -f "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -f "/usr/local/bin/brew" ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Oh My Zsh installation path
 export ZSH="$HOME/.oh-my-zsh"
 

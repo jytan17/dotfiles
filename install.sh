@@ -41,31 +41,23 @@ echo ""
 echo "Installing Homebrew..."
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Configure Homebrew PATH based on installation location
+# Configure Homebrew PATH for current session
+# Note: Permanent configuration is handled by dotfiles (bash/.bashrc and zshrc/.zshrc)
 if [ -f "/opt/homebrew/bin/brew" ]; then
     # macOS Apple Silicon
     echo "✓ Configuring Homebrew for macOS Apple Silicon"
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    if ! grep -q "/opt/homebrew/bin/brew shellenv" ~/.zprofile 2>/dev/null; then
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-    fi
-    
+
 elif [ -f "/usr/local/bin/brew" ]; then
     # macOS Intel
     echo "✓ Configuring Homebrew for macOS Intel"
     eval "$(/usr/local/bin/brew shellenv)"
-    if ! grep -q "/usr/local/bin/brew shellenv" ~/.zprofile 2>/dev/null; then
-        echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
-    fi
-    
+
 elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
     # Linux
     echo "✓ Configuring Homebrew for Linux"
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    if ! grep -q "/home/linuxbrew/.linuxbrew/bin/brew shellenv" ~/.bashrc 2>/dev/null; then
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
-    fi
-    
+
 else
     echo "✗ Homebrew installation not found!"
     exit 1
@@ -100,6 +92,10 @@ starship preset gruvbox-rainbow -o ~/.config/starship.toml
 # Stow zshrc
 rm ~/.zshrc
 stow zshrc
+
+# Stow bashrc
+rm ~/.bashrc 2>/dev/null || true
+stow bash
 
 #==============================================================================
 # TMUX & PLUGIN MANAGER
@@ -138,22 +134,16 @@ echo ""
 echo "✓ Installation complete!"
 echo ""
 echo "================================================"
-echo "To start using your new setup, run:"
+echo "To start using your new setup:"
 echo ""
-
-# Show the correct eval command based on OS
-if [ -f "/opt/homebrew/bin/brew" ]; then
-    # macOS Apple Silicon
-    echo "  eval \"\$(/opt/homebrew/bin/brew shellenv)\""
-elif [ -f "/usr/local/bin/brew" ]; then
-    # macOS Intel
-    echo "  eval \"\$(/usr/local/bin/brew shellenv)\""
-elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-    # Linux
-    echo "  eval \"\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\""
-fi
-
-echo "  zsh"
+echo "  1. Restart your terminal, OR"
+echo "  2. Run: exec zsh"
 echo ""
-echo "Or simply restart your terminal."
+echo "Your dotfiles now include:"
+echo "  ✓ Homebrew initialization (auto-loaded)"
+echo "  ✓ UTF-8 locale support"
+echo "  ✓ 256-color terminal support"
+echo "  ✓ Starship prompt with Gruvbox theme"
+echo "  ✓ Tmux with true color support"
+echo "  ✓ Neovim (AstroNvim)"
 echo "================================================"
