@@ -4,9 +4,7 @@ set -e  # Exit on error
 #==============================================================================
 # SYSTEM DETECTION & DEPENDENCIES
 #==============================================================================
-
 echo "Detecting operating system..."
-
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "✓ Detected Linux"
     
@@ -30,12 +28,18 @@ else
 fi
 
 #==============================================================================
+# DIRECTORY SETUP
+#==============================================================================
+echo ""
+echo "Creating configuration directories..."
+mkdir -p ~/.config
+
+#==============================================================================
 # HOMEBREW INSTALLATION
 #==============================================================================
-
 echo ""
 echo "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Configure Homebrew PATH based on installation location
 if [ -f "/opt/homebrew/bin/brew" ]; then
@@ -70,7 +74,6 @@ fi
 #==============================================================================
 # DEVELOPMENT TOOLS
 #==============================================================================
-
 echo ""
 echo "Installing gcc..."
 brew install gcc
@@ -82,7 +85,6 @@ brew install zsh starship eza stow
 #==============================================================================
 # OH-MY-ZSH & PLUGINS
 #==============================================================================
-
 echo ""
 echo "Installing oh-my-zsh..."
 no | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -98,7 +100,6 @@ starship preset gruvbox-rainbow -o ~/.config/starship.toml
 #==============================================================================
 # TMUX & PLUGIN MANAGER
 #==============================================================================
-
 echo ""
 echo "Installing tmux and TPM..."
 brew install tmux
