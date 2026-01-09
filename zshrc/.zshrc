@@ -5,10 +5,21 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""
 
 # Oh My Zsh plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git)
 
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
+
+# Load Homebrew-installed zsh plugins (cross-platform)
+if type brew &>/dev/null; then
+    BREW_PREFIX=$(brew --prefix)
+    if [ -f "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+        source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    fi
+    if [ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+        source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    fi
+fi
 
 # ===== Custom Configuration =====
 
