@@ -17,6 +17,7 @@ return {
         "basedpyright", -- Python LSP
         "ruff",         -- Python linter and formatter
         "debugpy",      -- Python debugger
+        "uv",           -- Python package manager
 
         -- Other tools
         "tree-sitter-cli",
