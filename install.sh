@@ -16,18 +16,30 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.
 # Install Starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-# Install eza
+# Install eza (auto-detect architecture)
 mkdir -p ~/.local/bin
-wget -qO- https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz -C ~/.local/bin
+# Detect system architecture and set appropriate eza binary
+ARCH=$(uname -m)
+case "$ARCH" in
+    x86_64)
+        EZA_ARCH="x86_64-unknown-linux-gnu"
+        ;;
+    aarch64|arm64)
+        EZA_ARCH="aarch64-unknown-linux-gnu"
+        ;;
+    armv7l)
+        EZA_ARCH="armv7-unknown-linux-gnueabihf"
+        ;;
+    *)
+        echo "Warning: Unsupported architecture: $ARCH, defaulting to x86_64"
+        EZA_ARCH="x86_64-unknown-linux-gnu"
+        ;;
+esac
+echo "Installing eza for architecture: $EZA_ARCH"
+wget -qO- "https://github.com/eza-community/eza/releases/latest/download/eza_${EZA_ARCH}.tar.gz" | tar xz -C ~/.local/bin
 
 # Intall TPM (Tmux Plugin Manager)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Stow dotfiles
 stow .
-
-# Set zsh as default shell
-chsh -s $(which zsh)
-
-echo "Dotfiles installed! Restart your shell or run 'zsh'"
-
