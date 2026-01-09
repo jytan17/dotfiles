@@ -47,15 +47,14 @@ apt update && apt install -y build-essential curl git
 ```
 
 ### Installation
+
+One-liner installation:
 ```bash
-# Clone dotfiles
-git clone https://github.com/jytan17/dotfiles.git ~/.dotfiles
+git clone https://github.com/jytan17/dotfiles.git ~/.dotfiles && ~/.dotfiles/install.sh
+```
 
-# Run install script (supports Linux and macOS)
-cd ~/.dotfiles
-./install.sh
-
-# Restart your shell or run
+Then restart your shell:
+```bash
 exec zsh
 ```
 
