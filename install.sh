@@ -126,10 +126,30 @@ echo "Installing neovim..."
 brew install neovim
 stow nvim
 
+
+#==============================================================================
+# Finishing words
+#==============================================================================
 echo ""
 echo "✓ Installation complete!"
 echo ""
-echo "Activating Homebrew in current session..."
-eval "$(brew --prefix)/bin/brew shellenv"
+echo "================================================"
+echo "To start using your new setup, run:"
 echo ""
-echo "To start using your new setup, run: zsh"
+
+# Show the correct eval command based on OS
+if [ -f "/opt/homebrew/bin/brew" ]; then
+    # macOS Apple Silicon
+    echo "  eval \"\$(/opt/homebrew/bin/brew shellenv)\""
+elif [ -f "/usr/local/bin/brew" ]; then
+    # macOS Intel
+    echo "  eval \"\$(/usr/local/bin/brew shellenv)\""
+elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+    # Linux
+    echo "  eval \"\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\""
+fi
+
+echo "  zsh"
+echo ""
+echo "Or simply restart your terminal."
+echo "================================================"
