@@ -97,6 +97,9 @@ echo ""
 echo "Setting starship theme..."
 starship preset gruvbox-rainbow -o ~/.config/starship.toml
 
+# Stow zshrc
+stow zshrc
+
 #==============================================================================
 # TMUX & PLUGIN MANAGER
 #==============================================================================
