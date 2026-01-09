@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Mason
 
 ---@type LazySpec
@@ -11,16 +9,16 @@ return {
     opts = {
       -- Make sure to use the names found in `:Mason`
       ensure_installed = {
-        -- install language servers
+        -- Lua
         "lua-language-server",
-
-        -- install formatters
         "stylua",
 
-        -- install debuggers
-        "debugpy",
+        -- Python
+        "basedpyright", -- Python LSP
+        "ruff",         -- Python linter and formatter
+        "debugpy",      -- Python debugger
 
-        -- install any other package
+        -- Other tools
         "tree-sitter-cli",
       },
     },

@@ -122,9 +122,17 @@ tmux kill-server
 # NVIM
 #==============================================================================
 echo ""
-echo "Installing neovim..."
+echo "Installing neovim and essential tools..."
 brew install neovim
+
+echo ""
+echo "Installing nvim dependencies (ripgrep, fd, lazygit, node)..."
+brew install ripgrep fd lazygit node
+
 stow nvim
+
+echo ""
+echo "On first nvim launch, Mason will auto-install language servers and formatters."
 
 
 #==============================================================================
