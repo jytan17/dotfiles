@@ -108,9 +108,13 @@ fi
 
 # ===== Custom Configuration =====
 
-# Initialize Homebrew if available
-if type brew &>/dev/null; then
-    eval "$(brew shellenv)"
+# Initialize Homebrew (must check explicit paths for reliability)
+if [ -f "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -f "/usr/local/bin/brew" ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # Add local bin to path
