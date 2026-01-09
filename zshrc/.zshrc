@@ -1,3 +1,13 @@
+# Terminal configuration - must be set before starting tmux
+# Don't override TERM if already in tmux
+if [ -z "$TMUX" ]; then
+    export TERM=xterm-256color
+fi
+
+# Locale configuration for UTF-8 support
+export LANG=C.UTF-8
+export LC_ALL=C.UTF-8
+
 # Oh My Zsh installation path
 export ZSH="$HOME/.oh-my-zsh"
 
