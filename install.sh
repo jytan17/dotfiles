@@ -1,45 +1,118 @@
 #!/bin/bash
-
 set -e  # Exit on error
 
-# Install base packages
-apt update
-apt install -y zsh tmux neovim stow curl wget
+#==============================================================================
+# SYSTEM DETECTION & DEPENDENCIES
+#==============================================================================
 
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+echo "Detecting operating system..."
 
-# Install zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "✓ Detected Linux"
+    
+    # Install dependencies (skip sudo if running as root)
+    if [ "$EUID" -eq 0 ]; then
+        apt-get update
+        apt-get install -y build-essential curl
+    else
+        sudo apt-get update
+        sudo apt-get install -y build-essential curl
+    fi
+    
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "✓ Detected macOS"
+    # macOS doesn't need build-essential
+    # Xcode Command Line Tools should be installed (Homebrew installer prompts for this)
+    
+else
+    echo "✗ Unsupported OS: $OSTYPE"
+    exit 1
+fi
 
-# Install Starship
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+#==============================================================================
+# HOMEBREW INSTALLATION
+#==============================================================================
 
-# Install eza (auto-detect architecture)
-mkdir -p ~/.local/bin
-# Detect system architecture and set appropriate eza binary
-ARCH=$(uname -m)
-case "$ARCH" in
-    x86_64)
-        EZA_ARCH="x86_64-unknown-linux-gnu"
-        ;;
-    aarch64|arm64)
-        EZA_ARCH="aarch64-unknown-linux-gnu"
-        ;;
-    armv7l)
-        EZA_ARCH="armv7-unknown-linux-gnueabihf"
-        ;;
-    *)
-        echo "Warning: Unsupported architecture: $ARCH, defaulting to x86_64"
-        EZA_ARCH="x86_64-unknown-linux-gnu"
-        ;;
-esac
-echo "Installing eza for architecture: $EZA_ARCH"
-wget -qO- "https://github.com/eza-community/eza/releases/latest/download/eza_${EZA_ARCH}.tar.gz" | tar xz -C ~/.local/bin
+echo ""
+echo "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Intall TPM (Tmux Plugin Manager)
+# Configure Homebrew PATH based on installation location
+if [ -f "/opt/homebrew/bin/brew" ]; then
+    # macOS Apple Silicon
+    echo "✓ Configuring Homebrew for macOS Apple Silicon"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    if ! grep -q "/opt/homebrew/bin/brew shellenv" ~/.zprofile 2>/dev/null; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    fi
+    
+elif [ -f "/usr/local/bin/brew" ]; then
+    # macOS Intel
+    echo "✓ Configuring Homebrew for macOS Intel"
+    eval "$(/usr/local/bin/brew shellenv)"
+    if ! grep -q "/usr/local/bin/brew shellenv" ~/.zprofile 2>/dev/null; then
+        echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
+    fi
+    
+elif [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+    # Linux
+    echo "✓ Configuring Homebrew for Linux"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    if ! grep -q "/home/linuxbrew/.linuxbrew/bin/brew shellenv" ~/.bashrc 2>/dev/null; then
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+    fi
+    
+else
+    echo "✗ Homebrew installation not found!"
+    exit 1
+fi
+
+#==============================================================================
+# DEVELOPMENT TOOLS
+#==============================================================================
+
+echo ""
+echo "Installing gcc..."
+brew install gcc
+
+echo ""
+echo "Installing zsh, starship, eza, stow..."
+brew install zsh starship eza stow 
+
+#==============================================================================
+# OH-MY-ZSH & PLUGINS
+#==============================================================================
+
+echo ""
+echo "Installing oh-my-zsh..."
+no | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo ""
+echo "Installing oh-my-zsh plugins..."
+brew install zsh-autosuggestions zsh-syntax-highlighting
+
+echo ""
+echo "Setting starship theme..."
+starship preset gruvbox-rainbow -o ~/.config/starship.toml
+
+#==============================================================================
+# TMUX & PLUGIN MANAGER
+#==============================================================================
+
+echo ""
+echo "Installing tmux and TPM..."
+brew install tmux
+
+# Stow tmux config
+stow tmux
+
+# Install TPM
+mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Stow dotfiles
-stow .
+# Install tmux plugins
+echo "Installing tmux plugins..."
+~/.tmux/plugins/tpm/bin/install_plugins
+
+echo ""
+echo "✓ Installation complete!"
