@@ -11,10 +11,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Install dependencies (skip sudo if running as root)
     if [ "$EUID" -eq 0 ]; then
         apt-get update
-        apt-get install -y build-essential curl
+        apt-get install -y build-essential curl git
     else
         sudo apt-get update
-        sudo apt-get install -y build-essential curl
+        sudo apt-get install -y build-essential curl git
     fi
     
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -87,7 +87,7 @@ brew install zsh starship eza stow
 #==============================================================================
 echo ""
 echo "Installing oh-my-zsh..."
-no | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo ""
 echo "Installing oh-my-zsh plugins..."
@@ -111,9 +111,26 @@ stow tmux
 mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Install tmux plugins
+# Install tmux plugins automatically
 echo "Installing tmux plugins..."
-~/.tmux/plugins/tpm/bin/install_plugins
+tmux start-server
+tmux new-session -d -s setup
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
+tmux kill-session -t setup
+tmux kill-server
+
+#==============================================================================
+# NVIM
+#==============================================================================
+echo ""
+echo "Installing neovim..."
+brew install neovim
+stow nvim
 
 echo ""
 echo "✓ Installation complete!"
+echo ""
+echo "Activating Homebrew in current session..."
+eval "$(brew --prefix)/bin/brew shellenv"
+echo ""
+echo "To start using your new setup, run: zsh"
