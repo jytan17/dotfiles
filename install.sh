@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e  # Exit on error
 
+# Change to the dotfiles directory (where this script is located)
+cd "$(dirname "$0")"
+
 #==============================================================================
 # SYSTEM DETECTION & DEPENDENCIES
 #==============================================================================
