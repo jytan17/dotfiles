@@ -72,7 +72,14 @@ brew install gcc
 
 echo ""
 echo "Installing zsh, starship, eza, stow..."
-brew install zsh starship eza stow 
+brew install zsh starship eza stow
+
+#==============================================================================
+# PYTHON DEVELOPMENT
+#==============================================================================
+echo ""
+echo "Installing uv (fast Python package installer)..."
+brew install uv
 
 #==============================================================================
 # OH-MY-ZSH & PLUGINS
