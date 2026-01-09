@@ -116,7 +116,6 @@ echo "Installing tmux plugins..."
 tmux start-server
 tmux new-session -d -s setup
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
-tmux kill-session -t setup
 tmux kill-server
 
 #==============================================================================
