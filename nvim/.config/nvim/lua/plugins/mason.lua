@@ -1,5 +1,3 @@
--- Customize Mason
-
 ---@type LazySpec
 return {
   -- use mason-tool-installer for automatically installing Mason packages
@@ -9,18 +7,20 @@ return {
     opts = {
       -- Make sure to use the names found in `:Mason`
       ensure_installed = {
-        -- Lua
+        -- install language servers
         "lua-language-server",
+        "basedpyright",
+
+        -- install formatters
         "stylua",
+        "ruff",
 
-        -- Python
-        "basedpyright", -- Python LSP
-        "ruff",         -- Python linter and formatter
-        "debugpy",      -- Python debugger
-        "uv",           -- Python package manager
+        -- install debuggers
+        "debugpy",
 
-        -- Other tools
+        -- install any other package
         "tree-sitter-cli",
+        "uv",
       },
     },
   },

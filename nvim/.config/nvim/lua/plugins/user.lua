@@ -1,26 +1,14 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- You can also add or configure plugins by creating files in this `plugins/` folder
+-- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
+-- Here are some examples:
+
 ---@type LazySpec
 return {
-  {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-    keys = {
-      { "<C-h>", "<cmd>TmuxNavigateLeft<cr>", desc = "Navigate Left" },
-      { "<C-j>", "<cmd>TmuxNavigateDown<cr>", desc = "Navigate Down" },
-      { "<C-k>", "<cmd>TmuxNavigateUp<cr>", desc = "Navigate Up" },
-      { "<C-l>", "<cmd>TmuxNavigateRight<cr>", desc = "Navigate Right" },
-    },
-  },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {},
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  },
+
   -- == Examples of Adding Plugins ==
-  {
-    "AstroNvim/astrocommunity",
-    { import = "astrocommunity.colorscheme.catppuccin" },
-    { import = "astrocommunity.colorscheme.tokyonight-nvim" }, -- Added here
-  },
+
   "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
@@ -43,11 +31,11 @@ return {
             "██   ██      ██    ██    ██   ██ ██    ██",
             "██   ██ ███████    ██    ██   ██  ██████ ",
             "",
-            "███    ██ ██    ██ ██ ███    ███",
-            "████   ██ ██    ██ ██ ████  ████",
-            "██ ██  ██ ██    ██ ██ ██ ████ ██",
-            "██  ██ ██  ██  ██  ██ ██  ██  ██",
-            "██   ████   ████   ██ ██      ██",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
           }, "\n"),
         },
       },
@@ -61,7 +49,8 @@ return {
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts)
+      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
       local luasnip = require "luasnip"
       luasnip.filetype_extend("javascript", { "javascriptreact" })
     end,
@@ -70,18 +59,30 @@ return {
   {
     "windwp/nvim-autopairs",
     config = function(plugin, opts)
-      require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts)
+      require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
+      -- add more custom autopairs configuration such as custom rules
       local npairs = require "nvim-autopairs"
       local Rule = require "nvim-autopairs.rule"
       local cond = require "nvim-autopairs.conds"
-      npairs.add_rules({
-        Rule("$", "$", { "tex", "latex" })
-          :with_pair(cond.not_after_regex "%%")
-          :with_pair(cond.not_before_regex("xxx", 3))
-          :with_move(cond.none())
-          :with_del(cond.not_after_regex "xx")
-          :with_cr(cond.none()),
-      }, Rule("a", "a", "-vim"))
+      npairs.add_rules(
+        {
+          Rule("$", "$", { "tex", "latex" })
+            -- don't add a pair if the next character is %
+            :with_pair(cond.not_after_regex "%%")
+            -- don't add a pair if  the previous character is xxx
+            :with_pair(
+              cond.not_before_regex("xxx", 3)
+            )
+            -- don't move right when repeat character
+            :with_move(cond.none())
+            -- don't delete if the next character is xx
+            :with_del(cond.not_after_regex "xx")
+            -- disable adding a newline when you press <cr>
+            :with_cr(cond.none()),
+        },
+        -- disable for .vim files, but it work for another filetypes
+        Rule("a", "a", "-vim")
+      )
     end,
   },
 }
