@@ -1,0 +1,126 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Dock || Editor || Workspace",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      // Disable defaults
+      "space": null,
+
+      // Your bindings
+      "l": "project_panel::OpenPermanent",
+      "h": "project_panel::CollapseSelectedEntry",
+      "o": "project_panel::OpenPermanent",
+      "s": "project_panel::OpenSplitHorizontal",
+      "v": "project_panel::OpenSplitVertical",
+
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "y": "project_panel::Copy",
+      "x": "project_panel::Cut",
+      "p": "project_panel::Paste",
+      "y p": "workspace::CopyRelativePath",
+      "y shift-p": "workspace::CopyPath",
+
+      "space o": "workspace::ActivateNextPane",
+      "space e": "workspace::ToggleLeftDock",
+      "q": "workspace::ToggleLeftDock",
+      "escape": "workspace::ActivateNextPane",
+      "-": "project_panel::SelectParent",
+
+      "shift-d": null,
+      "shift-r": null,
+      "%": null,
+    },
+  },
+  // {
+  //   "context": "vim_mode == normal && os == macos",
+  //   "bindings": {
+  //     "space p": ["workspace::SendKeystrokes", "a cmd-v escape"],
+  //   },
+  // },
+  // {
+  //   "context": "vim_mode == normal && os == linux",
+  //   "bindings": {
+  //     "space p": ["workspace::SendKeystrokes", "a ctrl-shift-v escape"],
+  //   },
+  // },
+  // {
+  //   "context": "vim_mode == normal && os == windows",
+  //   "bindings": {
+  //     "space p": ["workspace::SendKeystrokes", "a ctrl-shift-v escape"],
+  //   },
+  // },
+  {
+    "context": "VimControl && vim_mode == normal",
+    "bindings": {
+      // "space shift-p": "editor::Paste",
+
+      // File explorer
+      "space o": "project_panel::ToggleFocus",
+      "space e": "workspace::ToggleLeftDock",
+
+      // Buffers
+      "space b c": "pane::CloseActiveItem",
+      "space b C": "pane::CloseOtherItems",
+
+      // Find
+      "space f f": "file_finder::Toggle",
+      "space f w": "pane::DeploySearch",
+      "space f b": "tab_switcher::Toggle",
+
+      // LSP
+      "space l a": "editor::ToggleCodeActions",
+      "space l r": "editor::Rename",
+      "space l d": "diagnostics::Deploy",
+      "space l f": "editor::Format",
+      "space l s": "outline::Toggle",
+      "space l S": "project_symbols::Toggle",
+
+      // Git
+      "space g g": "git_panel::ToggleFocus",
+      "space g b": "git::Blame",
+      "space g d": "editor::ToggleSelectedDiffHunks",
+
+      // Terminal
+      "space t f": "terminal_panel::ToggleFocus",
+
+      // Split management
+      "space s v": "pane::SplitRight",
+      "space s h": "pane::SplitDown",
+
+      // Quick actions
+      "space w": "workspace::Save",
+      "space q": "pane::CloseActiveItem",
+      "space /": "editor::ToggleComments",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space /": "editor::ToggleComments",
+    },
+  },
+]
