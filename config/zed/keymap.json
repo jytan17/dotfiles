@@ -7,12 +7,6 @@
 // from the command palette.
 [
   {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      // "j k": "vim::NormalBefore"
-    },
-  },
-  {
     "context": "Dock || Editor || Workspace",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
@@ -76,8 +70,6 @@
   {
     "context": "VimControl && vim_mode == normal",
     "bindings": {
-      // "space shift-p": "editor::Paste",
-
       // File explorer
       "space o": "project_panel::ToggleFocus",
       "space e": "workspace::ToggleLeftDock",
@@ -115,12 +107,48 @@
       "space w": "workspace::Save",
       "space q": "pane::CloseActiveItem",
       "space /": "editor::ToggleComments",
+
+      // Git hunks (changes) - BUILT-IN ✅
+      "space n h": ["workspace::SendKeystrokes", "] c"], // Next git change
+      "space p h": ["workspace::SendKeystrokes", "[ c"], // Previous git change
+
+      // Diagnostics - BUILT-IN ✅
+      "space n d": ["workspace::SendKeystrokes", "] d"], // Next diagnostic
+      "space p d": ["workspace::SendKeystrokes", "[ d"], // Previous diagnostic
+
+      // Functions/Methods - BUILT-IN ✅
+      "space n f": ["workspace::SendKeystrokes", "] m"], // Next method
+      "space p f": ["workspace::SendKeystrokes", "[ m"], // Previous method
+
+      // Paragraphs (vim-style) ✅
+      "space n p": ["workspace::SendKeystrokes", "}"], // Next paragraph
+      "space p p": ["workspace::SendKeystrokes", "{"], // Previous paragraph
+
+      // Classes/Sections - BUILT-IN ✅
+      "space n c": ["workspace::SendKeystrokes", "] ]"], // Next class/section
+      "space p c": ["workspace::SendKeystrokes", "[ ["], // Previous class/section
+
+      // Comments - BUILT-IN ✅
+      "space n /": ["workspace::SendKeystrokes", "] /"], // Next comment
+      "space p /": ["workspace::SendKeystrokes", "[ /"], // Previous comment
     },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
       "space /": "editor::ToggleComments",
+    },
+  },
+  {
+    "context": "EmptyPane",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space o": "project_panel::ToggleFocus",
+      "space e": "workspace::ToggleLeftDock",
+      // terminal
+      "space t f": "terminal_panel::ToggleFocus",
+      "space t t": "workspace::NewTerminal",
+      "space t v": "workspace::NewCenterTerminal",
     },
   },
 ]
