@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
+  "show_edit_predictions": false,
   "active_pane_modifiers": {
     "inactive_opacity": 0.7,
   },
@@ -79,4 +85,18 @@
       },
     },
   },
+  "title_bar": {
+    "show_onboarding_banner": false,
+    "show_project_items": false,
+    "show_branch_name": false,
+    "show_user_picture": false,
+  },
+  "tab_bar": {
+    "show": false,
+  },
+  "project_panel": {
+    "hide_root": true,
+    "starts_open": true,
+  },
+  "relative_line_numbers": "enabled",
 }
