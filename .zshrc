@@ -26,6 +26,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light tolkonepiu/catppuccin-powerlevel10k-themes
+
+zstyle ':catppuccin:p10k' 'theme' 'lean'
+zstyle ':catppuccin:p10k' 'flavour' 'mocha'
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
