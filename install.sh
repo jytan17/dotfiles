@@ -90,29 +90,10 @@ for package in neovim tmux zsh stow git curl fzf eza; do
     fi
 done
 
-# Add Homebrew to shell profile if on Linux
-if [ "$(uname -s)" = "Linux" ]; then
-    echo "🔧 Adding Homebrew to shell profiles..."
-    
-    # Add to .profile
-    if ! grep -q "linuxbrew" ~/.profile 2>/dev/null; then
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile
-    fi
-    
-    # Add to .zshrc
-    if ! grep -q "linuxbrew" ~/.zshrc 2>/dev/null; then
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
-    fi
-    
-    # Add to .bashrc
-    if ! grep -q "linuxbrew" ~/.bashrc 2>/dev/null; then
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
-    fi
-fi
-
 echo "✨ Installation complete!"
 echo ""
 echo "📝 Next steps:"
-echo "  1. Restart your shell or run: source ~/.zshrc"
-echo "  2. Verify installations with: brew list"
-echo "  3. Keep tools updated with: brew update && brew upgrade"
+echo "  1. Add Homebrew initialization to your .zshrc"
+echo "  2. Stow your dotfiles"
+echo "  3. Restart your shell or run: source ~/.zshrc"
+echo "  4. Keep tools updated with: brew update && brew upgrade"
