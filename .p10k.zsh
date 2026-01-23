@@ -42,10 +42,10 @@
   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=true
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-  # Frame colors - Catppuccin Surface0
-  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{#585b70}╭─%f'
-  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%F{#585b70}├─%f'
-  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{#585b70}╰─%f'
+  # Frame colors - Catppuccin Overlay0
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{#6c7086}╭─%f'
+  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%F{#6c7086}├─%f'
+  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{#6c7086}╰─%f'
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX=
   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX=
   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
@@ -54,11 +54,11 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
   typeset -g POWERLEVEL9K_SHOW_RULER=false
   typeset -g POWERLEVEL9K_RULER_CHAR='─'
-  typeset -g POWERLEVEL9K_RULER_FOREGROUND='#585b70'
+  typeset -g POWERLEVEL9K_RULER_FOREGROUND='#6c7086'
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' '
 
-  # OS Icon - Catppuccin Lavender
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND='#b4befe'
+  # OS Icon - Catppuccin Rosewater
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND='#f5e0dc'
 
   # Prompt char - Green success, Red error (Catppuccin)
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND='#a6e3a1'
@@ -203,12 +203,12 @@
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='#f9e2af'
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
 
-  # Background jobs - Catppuccin Red
+  # Background jobs - Catppuccin Flamingo
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='#f38ba8'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='#f2cdcd'
 
-  # Direnv - Catppuccin Yellow
-  typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#f9e2af'
+  # Direnv - Catppuccin Sapphire
+  typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#74c7ec'
 
   # Virtualenv - Catppuccin Teal (with Python version)
   typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#94e2d5'
