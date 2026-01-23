@@ -90,14 +90,6 @@ for package in neovim tmux zsh stow git curl fzf eza; do
     fi
 done
 
-# Install fzf shell integration
-echo "🔧 Setting up fzf shell integration..."
-if [ -f ~/.fzf.zsh ]; then
-    echo "✅ fzf shell integration already configured"
-else
-    echo "source <(fzf --zsh)" >> ~/.zshrc 2>/dev/null || true
-fi
-
 # Add Homebrew to shell profile if on Linux
 if [ "$(uname -s)" = "Linux" ]; then
     echo "🔧 Adding Homebrew to shell profiles..."
