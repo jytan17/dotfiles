@@ -210,20 +210,17 @@
   # Direnv - Catppuccin Yellow
   typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#f9e2af'
 
-  # Virtualenv - Catppuccin Teal with Python icon, venv name, and version
+  # Virtualenv - Catppuccin Teal (with Python version)
   typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#94e2d5'
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
-  typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=true
+  typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
-  typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION=' '
-  typeset -g POWERLEVEL9K_VIRTUALENV_CONTENT_EXPANSION='${P9K_CONTENT} ${P9K_VIRTUALENV_PYTHON_VERSION}'
 
-  # Pyenv - Catppuccin Teal with Python icon
+  # Pyenv - Catppuccin Teal
   typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#94e2d5'
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_PYENV_SHOW_SYSTEM=true
-  typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION=' '
   typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
 
   # Node environments - Catppuccin Green
@@ -272,15 +269,3 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
-```
-
-**Changes I made:**
-
-1. `POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=true` — shows virtualenv even when pyenv is active
-2. `POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION=' '` — adds the Python icon (nerd font)
-3. `POWERLEVEL9K_VIRTUALENV_CONTENT_EXPANSION='${P9K_CONTENT} ${P9K_VIRTUALENV_PYTHON_VERSION}'` — shows venv name + version
-4. Added `POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION=' '` for pyenv too
-
-When you activate a venv, you should now see something like:
-```
- myenv 3.11.4
