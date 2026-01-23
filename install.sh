@@ -89,6 +89,9 @@ for package in neovim tmux zsh stow git curl fzf eza zoxide uv; do
         $PACKAGE_MANAGER "$package"
     fi
 done
+# Installing TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 
 echo "✨ Installation complete!"
 echo ""
