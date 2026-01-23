@@ -1,3 +1,16 @@
+# Homebrew - works on both macOS and Linux
+# Must be before Powerlevel10k instant prompt to avoid warnings
+if [ -f /opt/homebrew/bin/brew ]; then
+    # macOS Apple Silicon
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -f /usr/local/bin/brew ]; then
+    # macOS Intel
+    eval "$(/usr/local/bin/brew shellenv)"
+elif [ -d /home/linuxbrew/.linuxbrew ]; then
+    # Linux
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -29,6 +42,7 @@ autoload -U compinit && compinit
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -41,6 +55,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
 
+# Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Shell Integration
