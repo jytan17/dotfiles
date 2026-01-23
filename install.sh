@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e  # Exit on error
 
 echo "🚀 Starting dotfiles installation..."
@@ -11,31 +10,63 @@ else
     SUDO=""
 fi
 
+# Function to install Homebrew
+install_homebrew() {
+    echo "📦 Homebrew not found. Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+    # Add Homebrew to PATH based on OS
+    case "$(uname -s)" in
+        Darwin)
+            if [ -f /opt/homebrew/bin/brew ]; then
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+            elif [ -f /usr/local/bin/brew ]; then
+                eval "$(/usr/local/bin/brew shellenv)"
+            fi
+            ;;
+        Linux)
+            if [ -d /home/linuxbrew/.linuxbrew ]; then
+                eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+            fi
+            ;;
+    esac
+}
+
+# Check if Homebrew is installed, if not install it
+if ! command -v brew &> /dev/null; then
+    install_homebrew
+else
+    echo "✅ Homebrew already installed"
+fi
+
 # Detect OS and set package manager
 case "$(uname -s)" in
     Darwin)
-        echo "📦 Detected macOS"
+        echo "📦 Detected macOS - using Homebrew"
         UPDATE_CMD="brew update"
         PACKAGE_MANAGER="brew install"
         SUDO=""  # Homebrew doesn't use sudo
         ;;
     Linux)
-        echo "📦 Detected Linux"
+        echo "📦 Detected Linux - using Homebrew"
+        # On Linux, use Homebrew for most tools
+        UPDATE_CMD="brew update"
+        PACKAGE_MANAGER="brew install"
+        
+        # Install build-essential/development tools via system package manager
+        # These are needed for Homebrew to work properly
+        echo "📥 Installing system dependencies for Homebrew..."
         if command -v apt &> /dev/null; then
-            UPDATE_CMD="$SUDO apt update"
-            PACKAGE_MANAGER="$SUDO apt install -y"
+            $SUDO apt update
+            $SUDO apt install -y build-essential procps curl file git
         elif command -v pacman &> /dev/null; then
-            UPDATE_CMD="$SUDO pacman -Sy"
-            PACKAGE_MANAGER="$SUDO pacman -S --noconfirm"
+            $SUDO pacman -Sy --noconfirm base-devel procps-ng curl file git
         elif command -v dnf &> /dev/null; then
-            UPDATE_CMD="$SUDO dnf check-update || true"  # dnf returns 100 if updates available
-            PACKAGE_MANAGER="$SUDO dnf install -y"
+            $SUDO dnf groupinstall -y "Development Tools"
+            $SUDO dnf install -y procps-ng curl file git
         elif command -v apk &> /dev/null; then
-            UPDATE_CMD="$SUDO apk update"
-            PACKAGE_MANAGER="$SUDO apk add"
-        else
-            echo "❌ Unsupported package manager"
-            exit 1
+            $SUDO apk update
+            $SUDO apk add build-base procps curl file git
         fi
         ;;
     *)
@@ -48,7 +79,48 @@ esac
 echo "🔄 Updating package manager..."
 $UPDATE_CMD
 
-# Install core tools
-echo "📥 Installing core tools..."
-$PACKAGE_MANAGER neovim tmux zsh stow git curl fzf eza
+# Install core tools via Homebrew
+echo "📥 Installing core tools via Homebrew..."
+for package in neovim tmux zsh stow git curl fzf eza; do
+    if brew list "$package" &>/dev/null; then
+        echo "✅ $package already installed"
+    else
+        echo "📦 Installing $package..."
+        $PACKAGE_MANAGER "$package"
+    fi
+done
 
+# Install fzf shell integration
+echo "🔧 Setting up fzf shell integration..."
+if [ -f ~/.fzf.zsh ]; then
+    echo "✅ fzf shell integration already configured"
+else
+    echo "source <(fzf --zsh)" >> ~/.zshrc 2>/dev/null || true
+fi
+
+# Add Homebrew to shell profile if on Linux
+if [ "$(uname -s)" = "Linux" ]; then
+    echo "🔧 Adding Homebrew to shell profiles..."
+    
+    # Add to .profile
+    if ! grep -q "linuxbrew" ~/.profile 2>/dev/null; then
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.profile
+    fi
+    
+    # Add to .zshrc
+    if ! grep -q "linuxbrew" ~/.zshrc 2>/dev/null; then
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
+    fi
+    
+    # Add to .bashrc
+    if ! grep -q "linuxbrew" ~/.bashrc 2>/dev/null; then
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+    fi
+fi
+
+echo "✨ Installation complete!"
+echo ""
+echo "📝 Next steps:"
+echo "  1. Restart your shell or run: source ~/.zshrc"
+echo "  2. Verify installations with: brew list"
+echo "  3. Keep tools updated with: brew update && brew upgrade"
