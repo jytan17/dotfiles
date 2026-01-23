@@ -50,5 +50,5 @@ $UPDATE_CMD
 
 # Install core tools
 echo "📥 Installing core tools..."
-$PACKAGE_MANAGER neovim tmux zsh stow git curl
+$PACKAGE_MANAGER neovim tmux zsh stow git curl fzf eza
 

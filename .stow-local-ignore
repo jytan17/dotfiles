@@ -1,0 +1,30 @@
+# Scripts
+install\.sh
+bootstrap\.sh
+setup\.sh
+
+# Documentation
+README.*
+LICENSE.*
+CHANGELOG.*
+\.md$
+
+# Version control
+\.git
+\.github
+\.gitignore
+\.gitmodules
+\.gitattributes
+
+# Stow files
+\.stow-local-ignore
+
+# OS files
+\.DS_Store
+Thumbs\.db
+
+# Editor files
+\.vscode
+\.idea
+.*\.swp
+.*~
