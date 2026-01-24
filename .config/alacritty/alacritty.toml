@@ -3,13 +3,14 @@ size = 15
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
 [colors.primary]
-background = "#1e1e2e"
+background = "#000000"
 foreground = "#cdd6f4"
 
 [colors.cursor]
-text = "#1e1e2e"
+text = "#000000"
 cursor = "#f5e0dc"
 
 [colors.normal]
