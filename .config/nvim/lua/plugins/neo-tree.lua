@@ -17,9 +17,29 @@ return {
         enabled = true,
       },
       use_libuv_file_watcher = true,
+      group_empty_dirs = true,
+    },
+    git_status = {
+      window = {
+        position = "float",
+      },
     },
     window = {
       width = 30,
     },
   },
+  config = function(_, opts)
+    require("neo-tree").setup(opts)
+
+    -- Refresh neo-tree when Neovim regains focus (e.g., after using lazygit in another tmux pane)
+    vim.api.nvim_create_autocmd("FocusGained", {
+      callback = function()
+        local manager = require("neo-tree.sources.manager")
+        local state = manager.get_state("filesystem")
+        if state and state.tree then
+          require("neo-tree.sources.filesystem.commands").refresh(state)
+        end
+      end,
+    })
+  end,
 }
