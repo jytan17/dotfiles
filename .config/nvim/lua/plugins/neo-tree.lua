@@ -111,14 +111,14 @@ return {
       end
     end, {})
 
-    -- :Wq command: save then do smart quit
-    vim.api.nvim_create_user_command("wQ", function()
+    -- :WQ command: save then do smart quit
+    vim.api.nvim_create_user_command("WQ", function()
       vim.cmd("w")
       vim.cmd("Q")
     end, {})
 
     -- Remap :q and :wq to use our custom commands
     vim.cmd("cabbrev q Q")
-    vim.cmd("cabbrev wq wQ")
+    vim.cmd("cabbrev wq WQ")
   end,
 }
