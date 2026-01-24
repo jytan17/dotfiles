@@ -71,12 +71,12 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
 
-  # Directory - Catppuccin Peach
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND='#fab387'
+  # Directory - Catppuccin Red
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND='#f38ba8'
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='#fab387'
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#fab387'
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='#f38ba8'
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#f38ba8'
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
   local anchor_files=(
     .bzr .citc .git .hg .node-version .python-version .go-version .ruby-version
@@ -108,7 +108,7 @@
     if (( $1 )); then
       local       meta='%f'
       local      clean='%F{#cba6f7}'    # Mauve
-      local   modified='%F{#f9e2af}'    # Yellow
+      local   modified='%F{#a6e3a1}'    # Green
       local  untracked='%F{#89b4fa}'    # Blue
       local conflicted='%F{#f38ba8}'    # Red
     else
@@ -176,7 +176,7 @@
   typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
   typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#cba6f7'
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#cba6f7'
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#f9e2af'
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#a6e3a1'
 
   # Status
   typeset -g POWERLEVEL9K_STATUS_EXTENDED_STATES=true
@@ -210,14 +210,14 @@
   # Direnv - Catppuccin Sapphire
   typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#74c7ec'
 
-  # Virtualenv - Catppuccin Red (with Python version)
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#f38ba8'
+  # Virtualenv - Catppuccin Blue (with Python version)
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#89b4fa'
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
 
-  # Pyenv - Catppuccin Red
-  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#f38ba8'
+  # Pyenv - Catppuccin Blue
+  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#89b4fa'
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_PYENV_SHOW_SYSTEM=true
@@ -237,15 +237,15 @@
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#94e2d5'
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
-  # Terraform - Catppuccin Blue
+  # Terraform - Catppuccin Peach
   typeset -g POWERLEVEL9K_TERRAFORM_SHOW_DEFAULT=false
   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=('*' OTHER)
-  typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND='#89b4fa'
+  typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND='#fab387'
 
-  # AWS - Catppuccin Peach
+  # AWS - Catppuccin Yellow
   typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|cdk|terraform|pulumi|terragrunt'
   typeset -g POWERLEVEL9K_AWS_CLASSES=('*' DEFAULT)
-  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND='#fab387'
+  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND='#f9e2af'
   typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
 
   # Context - Catppuccin Subtext
