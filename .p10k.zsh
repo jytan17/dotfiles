@@ -71,12 +71,12 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
 
-  # Directory - Catppuccin Blue
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND='#89b4fa'
+  # Directory - Catppuccin Peach
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND='#fab387'
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='#89b4fa'
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#89b4fa'
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='#fab387'
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#fab387'
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
   local anchor_files=(
     .bzr .citc .git .hg .node-version .python-version .go-version .ruby-version
@@ -210,31 +210,31 @@
   # Direnv - Catppuccin Sapphire
   typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#74c7ec'
 
-  # Virtualenv - Catppuccin Teal (with Python version)
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#94e2d5'
+  # Virtualenv - Catppuccin Mauve (with Python version)
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#cba6f7'
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
 
-  # Pyenv - Catppuccin Teal
-  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#94e2d5'
+  # Pyenv - Catppuccin Mauve
+  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#cba6f7'
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_PYENV_SHOW_SYSTEM=true
   typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
 
-  # Node environments - Catppuccin Green
-  typeset -g POWERLEVEL9K_NODEENV_FOREGROUND='#a6e3a1'
+  # Node environments - Catppuccin Sapphire
+  typeset -g POWERLEVEL9K_NODEENV_FOREGROUND='#74c7ec'
   typeset -g POWERLEVEL9K_NODEENV_SHOW_NODE_VERSION=false
   typeset -g POWERLEVEL9K_NODEENV_{LEFT,RIGHT}_DELIMITER=
-  typeset -g POWERLEVEL9K_NVM_FOREGROUND='#a6e3a1'
+  typeset -g POWERLEVEL9K_NVM_FOREGROUND='#74c7ec'
   typeset -g POWERLEVEL9K_NVM_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_NVM_SHOW_SYSTEM=true
 
-  # Kubernetes - Catppuccin Mauve
+  # Kubernetes - Catppuccin Teal
   typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=('*' DEFAULT)
-  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#cba6f7'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#94e2d5'
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
   # Terraform - Catppuccin Blue
