@@ -1,21 +1,28 @@
 #!/bin/bash
-set -e  # Exit on error
+set -e
 
-echo "🚀 Starting dotfiles installation..."
+# ==============================================================================
+# Dotfiles Installation Script
+# ==============================================================================
 
-# Check if sudo is available and needed
-if command -v sudo &> /dev/null && [ "$EUID" -ne 0 ]; then
-    SUDO="sudo"
-else
-    SUDO=""
-fi
+echo "Starting dotfiles installation..."
 
-# Function to install Homebrew
+# ------------------------------------------------------------------------------
+# Helper Functions
+# ------------------------------------------------------------------------------
+
+check_sudo() {
+    if command -v sudo &> /dev/null && [ "$EUID" -ne 0 ]; then
+        SUDO="sudo"
+    else
+        SUDO=""
+    fi
+}
+
 install_homebrew() {
-    echo "📦 Homebrew not found. Installing Homebrew..."
+    echo "Homebrew not found. Installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
-    # Add Homebrew to PATH based on OS
+
     case "$(uname -s)" in
         Darwin)
             if [ -f /opt/homebrew/bin/brew ]; then
@@ -32,71 +39,121 @@ install_homebrew() {
     esac
 }
 
-# Check if Homebrew is installed, if not install it
+install_linux_deps() {
+    echo "Installing system dependencies for Homebrew..."
+    if command -v apt &> /dev/null; then
+        $SUDO apt update
+        $SUDO apt install -y build-essential procps curl file git
+    elif command -v pacman &> /dev/null; then
+        $SUDO pacman -Sy --noconfirm base-devel procps-ng curl file git
+    elif command -v dnf &> /dev/null; then
+        $SUDO dnf groupinstall -y "Development Tools"
+        $SUDO dnf install -y procps-ng curl file git
+    elif command -v apk &> /dev/null; then
+        $SUDO apk update
+        $SUDO apk add build-base procps curl file git
+    fi
+}
+
+install_brew_packages() {
+    local packages=(
+        # Core utilities
+        git
+        curl
+        stow
+        make
+        gcc
+        unzip
+
+        # Shell & terminal
+        zsh
+        tmux
+        fzf
+
+        # Modern CLI tools
+        neovim
+        eza
+        zoxide
+        ripgrep
+        fd
+        xclip
+
+        # Language tools
+        uv
+
+        # Neovim dependencies
+        tree-sitter
+        tree-sitter-cli
+    )
+
+    echo "Installing Homebrew packages..."
+    for package in "${packages[@]}"; do
+        if brew list "$package" &>/dev/null; then
+            echo "  [ok] $package"
+        else
+            echo "  [installing] $package"
+            brew install "$package"
+        fi
+    done
+}
+
+install_tpm() {
+    local tpm_dir="$HOME/.tmux/plugins/tpm"
+    if [ -d "$tpm_dir" ]; then
+        echo "  [ok] TPM already installed"
+    else
+        echo "  [installing] TPM (Tmux Plugin Manager)"
+        git clone https://github.com/tmux-plugins/tpm "$tpm_dir"
+    fi
+}
+
+# ------------------------------------------------------------------------------
+# Main Installation
+# ------------------------------------------------------------------------------
+
+check_sudo
+
+# Install Homebrew if needed
 if ! command -v brew &> /dev/null; then
     install_homebrew
 else
-    echo "✅ Homebrew already installed"
+    echo "Homebrew already installed"
 fi
 
-# Detect OS and set package manager
+# OS-specific setup
 case "$(uname -s)" in
     Darwin)
-        echo "📦 Detected macOS - using Homebrew"
-        UPDATE_CMD="brew update"
-        PACKAGE_MANAGER="brew install"
-        SUDO=""  # Homebrew doesn't use sudo
+        echo "Detected macOS"
         ;;
     Linux)
-        echo "📦 Detected Linux - using Homebrew"
-        # On Linux, use Homebrew for most tools
-        UPDATE_CMD="brew update"
-        PACKAGE_MANAGER="brew install"
-        
-        # Install build-essential/development tools via system package manager
-        # These are needed for Homebrew to work properly
-        echo "📥 Installing system dependencies for Homebrew..."
-        if command -v apt &> /dev/null; then
-            $SUDO apt update
-            $SUDO apt install -y build-essential procps curl file git
-        elif command -v pacman &> /dev/null; then
-            $SUDO pacman -Sy --noconfirm base-devel procps-ng curl file git
-        elif command -v dnf &> /dev/null; then
-            $SUDO dnf groupinstall -y "Development Tools"
-            $SUDO dnf install -y procps-ng curl file git
-        elif command -v apk &> /dev/null; then
-            $SUDO apk update
-            $SUDO apk add build-base procps curl file git
-        fi
+        echo "Detected Linux"
+        install_linux_deps
         ;;
     *)
-        echo "❌ Unsupported OS"
+        echo "Unsupported OS"
         exit 1
         ;;
 esac
 
-# Update package manager
-echo "🔄 Updating package manager..."
-$UPDATE_CMD
+# Update Homebrew
+echo "Updating Homebrew..."
+brew update
 
-# Install core tools via Homebrew
-echo "📥 Installing core tools via Homebrew..."
-for package in neovim tmux zsh stow git curl fzf eza zoxide uv xclip gcc make unzip ripgrep fd tree-sitter; do
-    if brew list "$package" &>/dev/null; then
-        echo "✅ $package already installed"
-    else
-        echo "📦 Installing $package..."
-        $PACKAGE_MANAGER "$package"
-    fi
-done
-# Installing TPM
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# Install packages
+install_brew_packages
 
+# Install TPM
+install_tpm
 
-echo "✨ Installation complete!"
+# ------------------------------------------------------------------------------
+# Done
+# ------------------------------------------------------------------------------
+
 echo ""
-echo "📝 Next steps:"
-echo "  1. Add Homebrew initialization to your .zshrc"
-echo "  2. Stow your dotfiles"
-echo "  3. Restart your shell or run: source ~/.zshrc"
-echo "  4. Keep tools updated with: brew update && brew upgrade"
+echo "Installation complete!"
+echo ""
+echo "Next steps:"
+echo "  1. Run: stow <package>  (e.g., stow zsh, stow nvim)"
+echo "  2. Restart your shell or run: source ~/.zshrc"
+echo "  3. In tmux, press prefix + I to install plugins"
+echo "  4. In nvim, parsers will auto-install on first use"
