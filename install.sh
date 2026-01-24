@@ -81,7 +81,7 @@ $UPDATE_CMD
 
 # Install core tools via Homebrew
 echo "📥 Installing core tools via Homebrew..."
-for package in neovim tmux zsh stow git curl fzf eza zoxide uv xclip gcc make unzip ripgrep fd; do
+for package in neovim tmux zsh stow git curl fzf eza zoxide uv xclip gcc make unzip ripgrep fd tree-sitter; do
     if brew list "$package" &>/dev/null; then
         echo "✅ $package already installed"
     else
