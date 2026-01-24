@@ -3,6 +3,9 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
+-- System clipboard integration
+vim.opt.clipboard = "unnamedplus"
+
 -- Treesitter folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
