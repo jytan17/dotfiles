@@ -107,7 +107,7 @@
 
     if (( $1 )); then
       local       meta='%f'
-      local      clean='%F{#a6e3a1}'    # Green
+      local      clean='%F{#cba6f7}'    # Mauve
       local   modified='%F{#f9e2af}'    # Yellow
       local  untracked='%F{#89b4fa}'    # Blue
       local conflicted='%F{#f38ba8}'    # Red
@@ -171,11 +171,11 @@
   typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
   typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
-  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR='#a6e3a1'
+  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR='#cba6f7'
   typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=
   typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
-  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#a6e3a1'
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#a6e3a1'
+  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#cba6f7'
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#cba6f7'
   typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#f9e2af'
 
   # Status
@@ -210,14 +210,14 @@
   # Direnv - Catppuccin Sapphire
   typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#74c7ec'
 
-  # Virtualenv - Catppuccin Mauve (with Python version)
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#cba6f7'
+  # Virtualenv - Catppuccin Red (with Python version)
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#f38ba8'
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
 
-  # Pyenv - Catppuccin Mauve
-  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#cba6f7'
+  # Pyenv - Catppuccin Red
+  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#f38ba8'
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_PYENV_SHOW_SYSTEM=true
