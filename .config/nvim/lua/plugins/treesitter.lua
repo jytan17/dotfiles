@@ -2,14 +2,15 @@ return {
   "nvim-treesitter/nvim-treesitter",
   lazy = false,
   build = ":TSUpdate",
-  config = function(_, opts)
-    -- Required for queries (folds, highlights) to load properly
-    vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/runtime")
+  config = function()
+    -- Install parsers
+    require("nvim-treesitter").install({ "lua", "vim", "vimdoc", "markdown", "markdown_inline" })
 
-    require("nvim-treesitter").setup(opts)
+    -- Enable treesitter highlighting for all buffers
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
   end,
-  opts = {
-    ensure_installed = { "lua", "vim", "vimdoc" },
-    auto_install = true,
-  },
 }
