@@ -1,49 +1,32 @@
 return {
-  {
-    "mason-org/mason.nvim",
-    opts = {},
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    dependencies = {
-      "mason-org/mason.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = {
-      ensure_installed = {
-        -- Python
-        "basedpyright",
-        "ruff",
+  "mason-org/mason.nvim",
+  opts = {},
+  config = function(_, opts)
+    require("mason").setup(opts)
 
-        -- Markdown
-        "marksman",
+    -- Auto-install these tools (formatters, linters, DAP)
+    -- Note: LSPs are handled by mason-lspconfig in lsp.lua
+    local ensure_installed = {
+      -- Formatters
+      "stylua",
+      "prettier",
 
-        -- JSON & YAML
-        "jsonls",
-        "yamlls",
+      -- Linters
+      "hadolint",
+      "shellcheck",
 
-        -- Docker
-        "dockerls",
-        "docker_compose_language_service",
+      -- DAP
+      "debugpy",
+    }
 
-        -- Lua (for neovim config)
-        "lua_ls",
-      },
-    },
-    config = function(_, opts)
-      require("mason-lspconfig").setup(opts)
-
-      -- Enable all LSP servers using the new Neovim 0.11+ API
-      vim.lsp.enable({
-        "basedpyright",
-        "ruff",
-        "marksman",
-        "jsonls",
-        "yamlls",
-        "dockerls",
-        "docker_compose_language_service",
-        "lua_ls",
-      })
-    end,
-  },
+    local registry = require("mason-registry")
+    registry.refresh(function()
+      for _, name in ipairs(ensure_installed) do
+        local pkg = registry.get_package(name)
+        if not pkg:is_installed() then
+          pkg:install()
+        end
+      end
+    end)
+  end,
 }

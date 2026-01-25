@@ -3,6 +3,10 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
+-- Line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 -- System clipboard integration
 vim.opt.clipboard = "unnamedplus"
 
