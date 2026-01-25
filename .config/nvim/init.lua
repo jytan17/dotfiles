@@ -11,6 +11,16 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99  -- Start with all folds open
 
+-- Disable LSP semantic token highlighting (use only Treesitter)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  end,
+})
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -35,6 +45,6 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "catppuccin", "habamax" } },
+  install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true },
 })
