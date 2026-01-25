@@ -42,10 +42,10 @@
   typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=true
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-  # Frame colors - Catppuccin Overlay0
-  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{#6c7086}╭─%f'
-  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%F{#6c7086}├─%f'
-  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{#6c7086}╰─%f'
+  # Frame colors - GitHub muted gray
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{#7a828e}╭─%f'
+  typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX='%F{#7a828e}├─%f'
+  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='%F{#7a828e}╰─%f'
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX=
   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX=
   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=
@@ -54,15 +54,15 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
   typeset -g POWERLEVEL9K_SHOW_RULER=false
   typeset -g POWERLEVEL9K_RULER_CHAR='─'
-  typeset -g POWERLEVEL9K_RULER_FOREGROUND='#6c7086'
+  typeset -g POWERLEVEL9K_RULER_FOREGROUND='#7a828e'
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' '
 
-  # OS Icon - Catppuccin Rosewater
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND='#f5e0dc'
+  # OS Icon - GitHub foreground
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND='#f0f3f6'
 
-  # Prompt char - Green success, Red error (Catppuccin)
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND='#a6e3a1'
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND='#f38ba8'
+  # Prompt char - Green success, Red error (GitHub)
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND='#09b43a'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND='#ff6a69'
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='❯'
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='❮'
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='V'
@@ -71,12 +71,12 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
 
-  # Directory - Catppuccin Red
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND='#f38ba8'
+  # Directory - GitHub Red
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND='#ff9492'
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='#f38ba8'
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#f38ba8'
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='#ff9492'
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#ff9492'
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
   local anchor_files=(
     .bzr .citc .git .hg .node-version .python-version .go-version .ruby-version
@@ -93,7 +93,7 @@
   typeset -g POWERLEVEL9K_DIR_HYPERLINK=false
   typeset -g POWERLEVEL9K_DIR_SHOW_WRITABLE=v3
 
-  # Git - Catppuccin colors
+  # Git - GitHub colors
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
@@ -107,10 +107,10 @@
 
     if (( $1 )); then
       local       meta='%f'
-      local      clean='%F{#cba6f7}'    # Mauve
-      local   modified='%F{#a6e3a1}'    # Green
-      local  untracked='%F{#89b4fa}'    # Blue
-      local conflicted='%F{#f38ba8}'    # Red
+      local      clean='%F{#91cbff}'    # Constant blue
+      local   modified='%F{#f0b72f}'    # Yellow
+      local  untracked='%F{#addcff}'    # String cyan
+      local conflicted='%F{#ff6a69}'    # Danger red
     else
       local       meta='%f'
       local      clean='%f'
@@ -171,87 +171,87 @@
   typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${$((my_git_formatter(1)))+${my_git_format}}'
   typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter(0)))+${my_git_format}}'
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
-  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR='#cba6f7'
+  typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR='#91cbff'
   typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=
   typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
-  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#cba6f7'
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#cba6f7'
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#a6e3a1'
+  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND='#91cbff'
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='#91cbff'
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='#f0b72f'
 
   # Status
   typeset -g POWERLEVEL9K_STATUS_EXTENDED_STATES=true
   typeset -g POWERLEVEL9K_STATUS_OK=false
-  typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND='#a6e3a1'
+  typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND='#09b43a'
   typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='✔'
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
-  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND='#a6e3a1'
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND='#09b43a'
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='✔'
   typeset -g POWERLEVEL9K_STATUS_ERROR=false
-  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND='#f38ba8'
+  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND='#ff6a69'
   typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='✘'
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL=true
-  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND='#f38ba8'
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND='#ff6a69'
   typeset -g POWERLEVEL9K_STATUS_VERBOSE_SIGNAME=false
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='✘'
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE=true
-  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND='#f38ba8'
+  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND='#ff6a69'
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='✘'
 
-  # Command execution time - Catppuccin Yellow
+  # Command execution time - GitHub Entity (lavender)
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='#f9e2af'
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='#dbb7ff'
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
 
-  # Background jobs - Catppuccin Flamingo
+  # Background jobs - GitHub muted
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='#f2cdcd'
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='#9ea7b3'
 
-  # Direnv - Catppuccin Sapphire
-  typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#74c7ec'
+  # Direnv - GitHub String (cyan)
+  typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='#addcff'
 
-  # Virtualenv - Catppuccin Blue (with Python version)
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#89b4fa'
+  # Virtualenv - GitHub Constant (blue)
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#91cbff'
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_WITH_PYENV=false
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
 
-  # Pyenv - Catppuccin Blue
-  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#89b4fa'
+  # Pyenv - GitHub Constant (blue)
+  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#91cbff'
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   typeset -g POWERLEVEL9K_PYENV_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_PYENV_SHOW_SYSTEM=true
   typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
 
-  # Node environments - Catppuccin Sapphire
-  typeset -g POWERLEVEL9K_NODEENV_FOREGROUND='#74c7ec'
+  # Node environments - GitHub String (cyan)
+  typeset -g POWERLEVEL9K_NODEENV_FOREGROUND='#addcff'
   typeset -g POWERLEVEL9K_NODEENV_SHOW_NODE_VERSION=false
   typeset -g POWERLEVEL9K_NODEENV_{LEFT,RIGHT}_DELIMITER=
-  typeset -g POWERLEVEL9K_NVM_FOREGROUND='#74c7ec'
+  typeset -g POWERLEVEL9K_NVM_FOREGROUND='#addcff'
   typeset -g POWERLEVEL9K_NVM_PROMPT_ALWAYS_SHOW=false
   typeset -g POWERLEVEL9K_NVM_SHOW_SYSTEM=true
 
-  # Kubernetes - Catppuccin Teal
+  # Kubernetes - GitHub Entity (lavender)
   typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern|kubeseal|skaffold|kubent|kubecolor|cmctl|sparkctl'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=('*' DEFAULT)
-  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#94e2d5'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#dbb7ff'
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
-  # Terraform - Catppuccin Peach
+  # Terraform - GitHub Entity (lavender)
   typeset -g POWERLEVEL9K_TERRAFORM_SHOW_DEFAULT=false
   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=('*' OTHER)
-  typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND='#fab387'
+  typeset -g POWERLEVEL9K_TERRAFORM_OTHER_FOREGROUND='#dbb7ff'
 
-  # AWS - Catppuccin Yellow
+  # AWS - GitHub Yellow
   typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|cdk|terraform|pulumi|terragrunt'
   typeset -g POWERLEVEL9K_AWS_CLASSES=('*' DEFAULT)
-  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND='#f9e2af'
+  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND='#f0b72f'
   typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
 
-  # Context - Catppuccin Subtext
-  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='#f38ba8'
-  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND='#a6adc8'
-  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND='#a6adc8'
+  # Context - GitHub muted
+  typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND='#ff6a69'
+  typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_FOREGROUND='#bdc4cc'
+  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND='#bdc4cc'
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n@%m'
   typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE='%n@%m'
   typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'

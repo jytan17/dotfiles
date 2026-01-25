@@ -3,32 +3,32 @@ size = 15
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-style = "Bold"
+style = "Regular"
 
 [colors.primary]
-background = "#000000"
-foreground = "#cdd6f4"
+background = "#0a0c10"
+foreground = "#f0f3f6"
 
 [colors.cursor]
-text = "#000000"
-cursor = "#f5e0dc"
+text = "#0a0c10"
+cursor = "#f0f3f6"
 
 [colors.normal]
-black = "#45475a"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#f5c2e7"
-cyan = "#94e2d5"
-white = "#bac2de"
+black = "#7a828e"
+red = "#ff9492"
+green = "#26cd4d"
+yellow = "#f0b72f"
+blue = "#71b7ff"
+magenta = "#cb9eff"
+cyan = "#addcff"
+white = "#d9dee3"
 
 [colors.bright]
-black = "#585b70"
-red = "#f38ba8"
-green = "#a6e3a1"
-yellow = "#f9e2af"
-blue = "#89b4fa"
-magenta = "#f5c2e7"
-cyan = "#94e2d5"
-white = "#a6adc8"
+black = "#9ea7b3"
+red = "#ffb1af"
+green = "#4ae168"
+yellow = "#f7c843"
+blue = "#91cbff"
+magenta = "#dbb7ff"
+cyan = "#caeaff"
+white = "#f0f3f6"
