@@ -10,20 +10,13 @@ vim.opt.relativenumber = true
 -- System clipboard integration
 vim.opt.clipboard = "unnamedplus"
 
+-- Disable line wrapping
+vim.opt.wrap = false
+
 -- Treesitter folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99 -- Start with all folds open
-
--- Disable LSP semantic token highlighting (use only Treesitter)
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if client then
-			client.server_capabilities.semanticTokensProvider = nil
-		end
-	end,
-})
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -45,10 +38,20 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Open PDF files in Windows viewer via WSL
+vim.api.nvim_create_autocmd("BufReadCmd", {
+	pattern = "*.pdf",
+	callback = function()
+		local file = vim.fn.expand("%:p")
+		vim.fn.system({ "wslview", file })
+		vim.cmd("bdelete")
+	end,
+})
+
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 	},
-	install = { colorscheme = { "tokyonight", "habamax" } },
+	install = { colorscheme = { "catppuccin", "habamax" } },
 	checker = { enabled = true },
 })
