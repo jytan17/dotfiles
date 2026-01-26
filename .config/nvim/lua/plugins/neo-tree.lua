@@ -35,6 +35,18 @@ return {
       mappings = {
         ["l"] = "open",
         ["h"] = "close_node",
+        ["yp"] = function(state)
+          local node = state.tree:get_node()
+          local relative_path = vim.fn.fnamemodify(node:get_id(), ":.")
+          vim.fn.setreg("+", relative_path)
+          vim.notify("Copied: " .. relative_path)
+        end,
+        ["yP"] = function(state)
+          local node = state.tree:get_node()
+          local absolute_path = node:get_id()
+          vim.fn.setreg("+", absolute_path)
+          vim.notify("Copied: " .. absolute_path)
+        end,
       },
     },
   },
