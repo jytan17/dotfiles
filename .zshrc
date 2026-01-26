@@ -60,6 +60,7 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey '^y' autosuggest-accept
 
 # History
 HISTSIZE=5000
@@ -90,6 +91,7 @@ alias vim='nvim'
 alias c='clear'
 
 # Shell integrations
+export FZF_DEFAULT_OPTS="--bind 'ctrl-y:accept'"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
