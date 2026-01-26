@@ -19,9 +19,9 @@ return {
         "<leader>tv",
         function()
           local config = vim.diagnostic.config()
-          vim.diagnostic.config({ virtual_text = not config.virtual_text })
+          vim.diagnostic.config({ virtual_lines = not config.virtual_lines })
         end,
-        desc = "Virtual text",
+        desc = "Virtual lines",
       },
       {
         "<leader>tg",
@@ -86,7 +86,6 @@ return {
       { "<leader>lR", vim.lsp.buf.rename, desc = "Rename" },
       { "<leader>la", vim.lsp.buf.code_action, desc = "Code action" },
       { "<leader>lh", vim.lsp.buf.hover, desc = "Hover" },
-      { "<leader>ls", vim.lsp.buf.signature_help, desc = "Signature help" },
       { "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, desc = "Format" },
       { "<leader>ll", vim.diagnostic.open_float, desc = "Line diagnostics" },
       { "<leader>ln", vim.diagnostic.goto_next, desc = "Next diagnostic" },

@@ -8,10 +8,16 @@ return {
   init = function()
     vim.diagnostic.config({
       virtual_text = false,
+      virtual_lines = false,
       signs = false,
       underline = true,
       update_in_insert = false,
+      float = { border = "rounded" },
     })
+
+    -- Add border to LSP hover and signature help
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
   end,
   opts = {
     ensure_installed = {

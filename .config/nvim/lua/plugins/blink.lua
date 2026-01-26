@@ -17,6 +17,10 @@ return {
       default = { "lsp", "path", "snippets", "buffer" },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
+    signature = {
+      enabled = true,
+      window = { border = "rounded" },
+    },
     cmdline = {
       keymap = { preset = "inherit" },
       completion = {
