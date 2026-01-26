@@ -91,6 +91,10 @@ return {
       { "<leader>ll", vim.diagnostic.open_float, desc = "Line diagnostics" },
       { "<leader>ln", vim.diagnostic.goto_next, desc = "Next diagnostic" },
       { "<leader>lp", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
+
+      -- Quick actions
+      { "<leader>w", "<cmd>w<cr>", desc = "Write" },
+      { "<leader>q", "<cmd>q<cr>", desc = "Quit" },
     })
   end,
 }
