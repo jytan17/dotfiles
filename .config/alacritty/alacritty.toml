@@ -5,30 +5,65 @@ size = 15
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
+[colors]
+draw_bold_text_with_bright_colors = true
+
 [colors.primary]
-background = "#0a0c10"
-foreground = "#f0f3f6"
+background = "#1a1b26"
+foreground = "#c0caf5"
 
 [colors.cursor]
-text = "#0a0c10"
-cursor = "#f0f3f6"
+cursor = "#c0caf5"
+text = "#1a1b26"
+
+[colors.vi_mode_cursor]
+cursor = "#c0caf5"
+text = "#1a1b26"
+
+[colors.selection]
+background = "#444b6a"
+text = "#c0caf5"
+
+[colors.search.matches]
+background = "#ff9e64"
+foreground = "#1a1b26"
+
+[colors.search.focused_match]
+background = "#ff9e64"
+foreground = "#1a1b26"
+
+[colors.footer_bar]
+background = "#1a1b26"
+foreground = "#c0caf5"
+
+[colors.hints.start]
+background = "#ff9e64"
+foreground = "#1a1b26"
+
+[colors.hints.end]
+background = "#ff9e64"
+foreground = "#1a1b26"
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
 
 [colors.normal]
-black = "#7a828e"
-red = "#ff9492"
-green = "#26cd4d"
-yellow = "#f0b72f"
-blue = "#71b7ff"
-magenta = "#cb9eff"
-cyan = "#addcff"
-white = "#d9dee3"
+black = "#15161E"
+blue = "#7aa2f7"
+cyan = "#7dcfff"
+green = "#9ece6a"
+magenta = "#bb9af7"
+red = "#f7768e"
+white = "#a9b1d6"
+yellow = "#e0af68"
 
 [colors.bright]
-black = "#9ea7b3"
-red = "#ffb1af"
-green = "#4ae168"
-yellow = "#f7c843"
-blue = "#91cbff"
-magenta = "#dbb7ff"
-cyan = "#caeaff"
-white = "#f0f3f6"
+black = "#444b6a"
+blue = "#7aa2f7"
+cyan = "#7dcfff"
+green = "#9ece6a"
+magenta = "#bb9af7"
+red = "#f7768e"
+white = "#c0caf5"
+yellow = "#e0af68"
