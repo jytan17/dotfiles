@@ -90,6 +90,7 @@ alias lt='eza --tree --icons=always --color=always'
 alias vim='nvim'
 alias c='clear'
 alias lg='lazygit'
+alias nf='nvim $(fzf --preview "bat --color=always --style=numbers {}" 2>/dev/null || cat {})'
 
 # Shell integrations
 export FZF_DEFAULT_OPTS="--bind 'ctrl-y:accept'"
