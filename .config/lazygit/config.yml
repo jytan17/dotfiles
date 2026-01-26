@@ -1,0 +1,10 @@
+gui:
+  nerdFontsVersion: "3"
+  showFileTree: true
+  showRandomTip: false
+
+git:
+  autoFetch: true
+  mainBranches:
+    - main
+    - master
