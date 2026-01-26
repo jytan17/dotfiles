@@ -8,3 +8,7 @@ git:
   mainBranches:
     - main
     - master
+
+os:
+  edit: 'nvim --cmd "let g:lazygit=1" {{filename}}'
+  editAtLine: 'nvim --cmd "let g:lazygit=1" +{{line}} {{filename}}'
