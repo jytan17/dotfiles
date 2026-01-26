@@ -89,6 +89,7 @@ alias la='eza -la --icons=always --color=always'
 alias lt='eza --tree --icons=always --color=always'
 alias vim='nvim'
 alias c='clear'
+alias lg='lazygit'
 
 # Shell integrations
 export FZF_DEFAULT_OPTS="--bind 'ctrl-y:accept'"
