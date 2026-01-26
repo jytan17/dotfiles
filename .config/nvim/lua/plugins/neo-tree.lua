@@ -23,7 +23,9 @@ return {
   },
   config = function(_, opts)
     require("neo-tree").setup(opts)
-    vim.cmd("Neotree show")
+    if not vim.g.lazygit then
+      vim.cmd("Neotree show")
+    end
   end,
   opts = {
     filesystem = {
