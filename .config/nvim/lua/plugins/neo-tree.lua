@@ -35,6 +35,8 @@ return {
       mappings = {
         ["l"] = "open",
         ["h"] = "close_node",
+        ["s"] = "open_split",
+        ["v"] = "open_vsplit",
         ["yp"] = function(state)
           local node = state.tree:get_node()
           local relative_path = vim.fn.fnamemodify(node:get_id(), ":.")
