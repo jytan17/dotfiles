@@ -2,15 +2,16 @@ return {
 	-- Git signs in the gutter
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "VeryLazy",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
+			signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 			signs = {
-				add = { text = "\u{258f}" }, -- ▎
-				change = { text = "\u{258f}" }, -- ▎
-				delete = { text = "\u{f0da}" }, -- 
-				topdelete = { text = "\u{f0da}" }, -- 
-				changedelete = { text = "\u{258f}" }, -- ▎
-				untracked = { text = "\u{258f}" }, -- ▎
+				add = { text = "▎", hl = "GitSignsAdd" },
+				change = { text = "▎", hl = "GitSignsChange" },
+				delete = { text = "\u{25bc}", hl = "GitSignsDelete" }, -- ▼ (Thick triangle)
+				topdelete = { text = "\u{25b2}", hl = "GitSignsDelete" }, -- ▲
+				changedelete = { text = "▎", hl = "GitSignsChange" },
+				untracked = { text = "▎", hl = "GitSignsAdd" },
 			},
 			current_line_blame = false, -- Show blame ghost text by default
 			current_line_blame_opts = {
@@ -71,7 +72,6 @@ return {
 
 				-- Toggles (Toggle Group)
 				map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle git blame")
-				map("n", "<leader>td", gs.toggle_deleted, "Toggle deleted")
 			end,
 		},
 	},

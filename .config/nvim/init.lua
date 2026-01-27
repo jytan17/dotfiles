@@ -13,6 +13,9 @@ vim.opt.termguicolors = true
 -- System clipboard integration
 vim.opt.clipboard = "unnamedplus"
 
+-- Faster update time for better UI responsiveness (default is 4000ms)
+vim.opt.updatetime = 250
+
 -- Disable line wrapping
 vim.opt.wrap = false
 
@@ -75,3 +78,6 @@ require("lazy").setup({
 	install = { colorscheme = { "catppuccin", "habamax" } },
 	checker = { enabled = true },
 })
+
+-- Global Toggles
+require("toggles").setup()

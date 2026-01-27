@@ -17,74 +17,61 @@ return {
 			{ "<leader>t", group = "toggle", icon = { icon = "\u{f204}", color = "yellow" } }, -- nf-cod-record
 			{
 				"<leader>tv",
-				function()
-					local config = vim.diagnostic.config()
-					vim.diagnostic.config({ virtual_lines = not config.virtual_lines })
-				end,
+				function() require("toggles").toggle("virtual_lines") end,
 				desc = "Virtual lines",
 				icon = { icon = "\u{f0269}", color = "yellow" }, -- nf-md-format_line_spacing
 			},
 			{
 				"<leader>tg",
-				function()
-					local config = vim.diagnostic.config()
-					vim.diagnostic.config({ signs = not config.signs })
-				end,
-				desc = "Gutter signs",
+				function() require("toggles").toggle("git") end,
+				desc = "Git signs",
+				icon = { icon = "\u{f1d3}", color = "yellow" }, -- nf-fa-git
+			},
+			{
+				"<leader>td",
+				function() require("toggles").toggle("diagnostics") end,
+				desc = "Diagnostic signs",
 				icon = { icon = "\u{ea7b}", color = "yellow" }, -- nf-cod-issue_opened
 			},
 			{
 				"<leader>ti",
-				function()
-					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-				end,
+				function() require("toggles").toggle("inlay_hints") end,
 				desc = "Inlay hints",
 				icon = { icon = "\u{ea61}", color = "yellow" }, -- nf-cod-lightbulb
 			},
 			{
 				"<leader>tr",
-				function()
-					vim.wo.relativenumber = not vim.wo.relativenumber
-				end,
+				function() require("toggles").toggle("relativenumber") end,
 				desc = "Relative line numbers",
 				icon = { icon = "\u{f292}", color = "yellow" }, -- nf-fa-hashtag
 			},
 			{
 				"<leader>tn",
-				function()
-					vim.wo.number = not vim.wo.number
-				end,
+				function() require("toggles").toggle("number") end,
 				desc = "Line numbers",
 				icon = { icon = "\u{f03a1}", color = "yellow" }, -- nf-md-format_list_numbered
 			},
 			{
 				"<leader>tw",
-				function()
-					vim.wo.wrap = not vim.wo.wrap
-				end,
+				function() require("toggles").toggle("wrap") end,
 				desc = "Wrap",
 				icon = { icon = "\u{f05b6}", color = "yellow" }, -- nf-md-wrap
 			},
 			{
 				"<leader>ts",
-				function()
-					vim.wo.spell = not vim.wo.spell
-				end,
+				function() require("toggles").toggle("spell") end,
 				desc = "Spell check",
 				icon = { icon = "\u{efb3}", color = "yellow" }, -- nf-md-spellcheck
 			},
 			{
 				"<leader>tt",
+				function() require("toggles").toggle("todos") end,
 				desc = "Todo signs",
 				icon = { icon = "\u{f00c}", color = "yellow" }, -- nf-fa-check
 			},
 			{
 				"<leader>tf",
-				function()
-					format_on_save = not format_on_save
-					vim.g.format_on_save = format_on_save
-					vim.notify("Format on save: " .. (format_on_save and "enabled" or "disabled"))
-				end,
+				function() require("toggles").toggle("format_on_save") end,
 				desc = "Format on save",
 				icon = { icon = "\u{f027b}", color = "yellow" }, -- nf-md-format_paint
 			},
