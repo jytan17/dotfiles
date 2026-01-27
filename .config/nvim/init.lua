@@ -16,6 +16,13 @@ vim.opt.clipboard = "unnamedplus"
 -- Disable line wrapping
 vim.opt.wrap = false
 
+-- Search settings
+vim.opt.ignorecase = true -- Ignore case when searching...
+vim.opt.smartcase = true -- ...unless you type a capital
+
+-- Clear search highlights with <Esc>
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- Disable LSP semantic tokens (let Treesitter handle highlighting)
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
