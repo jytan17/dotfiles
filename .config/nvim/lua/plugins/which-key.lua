@@ -74,6 +74,11 @@ return {
 				icon = { icon = "\u{efb3}", color = "yellow" }, -- nf-md-spellcheck
 			},
 			{
+				"<leader>tt",
+				desc = "Todo signs",
+				icon = { icon = "\u{f00c}", color = "yellow" }, -- nf-fa-check
+			},
+			{
 				"<leader>tf",
 				function()
 					format_on_save = not format_on_save
