@@ -10,7 +10,7 @@ style = "Bold"
 draw_bold_text_with_bright_colors = true
 
 [colors.primary]
-background = "#1e1e2e"
+background = "#15152a"
 foreground = "#cdd6f4"
 
 [colors.cursor]
