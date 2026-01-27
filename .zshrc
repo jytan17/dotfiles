@@ -1,7 +1,8 @@
 # Locale configuration for UTF-8 support
 export LANG=C.UTF-8
 export LC_ALL=C.UTF-8
-
+# Tell lazygit where to find the config file
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml"
 # Homebrew - works on both macOS and Linux
 # Must be before Powerlevel10k instant prompt to avoid warnings
 if [ -f /opt/homebrew/bin/brew ]; then
