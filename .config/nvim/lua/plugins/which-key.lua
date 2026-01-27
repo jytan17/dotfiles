@@ -162,11 +162,6 @@ return {
 			}, -- nf-md-door
 
 			-- Groups for other plugins
-			{ "<leader>b", group = "buffer", icon = "\u{ef96}" }, -- nf-md-buffer
-			{ "<leader>bp", icon = "\u{eb2b}" }, -- nf-cod-pinned
-			{ "<leader>bc", icon = "\u{eab4}" }, -- nf-cod-close
-			{ "<leader>bo", icon = "\u{eab5}" }, -- nf-cod-close_all
-			{ "<leader>bd", icon = "\u{ea76}" }, -- nf-cod-trash
 			{ "<leader>s", group = "split", icon = "\u{eb56}" }, -- nf-cod-split_horizontal
 			{ "<leader>sv", icon = "\u{eb56}" }, -- nf-cod-split_horizontal (vertical split)
 			{ "<leader>ss", icon = "\u{eb57}" }, -- nf-cod-split_vertical (horizontal split)

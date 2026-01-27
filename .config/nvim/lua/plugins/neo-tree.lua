@@ -28,6 +28,7 @@ return {
     end
   end,
   opts = {
+    hide_root_node = true, -- Don't show the root directory name
     enable_git_status = true,
     git_status_async = true, -- Run git status in background to prevent lags
     filesystem = {

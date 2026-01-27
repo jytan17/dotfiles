@@ -48,6 +48,10 @@ return {
 
 					-- Make Indent Scope line brighter
 					MiniIndentscopeSymbol = { fg = colors.pink, style = { "bold" } },
+
+					-- Winbar border (underline to separate from buffer)
+					WinBar = { sp = colors.surface1, style = { "underline" } },
+					WinBarNC = { sp = colors.surface0, style = { "underline" } },
 				}
 			end,
 		})
