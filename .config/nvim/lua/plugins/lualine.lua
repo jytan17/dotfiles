@@ -5,7 +5,7 @@ return {
   },
   opts = {
     options = {
-      theme = "tokyonight",
+      theme = "catppuccin",
       icons_enabled = true,
       globalstatus = true,
     },

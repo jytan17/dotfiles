@@ -7,6 +7,9 @@ vim.cmd("set shiftwidth=4")
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- True color support (required for undercurls)
+vim.opt.termguicolors = true
+
 -- System clipboard integration
 vim.opt.clipboard = "unnamedplus"
 
