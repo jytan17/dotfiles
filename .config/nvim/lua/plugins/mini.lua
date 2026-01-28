@@ -24,8 +24,7 @@ return {
         f = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
         c = spec_treesitter({ a = "@class.outer", i = "@class.inner" }),
         o = spec_treesitter({ a = { "@loop.outer", "@conditional.outer" }, i = { "@loop.inner", "@conditional.inner" } }),
-        a = spec_treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),
-        b = spec_treesitter({ a = "@block.outer", i = "@block.inner" }),
+        -- Note: 'a' for argument, 'b' for brackets are mini.ai defaults - don't override
       },
       -- Number of lines within which textobject is searched
       n_lines = 100,
