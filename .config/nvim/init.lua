@@ -26,6 +26,9 @@ vim.opt.smartcase = true -- ...unless you type a capital
 -- Clear search highlights with <Esc>
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Use jk to escape to normal mode
+vim.keymap.set("i", "jk", "<Esc>")
+
 -- Disable LSP semantic tokens (let Treesitter handle highlighting)
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
