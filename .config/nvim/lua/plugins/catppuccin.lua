@@ -52,6 +52,10 @@ return {
 					-- Winbar border (underline to separate from buffer)
 					WinBar = { sp = colors.surface1, style = { "underline" } },
 					WinBarNC = { sp = colors.surface0, style = { "underline" } },
+
+					-- Cursorword highlight (word under cursor + matches)
+					MiniCursorword = { bg = colors.surface1, bold = true },
+					MiniCursorwordCurrent = { bg = colors.surface1, bold = true },
 				}
 			end,
 		})
