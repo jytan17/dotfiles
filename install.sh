@@ -77,6 +77,8 @@ install_brew_packages() {
         ripgrep
         fd
         xclip
+        lazygit
+        lazydocker
 
         # Language tools
         uv
