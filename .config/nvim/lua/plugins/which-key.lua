@@ -37,6 +37,18 @@ return {
 				desc = "Next todo",
 				icon = "\u{f00c}",
 			}, -- nf-fa-check
+			{
+				"<leader>nf",
+				function() _G.ts_nav.next_function() end,
+				desc = "Next function",
+				icon = "\u{f0295}",
+			}, -- nf-md-function_variant
+			{
+				"<leader>nc",
+				function() _G.ts_nav.next_class() end,
+				desc = "Next class",
+				icon = "\u{ea92}",
+			}, -- nf-cod-symbol_class
 
 			-- Previous group
 			{ "<leader>p", group = "prev", icon = "\u{eab4}" }, -- nf-cod-arrow_left
@@ -62,6 +74,18 @@ return {
 				desc = "Prev todo",
 				icon = "\u{f00c}",
 			}, -- nf-fa-check
+			{
+				"<leader>pf",
+				function() _G.ts_nav.prev_function() end,
+				desc = "Prev function",
+				icon = "\u{f0295}",
+			}, -- nf-md-function_variant
+			{
+				"<leader>pc",
+				function() _G.ts_nav.prev_class() end,
+				desc = "Prev class",
+				icon = "\u{ea92}",
+			}, -- nf-cod-symbol_class
 
 			-- Trouble group
 			{ "<leader>x", group = "trouble", icon = "\u{ea6c}" }, -- nf-cod-warning
