@@ -13,6 +13,59 @@ return {
 		wk.add({
 			{ "<leader>f", group = "find", icon = "\u{ea6d}" }, -- nf-cod-search
 
+			-- Next group
+			{ "<leader>n", group = "next", icon = "\u{eab6}" }, -- nf-cod-arrow_right
+			{
+				"<leader>nd",
+				vim.diagnostic.goto_next,
+				desc = "Next diagnostic",
+				icon = "\u{ea6c}",
+			}, -- nf-cod-warning
+			{
+				"<leader>nh",
+				function()
+					if vim.wo.diff then return "]c" end
+					vim.schedule(function() require("gitsigns").next_hunk() end)
+					return "<Ignore>"
+				end,
+				desc = "Next git hunk",
+				icon = "\u{e725}",
+			}, -- nf-dev-git_branch
+			{
+				"<leader>nt",
+				function() require("todo-comments").jump_next() end,
+				desc = "Next todo",
+				icon = "\u{f00c}",
+			}, -- nf-fa-check
+
+			-- Previous group
+			{ "<leader>p", group = "prev", icon = "\u{eab4}" }, -- nf-cod-arrow_left
+			{
+				"<leader>pd",
+				vim.diagnostic.goto_prev,
+				desc = "Prev diagnostic",
+				icon = "\u{ea6c}",
+			}, -- nf-cod-warning
+			{
+				"<leader>ph",
+				function()
+					if vim.wo.diff then return "[c" end
+					vim.schedule(function() require("gitsigns").prev_hunk() end)
+					return "<Ignore>"
+				end,
+				desc = "Prev git hunk",
+				icon = "\u{e725}",
+			}, -- nf-dev-git_branch
+			{
+				"<leader>pt",
+				function() require("todo-comments").jump_prev() end,
+				desc = "Prev todo",
+				icon = "\u{f00c}",
+			}, -- nf-fa-check
+
+			-- Trouble group
+			{ "<leader>x", group = "trouble", icon = "\u{ea6c}" }, -- nf-cod-warning
+
 			-- Toggle group
 			{ "<leader>t", group = "toggle", icon = { icon = "\u{f204}", color = "yellow" } }, -- nf-cod-record
 			{
