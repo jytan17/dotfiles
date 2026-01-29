@@ -30,14 +30,14 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>")
 
 -- Disable LSP semantic tokens (let Treesitter handle highlighting)
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if client then
-			client.server_capabilities.semanticTokensProvider = nil
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	callback = function(args)
+-- 		local client = vim.lsp.get_client_by_id(args.data.client_id)
+-- 		if client then
+-- 			client.server_capabilities.semanticTokensProvider = nil
+-- 		end
+-- 	end,
+-- })
 
 -- Treesitter folding
 vim.opt.foldmethod = "expr"
