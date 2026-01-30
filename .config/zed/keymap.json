@@ -98,6 +98,7 @@
 
       // Terminal
       "space t f": "terminal_panel::ToggleFocus",
+      "space t t": "workspace::NewTerminal",
 
       // Split management
       "space s v": "pane::SplitRight",
@@ -148,7 +149,6 @@
       // terminal
       "space t f": "terminal_panel::ToggleFocus",
       "space t t": "workspace::NewTerminal",
-      "space t v": "workspace::NewCenterTerminal",
     },
   },
 ]
