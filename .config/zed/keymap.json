@@ -15,7 +15,8 @@
   {
     "context": "Editor && vim_mode == insert && showing_completions",
     "bindings": {
-      "tab": null,
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrev",
       "ctrl-y": "editor::ConfirmCompletion"
     }
   },
