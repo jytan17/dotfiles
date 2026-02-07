@@ -5,11 +5,3 @@ font-style = "Bold"
 
 # Theme
 theme = Catppuccin Mocha
-
-# Cursor configuration
-cursor-style = block
-cursor-style-blink = false
-shell-integration-features = no-cursor
-
-# Cursor Smear Shader
-custom-shader = ~/.config/ghostty/shaders/cursor_smear.glsl
