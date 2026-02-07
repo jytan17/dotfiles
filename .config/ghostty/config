@@ -5,3 +5,6 @@ font-style = "Bold"
 
 # Theme
 theme = Catppuccin Mocha
+
+# Terminal type for proper underline support
+term = xterm-ghostty

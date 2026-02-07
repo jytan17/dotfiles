@@ -1,5 +1,5 @@
 inherits = "catppuccin_mocha"
-underline.style = "dotted"
+underline.style = "curl"
 
 # Override background color to match nvim (#15152a)
 "ui.background" = { bg = "#15152a" }
