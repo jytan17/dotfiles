@@ -6,6 +6,9 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+  // ───────────────────────────────────────────────
+  // Autocomplete (Vim Insert Mode)
+  // ───────────────────────────────────────────────
   {
     "context": "Editor && vim_mode == insert && showing_completions",
     "bindings": {
@@ -14,13 +17,22 @@
       "ctrl-y": "editor::ConfirmCompletion",
     },
   },
+
+  // ───────────────────────────────────────────────
+  // Terminal
+  // ───────────────────────────────────────────────
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-p": ["terminal::SendKeystroke", "up"],
-      "ctrl-n": ["terminal::SendKeystroke", "down"],
+      // Pass through to zsh so history-search-backward/forward works
+      "ctrl-p": ["terminal::SendKeystroke", "ctrl-p"],
+      "ctrl-n": ["terminal::SendKeystroke", "ctrl-n"],
     },
   },
+
+  // ───────────────────────────────────────────────
+  // Pane Navigation (works across docks, editors, and workspace)
+  // ───────────────────────────────────────────────
   {
     "context": "Dock || Editor || Workspace",
     "bindings": {
@@ -30,121 +42,142 @@
       "ctrl-j": "workspace::ActivatePaneDown",
     },
   },
+
+  // ───────────────────────────────────────────────
+  // Project Panel (File Explorer)
+  // ───────────────────────────────────────────────
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
       // Disable defaults
       "space": null,
-      // Your bindings
+      "shift-d": null,
+      "shift-r": null,
+      "%": null,
+
+      // Navigation
       "l": "project_panel::OpenPermanent",
-      "h": "project_panel::CollapseSelectedEntry",
       "o": "project_panel::OpenPermanent",
+      "h": "project_panel::CollapseSelectedEntry",
+      "-": "project_panel::SelectParent",
+
+      // Splits
       "s": "project_panel::OpenSplitHorizontal",
       "v": "project_panel::OpenSplitVertical",
+
+      // File operations
       "a": "project_panel::NewFile",
       "shift-a": "project_panel::NewDirectory",
       "r": "project_panel::Rename",
       "d": "project_panel::Delete",
+
+      // Clipboard
       "y": "project_panel::Copy",
       "x": "project_panel::Cut",
       "p": "project_panel::Paste",
+
+      // Copy paths
       "y p": "workspace::CopyRelativePath",
       "y shift-p": "workspace::CopyPath",
+
+      // Panel management
       "space o": "workspace::ActivateNextPane",
       "space e": "workspace::ToggleLeftDock",
       "q": "workspace::ToggleLeftDock",
       "escape": "workspace::ActivateNextPane",
-      "-": "project_panel::SelectParent",
-      "shift-d": null,
-      "shift-r": null,
-      "%": null,
     },
   },
-  // {
-  //   "context": "vim_mode == normal && os == macos",
-  //   "bindings": {
-  //     "space p": ["workspace::SendKeystrokes", "a cmd-v escape"],
-  //   },
-  // },
-  // {
-  //   "context": "vim_mode == normal && os == linux",
-  //   "bindings": {
-  //     "space p": ["workspace::SendKeystrokes", "a ctrl-shift-v escape"],
-  //   },
-  // },
-  // {
-  //   "context": "vim_mode == normal && os == windows",
-  //   "bindings": {
-  //     "space p": ["workspace::SendKeystrokes", "a ctrl-shift-v escape"],
-  //   },
-  // },
+
+  // ───────────────────────────────────────────────
+  // Vim Normal Mode – Leader (space) Bindings
+  // ───────────────────────────────────────────────
   {
     "context": "VimControl && vim_mode == normal",
     "bindings": {
-      // File explorer
+      // ── File explorer ──
       "space o": "project_panel::ToggleFocus",
       "space e": "workspace::ToggleLeftDock",
-      // Buffers
+
+      // ── Buffers ──
       "space b c": "pane::CloseActiveItem",
       "space b C": "pane::CloseOtherItems",
-      // Find
+
+      // ── Find / Search ──
       "space f f": "file_finder::Toggle",
       "space f w": "pane::DeploySearch",
       "space f b": "tab_switcher::Toggle",
-      // LSP
+
+      // ── LSP ──
       "space l a": "editor::ToggleCodeActions",
       "space l r": "editor::Rename",
       "space l d": "diagnostics::Deploy",
       "space l f": "editor::Format",
       "space l s": "outline::Toggle",
       "space l S": "project_symbols::Toggle",
-      // Git
+
+      // ── Git ──
       "space g g": "git_panel::ToggleFocus",
       "space g b": "git::Blame",
       "space g d": "editor::ToggleSelectedDiffHunks",
-      // Terminal
+
+      // ── Terminal ──
       "space t f": "terminal_panel::ToggleFocus",
       "space t t": "workspace::NewTerminal",
-      // Split management
+
+      // ── Splits ──
       "space s v": "pane::SplitRight",
       "space s h": "pane::SplitDown",
-      // Quick actions
+
+      // ── Quick actions ──
       "space w": "workspace::Save",
       "space q": "pane::CloseActiveItem",
       "space /": "editor::ToggleComments",
-      // Git hunks (changes) - BUILT-IN ✅
-      "space n h": ["workspace::SendKeystrokes", "] c"], // Next git change
-      "space p h": ["workspace::SendKeystrokes", "[ c"], // Previous git change
-      // Diagnostics - BUILT-IN ✅
-      "space n d": ["workspace::SendKeystrokes", "] d"], // Next diagnostic
-      "space p d": ["workspace::SendKeystrokes", "[ d"], // Previous diagnostic
-      // Functions/Methods - BUILT-IN ✅
-      "space n f": ["workspace::SendKeystrokes", "] m"], // Next method
-      "space p f": ["workspace::SendKeystrokes", "[ m"], // Previous method
-      // Paragraphs (vim-style) ✅
-      "space n p": ["workspace::SendKeystrokes", "}"], // Next paragraph
-      "space p p": ["workspace::SendKeystrokes", "{"], // Previous paragraph
-      // Classes/Sections - BUILT-IN ✅
-      "space n c": ["workspace::SendKeystrokes", "] ]"], // Next class/section
-      "space p c": ["workspace::SendKeystrokes", "[ ["], // Previous class/section
-      // Comments - BUILT-IN ✅
-      "space n /": ["workspace::SendKeystrokes", "] /"], // Next comment
-      "space p /": ["workspace::SendKeystrokes", "[ /"], // Previous comment
+
+      // ── Next/Previous: Git hunks ──
+      "space n h": ["workspace::SendKeystrokes", "] c"],
+      "space p h": ["workspace::SendKeystrokes", "[ c"],
+
+      // ── Next/Previous: Diagnostics ──
+      "space n d": ["workspace::SendKeystrokes", "] d"],
+      "space p d": ["workspace::SendKeystrokes", "[ d"],
+
+      // ── Next/Previous: Functions/Methods ──
+      "space n f": ["workspace::SendKeystrokes", "] m"],
+      "space p f": ["workspace::SendKeystrokes", "[ m"],
+
+      // ── Next/Previous: Paragraphs ──
+      "space n p": ["workspace::SendKeystrokes", "}"],
+      "space p p": ["workspace::SendKeystrokes", "{"],
+
+      // ── Next/Previous: Classes/Sections ──
+      "space n c": ["workspace::SendKeystrokes", "] ]"],
+      "space p c": ["workspace::SendKeystrokes", "[ ["],
+
+      // ── Next/Previous: Comments ──
+      "space n /": ["workspace::SendKeystrokes", "] /"],
+      "space p /": ["workspace::SendKeystrokes", "[ /"],
     },
   },
+
+  // ───────────────────────────────────────────────
+  // Vim Visual Mode
+  // ───────────────────────────────────────────────
   {
     "context": "vim_mode == visual",
     "bindings": {
       "space /": "editor::ToggleComments",
     },
   },
+
+  // ───────────────────────────────────────────────
+  // Empty Pane (no file open)
+  // ───────────────────────────────────────────────
   {
     "context": "EmptyPane",
     "bindings": {
       "space f f": "file_finder::Toggle",
       "space o": "project_panel::ToggleFocus",
       "space e": "workspace::ToggleLeftDock",
-      // terminal
       "space t f": "terminal_panel::ToggleFocus",
       "space t t": "workspace::NewTerminal",
     },
