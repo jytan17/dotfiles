@@ -7,12 +7,6 @@
 // from the command palette.
 [
   {
-    "context": "Editor && vim_mode == insert && !menu",
-    "bindings": {
-      "j k": "vim::SwitchToNormalMode"
-    }
-  },
-  {
     "context": "Editor && vim_mode == insert && showing_completions",
     "bindings": {
       "tab": "editor::ContextMenuNext",
