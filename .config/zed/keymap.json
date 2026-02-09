@@ -11,8 +11,15 @@
     "bindings": {
       "tab": "editor::ContextMenuNext",
       "shift-tab": "editor::ContextMenuPrevious",
-      "ctrl-y": "editor::ConfirmCompletion"
-    }
+      "ctrl-y": "editor::ConfirmCompletion",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-p": ["terminal::SendKeystroke", "up"],
+      "ctrl-n": ["terminal::SendKeystroke", "down"],
+    },
   },
   {
     "context": "Dock || Editor || Workspace",
@@ -20,8 +27,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "ProjectPanel && not_editing",
@@ -50,8 +57,8 @@
       "-": "project_panel::SelectParent",
       "shift-d": null,
       "shift-r": null,
-      "%": null
-    }
+      "%": null,
+    },
   },
   // {
   //   "context": "vim_mode == normal && os == macos",
@@ -122,14 +129,14 @@
       "space p c": ["workspace::SendKeystrokes", "[ ["], // Previous class/section
       // Comments - BUILT-IN ✅
       "space n /": ["workspace::SendKeystrokes", "] /"], // Next comment
-      "space p /": ["workspace::SendKeystrokes", "[ /"] // Previous comment
-    }
+      "space p /": ["workspace::SendKeystrokes", "[ /"], // Previous comment
+    },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "space /": "editor::ToggleComments"
-    }
+      "space /": "editor::ToggleComments",
+    },
   },
   {
     "context": "EmptyPane",
@@ -139,7 +146,7 @@
       "space e": "workspace::ToggleLeftDock",
       // terminal
       "space t f": "terminal_panel::ToggleFocus",
-      "space t t": "workspace::NewTerminal"
-    }
-  }
+      "space t t": "workspace::NewTerminal",
+    },
+  },
 ]
