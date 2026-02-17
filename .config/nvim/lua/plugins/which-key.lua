@@ -93,22 +93,16 @@ return {
 			-- Toggle group
 			{ "<leader>t", group = "toggle", icon = { icon = "\u{f204}", color = "yellow" } }, -- nf-cod-record
 			{
-				"<leader>tv",
-				function() require("toggles").toggle("virtual_lines") end,
-				desc = "Virtual lines",
-				icon = { icon = "\u{f0269}", color = "yellow" }, -- nf-md-format_line_spacing
+				"<leader>td",
+				function() require("toggles").toggle("diagnostics") end,
+				desc = "Diagnostics (signs + hover)",
+				icon = { icon = "\u{ea7b}", color = "yellow" }, -- nf-cod-issue_opened
 			},
 			{
 				"<leader>tg",
 				function() require("toggles").toggle("git") end,
 				desc = "Git signs",
 				icon = { icon = "\u{f1d3}", color = "yellow" }, -- nf-fa-git
-			},
-			{
-				"<leader>td",
-				function() require("toggles").toggle("diagnostics") end,
-				desc = "Diagnostic signs",
-				icon = { icon = "\u{ea7b}", color = "yellow" }, -- nf-cod-issue_opened
 			},
 			{
 				"<leader>ti",

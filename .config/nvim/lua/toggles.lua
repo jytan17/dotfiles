@@ -1,10 +1,12 @@
 local M = {}
 
+-- Store autocmd IDs for cleanup
+local diagnostic_hover_autocmd = nil
+
 -- Your Personal Default Configuration
 -- Edit these values directly to change your startup defaults.
 local state = {
-	diagnostics = false,
-	virtual_lines = false,
+	diagnostics = false, -- This now controls both signs AND hover
 	inlay_hints = false,
 	git = true,
 	todos = false,
@@ -26,15 +28,17 @@ function M.setup(opts)
 end
 
 function M.apply()
-	-- 1. Diagnostics (signs)
-	-- Note: We preserve other diagnostic config by getting current config first if needed,
-	-- but here we might want to enforce the toggle state.
-	-- Since 'virtual_lines' is also a toggle, we need to be careful not to overwrite one with the other
-	-- if we just pass a partial config. vim.diagnostic.config() merges.
+	-- 1. Diagnostics (signs + hover)
 	vim.diagnostic.config({
 		signs = state.diagnostics,
-		virtual_lines = state.virtual_lines,
 	})
+
+	-- Enable/disable diagnostic hover based on diagnostics state
+	if state.diagnostics then
+		M.enable_diagnostic_hover()
+	else
+		M.disable_diagnostic_hover()
+	end
 
 	-- 2. Git Signs
 	local ok_gs, gs = pcall(require, "gitsigns")
@@ -80,8 +84,12 @@ function M.toggle(key)
 	-- Apply specific changes immediately for better responsiveness
 	if key == "diagnostics" then
 		vim.diagnostic.config({ signs = state[key] })
-	elseif key == "virtual_lines" then
-		vim.diagnostic.config({ virtual_lines = state[key] })
+		-- Also toggle diagnostic hover
+		if state[key] then
+			M.enable_diagnostic_hover()
+		else
+			M.disable_diagnostic_hover()
+		end
 	elseif key == "git" then
 		local ok, gs = pcall(require, "gitsigns")
 		if ok then
@@ -120,6 +128,42 @@ end
 
 function M.get(key)
 	return state[key]
+end
+
+function M.enable_diagnostic_hover()
+	-- Clear any existing autocmd first
+	M.disable_diagnostic_hover()
+
+	-- Create autocmd that shows diagnostic float on cursor hold
+	diagnostic_hover_autocmd = vim.api.nvim_create_autocmd("CursorHold", {
+		group = vim.api.nvim_create_augroup("DiagnosticHover", { clear = true }),
+		callback = function()
+			-- Check if there's a diagnostic on the current line
+			local bufnr = vim.api.nvim_get_current_buf()
+			local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+			local diagnostics = vim.diagnostic.get(bufnr, { lnum = line })
+
+			if #diagnostics > 0 then
+				vim.diagnostic.open_float(nil, {
+					scope = "cursor",
+					focusable = false,
+					close_events = { "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre" },
+					border = "rounded",
+					source = "always",
+					prefix = " ",
+					wrap = true,
+				})
+			end
+		end,
+	})
+end
+
+function M.disable_diagnostic_hover()
+	-- Clear the autocmd group
+	if diagnostic_hover_autocmd then
+		vim.api.nvim_clear_autocmds({ group = "DiagnosticHover" })
+		diagnostic_hover_autocmd = nil
+	end
 end
 
 return M
