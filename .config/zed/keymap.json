@@ -112,6 +112,7 @@
       "space l r": "editor::Rename",
       "space l d": "diagnostics::Deploy",
       "space l f": "editor::Format",
+      "space l h": "editor::ShowSignatureHelp",
       "space l s": "outline::Toggle",
       "space l S": "project_symbols::Toggle",
 
