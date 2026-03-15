@@ -184,4 +184,15 @@
       "space t t": "workspace::NewTerminal",
     },
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-,": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-.": "workspace::ToggleZoom"
+    }
+  }
 ]
