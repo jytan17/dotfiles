@@ -1,0 +1,375 @@
+# Starship - Plain Text Preset + Catppuccin Mocha colors
+# Mocha palette reference:
+#   Text: #cdd6f4  Blue: #89b4fa  Green: #a6e3a1  Red: #f38ba8
+#   Yellow: #f9e2af  Mauve: #cba6f7  Peach: #fab387  Teal: #94e2d5
+#   Surface2: #585b70  Lavender: #b4befe  Sapphire: #74c7ec  Pink: #f5c2e7
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+continuation_prompt = "[.](bright-black) "
+
+[character]
+success_symbol = "[>](bold #a6e3a1)"
+error_symbol = "[x](bold #f38ba8)"
+vimcmd_symbol = "[<](bold #a6e3a1)"
+vimcmd_visual_symbol = "[<](bold #f9e2af)"
+vimcmd_replace_symbol = "[<](bold #cba6f7)"
+vimcmd_replace_one_symbol = "[<](bold #cba6f7)"
+
+[directory]
+style = "bold #89b4fa"
+read_only = " ro"
+
+[git_branch]
+symbol = "git "
+style = "bold #a6e3a1"
+truncation_symbol = "..."
+
+[git_commit]
+tag_symbol = " tag "
+
+[git_status]
+style = "#f9e2af"
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+
+[cmd_duration]
+style = "#cba6f7"
+
+[aws]
+symbol = "aws "
+style = "#f9e2af"
+
+[azure]
+symbol = "az "
+style = "#89b4fa"
+
+[battery]
+full_symbol = "full "
+charging_symbol = "charging "
+discharging_symbol = "discharging "
+unknown_symbol = "unknown "
+empty_symbol = "empty "
+
+[buf]
+symbol = "buf "
+
+[bun]
+symbol = "bun "
+
+[c]
+symbol = "C "
+style = "#89b4fa"
+
+[cpp]
+symbol = "C++ "
+style = "#89b4fa"
+
+[cobol]
+symbol = "cobol "
+
+[conda]
+symbol = "conda "
+style = "#a6e3a1"
+
+[container]
+symbol = "container "
+
+[crystal]
+symbol = "cr "
+
+[cmake]
+symbol = "cmake "
+
+[daml]
+symbol = "daml "
+
+[dart]
+symbol = "dart "
+style = "#89b4fa"
+
+[deno]
+symbol = "deno "
+
+[dotnet]
+format = "via [$symbol($version )(target $tfm )]($style)"
+symbol = ".NET "
+style = "#cba6f7"
+
+[docker_context]
+symbol = "docker "
+style = "#89b4fa"
+
+[elixir]
+symbol = "exs "
+style = "#cba6f7"
+
+[elm]
+symbol = "elm "
+
+[erlang]
+symbol = "erl "
+
+[fennel]
+symbol = "fnl "
+
+[fortran]
+symbol = "fortran "
+
+[fossil_branch]
+symbol = "fossil "
+truncation_symbol = "..."
+
+[gcloud]
+symbol = "gcp "
+style = "#89b4fa"
+
+[gleam]
+symbol = "gleam "
+
+[golang]
+symbol = "go "
+style = "#89b4fa"
+
+[gradle]
+symbol = "gradle "
+
+[guix_shell]
+symbol = "guix "
+
+[haskell]
+symbol = "haskell "
+style = "#cba6f7"
+
+[haxe]
+symbol = "hx "
+
+[helm]
+symbol = "helm "
+
+[hg_branch]
+symbol = "hg "
+truncation_symbol = "..."
+
+[hostname]
+ssh_symbol = "ssh "
+style = "#a6e3a1"
+
+[java]
+symbol = "java "
+style = "#f38ba8"
+
+[jobs]
+symbol = "*"
+style = "#89b4fa"
+
+[julia]
+symbol = "jl "
+style = "#cba6f7"
+
+[kotlin]
+symbol = "kt "
+style = "#cba6f7"
+
+[kubernetes]
+symbol = "kubernetes "
+style = "#cba6f7"
+
+[lua]
+symbol = "lua "
+style = "#89b4fa"
+
+[memory_usage]
+symbol = "memory "
+
+[meson]
+symbol = "meson "
+truncation_symbol = "..."
+
+[mojo]
+symbol = "mojo "
+
+[nats]
+symbol = "nats "
+
+[netns]
+symbol = "netns "
+
+[nim]
+symbol = "nim "
+style = "#f9e2af"
+
+[nix_shell]
+symbol = "nix "
+style = "#89b4fa"
+
+[nodejs]
+symbol = "nodejs "
+style = "#a6e3a1"
+
+[ocaml]
+symbol = "ml "
+style = "#f9e2af"
+
+[odin]
+symbol = "odin "
+
+[opa]
+symbol = "opa "
+
+[openstack]
+symbol = "openstack "
+
+[os.symbols]
+AIX = "aix "
+Alpaquita = "alq "
+AlmaLinux = "alma "
+Alpine = "alp "
+ALTLinux = "alt "
+Amazon = "amz "
+Android = "andr "
+AOSC = "aosc "
+Arch = "rch "
+Artix = "atx "
+Bluefin = "blfn "
+CachyOS = "cach "
+CentOS = "cent "
+Debian = "deb "
+DragonFly = "dfbsd "
+Elementary = "elem "
+Emscripten = "emsc "
+EndeavourOS = "ndev "
+Fedora = "fed "
+FreeBSD = "fbsd "
+Garuda = "garu "
+Gentoo = "gent "
+HardenedBSD = "hbsd "
+Illumos = "lum "
+Ios = "ios "
+InstantOS = "inst "
+Kali = "kali "
+Linux = "lnx "
+Mabox = "mbox "
+Macos = "mac "
+Manjaro = "mjo "
+Mariner = "mrn "
+MidnightBSD = "mid "
+Mint = "mint "
+NetBSD = "nbsd "
+NixOS = "nix "
+Nobara = "nbra "
+OpenBSD = "obsd "
+OpenCloudOS = "ocos "
+openEuler = "oeul "
+openSUSE = "osuse "
+OracleLinux = "orac "
+PikaOS = "pika "
+Pop = "pop "
+Raspbian = "rasp "
+Redhat = "rhl "
+RedHatEnterprise = "rhel "
+RockyLinux = "rky "
+Redox = "redox "
+Solus = "sol "
+SUSE = "suse "
+Ubuntu = "ubnt "
+Ultramarine = "ultm "
+Unknown = "unk "
+Uos = "uos "
+Void = "void "
+Windows = "win "
+Zorin = "zorn "
+
+[package]
+symbol = "pkg "
+style = "#fab387"
+
+[perl]
+symbol = "pl "
+
+[php]
+symbol = "php "
+
+[pijul_channel]
+symbol = "pijul "
+truncation_symbol = "..."
+
+[pixi]
+symbol = "pixi "
+
+[pulumi]
+symbol = "pulumi "
+
+[purescript]
+symbol = "purs "
+
+[python]
+symbol = "py "
+style = "#f9e2af"
+
+[quarto]
+symbol = "quarto "
+
+[raku]
+symbol = "raku "
+
+[red]
+symbol = "red "
+
+[rlang]
+symbol = "r "
+
+[ruby]
+symbol = "rb "
+style = "#f38ba8"
+
+[rust]
+symbol = "rs "
+style = "#fab387"
+
+[scala]
+symbol = "scala "
+style = "#f38ba8"
+
+[shlvl]
+symbol = "shlvl "
+
+[spack]
+symbol = "spack "
+
+[solidity]
+symbol = "solidity "
+
+[status]
+symbol = "[x](bold #f38ba8) "
+not_executable_symbol = "noexec"
+not_found_symbol = "notfound"
+sigint_symbol = "sigint"
+signal_symbol = "sig"
+
+[sudo]
+symbol = "sudo "
+
+[swift]
+symbol = "swift "
+style = "#fab387"
+
+[terraform]
+symbol = "terraform "
+style = "#cba6f7"
+
+[typst]
+symbol = "typst "
+
+[vagrant]
+symbol = "vagrant "
+
+[xmake]
+symbol = "xmake "
+
+[zig]
+symbol = "zig "
+style = "#f9e2af"

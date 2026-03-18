@@ -69,6 +69,7 @@ install_brew_packages() {
         zsh
         tmux
         fzf
+        starship
 
         # Modern CLI tools
         neovim
