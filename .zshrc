@@ -77,10 +77,27 @@ alias lt='eza --tree --icons=always --color=always'
 alias vim='nvim'
 alias c='clear'
 alias lg='lazygit'
+alias ld='lazydocker'
 alias nf='nvim $(fzf --preview "bat --color=always --style=numbers {}" 2>/dev/null || cat {})'
 alias nv='nvim'
+# Git alias
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gd='git diff'
+alias glog='git log --oneline --decorate --color --graph'
+alias gloag='git log --oneline --decorate --graph --all'
+alias gpl='git pull'
+alias gps='git push'
+alias grs='git restore'
+alias gs='git status'
+alias gsw='git switch'
+alias gswc='git switch -c'
+
 # Shell integrations
 export FZF_DEFAULT_OPTS="--bind 'ctrl-y:accept'"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-
