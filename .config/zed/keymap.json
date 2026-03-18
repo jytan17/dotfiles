@@ -187,12 +187,19 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-,": "terminal_panel::Toggle"
-    }
+      "ctrl-,": "terminal_panel::Toggle",
+    },
   },
   {
     "bindings": {
-      "ctrl-.": "workspace::ToggleZoom"
-    }
-  }
+      "ctrl-.": "workspace::ToggleZoom",
+    },
+  },
+  {
+    "context": "MarkdownPreview",
+    "bindings": {
+      "j": "markdown::ScrollDown",
+      "k": "markdown::ScrollUp",
+    },
+  },
 ]
