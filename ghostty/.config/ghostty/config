@@ -1,0 +1,14 @@
+# Font configuration
+font-family = "JetBrainsMono Nerd Font"
+font-size = 15
+font-style = "Bold"
+
+# Theme
+theme = Catppuccin Mocha
+
+# Terminal type for proper underline support
+term = xterm-ghostty
+
+# Cursor
+cursor-style = block
+shell-integration-features = no-cursor
