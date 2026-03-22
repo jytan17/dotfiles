@@ -1,0 +1,35 @@
+# ============================================================================
+# Language Server Configurations
+# ============================================================================
+
+[language-server.basedpyright]
+command = "basedpyright-langserver"
+args = ["--stdio"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ruff.config.settings]
+lineLength = 88
+
+[language-server.ruff.config.settings.lint]
+select = ["E4", "E7"]
+preview = false
+
+[language-server.ruff.config.settings.format]
+preview = true
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+# ============================================================================
+# Language Configurations
+# ============================================================================
+
+[[language]]
+name = "python"
+language-servers = ["basedpyright", "ruff"]
+auto-format = true
+formatter = { command = "ruff", args = ["format", "-"] }
