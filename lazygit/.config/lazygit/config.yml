@@ -11,5 +11,5 @@ git:
     - colorArg: always
       pager: delta --dark --paging=never
 os:
-  edit: 'nvim --cmd "let g:lazygit=1" {{filename}}'
-  editAtLine: 'nvim --cmd "let g:lazygit=1" +{{line}} {{filename}}'
+  edit: 'hx {{filename}}'
+  editAtLine: 'hx {{filename}}:{{line}}'
