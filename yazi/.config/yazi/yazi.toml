@@ -1,0 +1,6 @@
+[mgr]
+# Column ratio: [parent, current, preview]
+# Default is [1, 4, 3] - this makes middle column narrower and preview wider
+ratio = [2, 3, 5]
+show_hidden = true
+sort_dir_first = true
