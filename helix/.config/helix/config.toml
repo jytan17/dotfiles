@@ -3,6 +3,9 @@ theme = "catppuccin_mocha"
 [editor]
 line-number="relative"
 mouse = false
+auto-completion = true
+idle-timeout = 50
+completion-trigger-len = 1
 
 [editor.cursor-shape]
 insert = "bar"
@@ -22,6 +25,7 @@ workspace-diagnostics = ["warning", "error"]
 [editor.lsp]
 auto-signature-help = true
 display-signature-help-docs = true
+display-messages = true
 
 [editor.indent-guides]
 render = true

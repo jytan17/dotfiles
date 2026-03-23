@@ -1,35 +1,101 @@
-# ============================================================================
-# Language Server Configurations
-# ============================================================================
+# ~/.config/helix/languages.toml
+
+# ───────────────────────────────────────
+# Language Servers
+# ───────────────────────────────────────
 
 [language-server.basedpyright]
 command = "basedpyright-langserver"
 args = ["--stdio"]
 
+[language-server.basedpyright.config]
+basedpyright.analysis.typeCheckingMode = "standard"
+basedpyright.analysis.autoSearchPaths = true
+basedpyright.analysis.useLibraryCodeForTypes = true
+basedpyright.analysis.diagnosticMode = "openFilesOnly"
+
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
 
-[language-server.ruff.config.settings]
-lineLength = 88
+# These are already defined in the built-in config, but listed
+# here for clarity. You can omit them if you're happy with defaults.
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
 
-[language-server.ruff.config.settings.lint]
-select = ["E4", "E7"]
-preview = false
+[language-server.vscode-json-language-server]
+command = "vscode-json-language-server"
+args = ["--stdio"]
+config = { provideFormatter = true, json = { validate = { enable = true } } }
 
-[language-server.ruff.config.settings.format]
-preview = true
+[language-server.docker-langserver]
+command = "docker-langserver"
+args = ["--stdio"]
 
-[language-server.ty]
-command = "ty"
+[language-server.docker-compose-langserver]
+command = "docker-compose-langserver"
+args = ["--stdio"]
+
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+
+[language-server.marksman]
+command = "marksman"
 args = ["server"]
 
-# ============================================================================
-# Language Configurations
-# ============================================================================
+# ───────────────────────────────────────
+# Languages
+# ───────────────────────────────────────
 
+# PYTHON — basedpyright for type-checking/intellisense, ruff for linting/formatting
 [[language]]
 name = "python"
-language-servers = ["basedpyright", "ruff"]
 auto-format = true
+language-servers = [
+  { name = "basedpyright", except-features = ["format"] },
+  "ruff",
+]
 formatter = { command = "ruff", args = ["format", "-"] }
+indent = { tab-width = 4, unit = "    " }
+roots = ["pyproject.toml", "setup.py", "pyrightconfig.json"]
+
+# MARKDOWN
+[[language]]
+name = "markdown"
+language-servers = ["marksman"]
+auto-format = false
+soft-wrap.enable = true
+
+# JSON
+[[language]]
+name = "json"
+language-servers = ["vscode-json-language-server"]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+# YAML
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+# DOCKERFILE
+[[language]]
+name = "dockerfile"
+language-servers = ["docker-langserver"]
+
+# DOCKER COMPOSE
+[[language]]
+name = "docker-compose"
+language-servers = ["docker-compose-langserver", "yaml-language-server"]
+auto-format = true
+
+# TOML
+[[language]]
+name = "toml"
+language-servers = ["taplo"]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
