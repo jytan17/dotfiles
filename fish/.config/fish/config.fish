@@ -3,6 +3,10 @@ set -gx COLORTERM truecolor
 set -gx LANG C.UTF-8
 set -gx LC_ALL C.UTF-8
 
+# Default editor
+set -gx EDITOR hx
+set -gx VISUAL hx
+
 # Lazygit config
 set -gx LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml"
 
@@ -38,6 +42,7 @@ abbr gswc 'git switch -c'
 abbr c clear
 abbr lg lazygit
 abbr ld lazydocker
+abbr zj zellij
 abbr vim nvim
 abbr nv nvim
 
