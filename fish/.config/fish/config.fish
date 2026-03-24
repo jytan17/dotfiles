@@ -4,8 +4,8 @@ set -gx LANG C.UTF-8
 set -gx LC_ALL C.UTF-8
 
 # Default editor
-set -gx EDITOR hx
-set -gx VISUAL hx
+set -gx EDITOR zed
+set -gx VISUAL zed
 
 # Lazygit config
 set -gx LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml"

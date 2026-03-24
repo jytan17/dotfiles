@@ -11,5 +11,5 @@ git:
     - colorArg: always
       pager: delta --dark --paging=never
 os:
-  edit: 'hx {{filename}}'
-  editAtLine: 'hx {{filename}}:{{line}}'
+  edit: 'zed {{filename}}'
+  editAtLine: 'zed {{filename}}:{{line}}'
