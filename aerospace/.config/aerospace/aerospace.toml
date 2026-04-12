@@ -69,7 +69,7 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 
 # Fullscreen (like shift+escape zoom in tmux)
-alt-z = 'fullscreen'
+alt-m = 'fullscreen'
 
 # Layout controls
 alt-slash = 'layout tiles horizontal vertical'
