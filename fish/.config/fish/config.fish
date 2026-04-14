@@ -45,6 +45,7 @@ abbr ld lazydocker
 abbr zj zellij
 abbr vim nvim
 abbr nv nvim
+abbr oc opencode
 
 # Aliases (for commands with flags)
 alias ls='eza --icons=always --color=always'
