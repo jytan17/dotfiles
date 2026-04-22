@@ -158,7 +158,7 @@ keybinds clear-defaults=true {
         // Convert current pane between floating/embedded
         bind "F" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
 
-        // Toggle pane frames
+        // Toggle pane frames (borders with pane title)
         bind "b" { TogglePaneFrames; SwitchToMode "Normal"; }
 
         // Stacked/layout (like aerospace alt+/ and alt+,)
