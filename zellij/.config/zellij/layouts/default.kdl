@@ -1,0 +1,67 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "{mode} #[fg=#89B4FA,bold]{session}"
+                format_center "{tabs}"
+                format_right  "{command_git_branch}{datetime}"
+                format_space  ""
+
+                border_enabled  "false"
+                hide_frame_for_single_pane "true"
+
+                mode_normal       "#[bg=#89B4FA,fg=#1E1E2E,bold] NORMAL "
+                mode_tmux         "#[bg=#F9E2AF,fg=#1E1E2E,bold] PREFIX "
+                mode_locked       "#[bg=#F38BA8,fg=#1E1E2E,bold] LOCKED "
+                mode_scroll       "#[bg=#A6E3A1,fg=#1E1E2E,bold] SCROLL "
+                mode_enter_search "#[bg=#F5C2E7,fg=#1E1E2E,bold] SEARCH "
+                mode_search       "#[bg=#F5C2E7,fg=#1E1E2E,bold] SEARCH "
+                mode_rename_tab   "#[bg=#FAB387,fg=#1E1E2E,bold] RENAME "
+                mode_rename_pane  "#[bg=#FAB387,fg=#1E1E2E,bold] RENAME "
+                mode_resize       "#[bg=#CBA6F7,fg=#1E1E2E,bold] RESIZE "
+
+                tab_normal              "#[fg=#6C7086] {index} {name} "
+                tab_active              "#[fg=#CDD6F4,bg=#45475A,bold] {index} {name} "
+                tab_separator           ""
+                tab_sync_indicator      " "
+                tab_fullscreen_indicator " "
+                tab_floating_indicator  " "
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=#A6E3A1,italic] {stdout}"
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+
+                datetime          "#[fg=#BAC2DE] {format} "
+                datetime_format   "%H:%M"
+                datetime_timezone "Asia/Singapore"
+            }
+        }
+    }
+
+    // Swap layouts: prefix+/ cycles through these
+    // Mirrors aerospace: vertical tiles, horizontal tiles, stacked (accordion)
+    swap_tiled_layout name="vertical" {
+        tab {
+            pane split_direction="vertical" { children; }
+        }
+    }
+
+    swap_tiled_layout name="horizontal" {
+        tab {
+            pane split_direction="horizontal" { children; }
+        }
+    }
+
+    swap_tiled_layout name="stacked" {
+        tab {
+            pane split_direction="vertical" {
+                pane
+                pane stacked=true { children; }
+            }
+        }
+    }
+
+    tab name="main"
+}
