@@ -15,7 +15,6 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 | [lazygit](lazygit/) | Terminal git UI |
 | [nvim](nvim/) | Neovim (kickstart.nvim based) |
 | [starship](starship/) | Shell prompt |
-| [tmux](tmux/) | Terminal multiplexer |
 | [yazi](yazi/) | Terminal file manager |
 | [zed](zed/) | Code editor with Vim mode |
 | [zellij](zellij/) | Terminal multiplexer (modern) |
