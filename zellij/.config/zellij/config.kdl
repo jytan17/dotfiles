@@ -29,6 +29,9 @@ serialize_pane_viewport true
 simplified_ui false
 pane_frames false
 
+// Styled underlines (undercurl) passthrough
+styled_underlines true
+
 // Default layout (uses zjstatus status bar)
 default_layout "default"
 
