@@ -35,7 +35,7 @@ layout {
 
                 datetime          "#[fg=#BAC2DE] {format} "
                 datetime_format   "%H:%M"
-                datetime_timezone "Asia/Singapore"
+                datetime_timezone "America/Chicago"
             }
         }
     }
