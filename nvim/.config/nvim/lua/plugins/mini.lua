@@ -9,136 +9,35 @@ return {
     MiniIcons.mock_nvim_web_devicons()
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -- Pick (fuzzy finder) — replaces telescope
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    require('mini.pick').setup({
-      mappings = {
-        move_down = '<C-j>',
-        move_up = '<C-k>',
-      },
-    })
-    require('mini.extra').setup()
-
-    -- Find keymaps (matching Zed: space f …)
-    vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<CR>', { desc = 'Find files' })
-    vim.keymap.set('n', '<leader>fw', '<cmd>Pick grep_live<CR>', { desc = 'Find word (grep)' })
-    vim.keymap.set('n', '<leader>fb', '<cmd>Pick buffers<CR>', { desc = 'Find buffers' })
-    vim.keymap.set('n', '<leader>fh', '<cmd>Pick help<CR>', { desc = 'Find help' })
-    vim.keymap.set('n', '<leader>fd', '<cmd>Pick diagnostic scope="all"<CR>', { desc = 'Find diagnostics' })
-    vim.keymap.set('n', '<leader>fr', '<cmd>Pick resume<CR>', { desc = 'Find resume (last picker)' })
-    vim.keymap.set('n', '<leader>f/', '<cmd>Pick buf_lines scope="current"<CR>', { desc = 'Find in current buffer' })
-    vim.keymap.set('n', '<leader>ls', '<cmd>Pick buf_lines scope="current"<CR>', { desc = 'Document symbols' })
-    vim.keymap.set('n', '<leader>lS', '<cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Workspace symbols' })
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -- Clue (keybind hints) — replaces which-key
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    local miniclue = require('mini.clue')
-    miniclue.setup({
-      triggers = {
-        -- Leader
-        { mode = 'n', keys = '<Leader>' },
-        { mode = 'x', keys = '<Leader>' },
-
-        -- Built-in
-        { mode = 'n', keys = 'g' },
-        { mode = 'x', keys = 'g' },
-        { mode = 'n', keys = "'" },
-        { mode = 'x', keys = "'" },
-        { mode = 'n', keys = '`' },
-        { mode = 'x', keys = '`' },
-        { mode = 'n', keys = '"' },
-        { mode = 'x', keys = '"' },
-
-        -- Window
-        { mode = 'n', keys = '<C-w>' },
-
-        -- Brackets
-        { mode = 'n', keys = '[' },
-        { mode = 'n', keys = ']' },
-        { mode = 'x', keys = '[' },
-        { mode = 'x', keys = ']' },
-
-        -- z key
-        { mode = 'n', keys = 'z' },
-        { mode = 'x', keys = 'z' },
-      },
-
-      clues = {
-        miniclue.gen_clues.builtin_completion(),
-        miniclue.gen_clues.g(),
-        miniclue.gen_clues.marks(),
-        miniclue.gen_clues.registers(),
-        miniclue.gen_clues.windows(),
-        miniclue.gen_clues.z(),
-
-        -- Leader group descriptions
-        { mode = 'n', keys = '<Leader>f', desc = '+find' },
-        { mode = 'n', keys = '<Leader>l', desc = '+lsp' },
-        { mode = 'n', keys = '<Leader>g', desc = '+git' },
-        { mode = 'n', keys = '<Leader>b', desc = '+buffer' },
-        { mode = 'n', keys = '<Leader>s', desc = '+split' },
-        { mode = 'n', keys = '<Leader>t', desc = '+terminal' },
-        { mode = 'n', keys = '<Leader>n', desc = '+next' },
-        { mode = 'n', keys = '<Leader>p', desc = '+prev' },
-      },
-
-      window = {
-        delay = 300,
-        config = { width = 'auto' },
-      },
-    })
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -- Files (file explorer) — mini.files
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    require('mini.files').setup({
-      mappings = {
-        go_in = 'l',
-        go_in_plus = 'L',
-        go_out = 'h',
-        go_out_plus = 'H',
-      },
-      windows = {
-        preview = true,
-        width_preview = 40,
-      },
-    })
-
-    -- Toggle file explorer at current file (matching Zed: space e / space o)
-    vim.keymap.set('n', '<leader>e', function()
-      if not MiniFiles.close() then
-        MiniFiles.open(vim.api.nvim_buf_get_name(0))
-      end
-    end, { desc = 'Toggle file explorer' })
-
-    vim.keymap.set('n', '<leader>o', function()
-      if not MiniFiles.close() then
-        MiniFiles.open()
-      end
-    end, { desc = 'Toggle file explorer (root)' })
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     -- Text editing modules
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-    -- Pairs: auto-close brackets, quotes
-    require('mini.pairs').setup()
 
     -- Surround: sa (add), sd (delete), sr (replace)
     require('mini.surround').setup()
 
+    -- Zed vim-mode alias: Shift-S in visual mode adds surround
+    vim.keymap.set('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { desc = 'Add surround', silent = true })
+
     -- Comment: gcc (line), gc (visual)
     require('mini.comment').setup()
 
-    -- AI: enhanced text objects (function, class, argument, quotes, brackets)
+    -- AI: enhanced text objects (Zed-matching: q=quote, b=bracket, f=function, etc.)
     local ai = require('mini.ai')
     ai.setup({
       n_lines = 500,
       custom_textobjects = {
-        -- Any quote (matches Zed's MiniQuotes behavior)
-        q = ai.gen_spec.argument({ brackets = { { "'", "'" }, { '"', '"' }, { '`', '`' } } }),
-        -- Treesitter-based objects will be added when treesitter is configured
+        -- q = any quote (' " `)
+        q = { { "%b''", '%b""', '%b``' }, '^.().*().$' },
+        -- b = any bracket (parens, braces, square)
+        b = { { '%b()', '%b[]', '%b{}' }, '^.().*().$' },
+        -- a = argument (comma-separated, handles delimiters properly for daa/dia)
+        a = ai.gen_spec.argument({ separator = '[,;]' }),
+        -- Treesitter-powered
+        f = ai.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
+        c = ai.gen_spec.treesitter({ a = '@class.outer', i = '@class.inner' }),
+        o = ai.gen_spec.treesitter({ a = '@loop.outer', i = '@loop.inner' }),
+        e = ai.gen_spec.treesitter({ a = '@conditional.outer', i = '@conditional.inner' }),
+        g = ai.gen_spec.treesitter({ a = '@comment.outer', i = '@comment.inner' }),
       },
     })
 
@@ -167,22 +66,10 @@ return {
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     -- Notify (notification system)
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    require('mini.notify').setup()
-    vim.notify = MiniNotify.make_notify()
-
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    -- Starter (start screen)
-    -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    local starter = require('mini.starter')
-    starter.setup({
-      items = {
-        starter.sections.recent_files(5, false),
-        starter.sections.recent_files(5, true),
-        starter.sections.builtin_actions(),
-      },
-      header = '',
-      footer = '',
+    require('mini.notify').setup({
+      lsp_progress = { enable = false },
     })
+    vim.notify = MiniNotify.make_notify()
 
     -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     -- Zed-matching keymaps (non-plugin-specific)
@@ -221,6 +108,17 @@ return {
     vim.keymap.set('n', '<leader>ph', function() MiniDiff.goto_hunk('prev') end, { desc = 'Prev git hunk' })
     vim.keymap.set('n', '<leader>np', '}', { desc = 'Next paragraph' })
     vim.keymap.set('n', '<leader>pp', '{', { desc = 'Prev paragraph' })
+
+    -- Zed vim-mode bracket aliases: ]d/[d for diagnostics, ]c/[c for git hunks
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Prev diagnostic' })
+    vim.keymap.set('n', ']c', function() MiniDiff.goto_hunk('next') end, { desc = 'Next git hunk' })
+    vim.keymap.set('n', '[c', function() MiniDiff.goto_hunk('prev') end, { desc = 'Prev git hunk' })
+
+    -- Zed vim-mode git diff operations: do (expand hunk), dp (revert hunk)
+    vim.keymap.set('n', 'do', function() MiniDiff.toggle_overlay(0) end, { desc = 'Expand diff hunk' })
+    vim.keymap.set('n', 'dp', function() MiniDiff.operator('reset') end, { desc = 'Revert hunk' })
+
     -- Note: next/prev function, class, comment will be added with treesitter-textobjects
   end,
 }

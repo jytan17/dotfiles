@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  event = 'BufReadPost',
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     -- Mason: auto-install LSP servers
     { 'williamboman/mason.nvim', opts = {} },
@@ -16,24 +16,27 @@ return {
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
         end
 
-        -- Navigation (built-in vim/LSP — matches Zed defaults)
-        map('gd', vim.lsp.buf.definition, 'Go to definition')
-        map('gD', vim.lsp.buf.declaration, 'Go to declaration')
-        map('gy', vim.lsp.buf.type_definition, 'Go to type definition')
-        map('gI', vim.lsp.buf.implementation, 'Go to implementation')
-        map('gA', vim.lsp.buf.references, 'Go to references')
+        -- Disable hover for ruff (basedpyright handles it)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client.name == 'ruff' then
+          client.server_capabilities.hoverProvider = false
+        end
+
+        -- Navigation (using snacks picker for preview support)
         map('gh', vim.lsp.buf.hover, 'Hover info')
 
         -- Leader LSP keymaps (matching Zed: space l …)
         map('<leader>la', vim.lsp.buf.code_action, 'Code actions', { 'n', 'x' })
         map('<leader>lr', vim.lsp.buf.rename, 'Rename symbol')
         map('<leader>ld', vim.diagnostic.open_float, 'Line diagnostics')
-        map('<leader>lf', function() vim.lsp.buf.format({ async = true }) end, 'Format file')
+        map('<leader>lD', function() vim.diagnostic.setloclist() end, 'Diagnostics list')
+        map('<leader>lf', function() require('conform').format({ async = true }) end, 'Format file')
         map('<leader>lh', vim.lsp.buf.signature_help, 'Signature help')
 
-        -- Pick-based LSP navigation (defined in mini.lua, but re-map here for buffer locality)
-        map('<leader>ls', '<cmd>Pick buf_lines scope="current"<CR>', 'Document symbols')
-        map('<leader>lS', '<cmd>Pick lsp scope="workspace_symbol"<CR>', 'Workspace symbols')
+        -- Zed vim-mode aliases (g. for code actions, cd for rename)
+        map('g.', vim.lsp.buf.code_action, 'Code actions (Zed)', { 'n', 'x' })
+        map('cd', vim.lsp.buf.rename, 'Rename symbol (Zed)')
+        -- LSP symbols and goto are handled by snacks.nvim picker (see snacks.lua)
       end,
     })
 
@@ -50,87 +53,90 @@ return {
         },
       },
       virtual_text = {
+        spacing = 2,
         prefix = '●',
-        spacing = 4,
       },
+      virtual_lines = false,
       underline = true,
     })
 
-    -- Use curly underlines for diagnostics (Ghostty supports this)
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = true, sp = '#f38ba8' })
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = true, sp = '#f9e2af' })
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { undercurl = true, sp = '#89dceb' })
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = true, sp = '#a6e3a1' })
-
-    -- ── Server configs ──────────────────────────────────────
-    -- Each key is a server name, value is the config passed to lspconfig.setup()
-    local servers = {
-      -- Python (matches your Helix/Zed setup)
-      basedpyright = {
-        settings = {
-          basedpyright = {
-            analysis = {
-              typeCheckingMode = 'standard',
-            },
+    -- ── Server configs (vim.lsp.config API) ─────────────────
+    -- Python
+    vim.lsp.config('basedpyright', {
+      settings = {
+        basedpyright = {
+          analysis = {
+            typeCheckingMode = 'standard',
           },
         },
       },
-      ruff = {},
-
-      -- Rust
-      rust_analyzer = {
-        settings = {
-          ['rust-analyzer'] = {
-            check = { command = 'clippy' },
-          },
-        },
-      },
-
-      -- Markdown
-      marksman = {},
-
-      -- Docker
-      dockerls = {},
-      docker_compose_language_service = {},
-
-      -- Data formats
-      taplo = {},   -- TOML
-      jsonls = {},  -- JSON
-      yamlls = {    -- YAML
-        settings = {
-          yaml = {
-            schemaStore = { enable = true },
-          },
-        },
-      },
-
-      -- Lua (for editing Neovim config)
-      lua_ls = {
-        settings = {
-          Lua = {
-            runtime = { version = 'LuaJIT' },
-            workspace = {
-              checkThirdParty = false,
-              library = { vim.env.VIMRUNTIME },
-            },
-            telemetry = { enable = false },
-          },
-        },
-      },
-    }
-
-    -- ── Mason auto-install ──────────────────────────────────
-    local ensure_installed = vim.tbl_keys(servers)
-    require('mason-lspconfig').setup({
-      ensure_installed = ensure_installed,
-      automatic_enable = true,
     })
 
-    -- ── Setup each server ───────────────────────────────────
-    local lspconfig = require('lspconfig')
-    for server, config in pairs(servers) do
-      lspconfig[server].setup(config)
-    end
+    vim.lsp.config('ruff', {
+      init_options = {
+        settings = {
+          lineLength = 120,
+          lint = {
+            select = { 'E', 'F', 'I' },
+            ignore = {},
+          },
+          format = {
+            ['quote-style'] = 'double',
+            ['indent-style'] = 'space',
+          },
+        },
+      },
+    })
+
+    vim.lsp.config('rust_analyzer', {
+      settings = {
+        ['rust-analyzer'] = {
+          check = { command = 'clippy' },
+        },
+      },
+    })
+
+    vim.lsp.config('marksman', {})
+    vim.lsp.config('dockerls', {})
+    vim.lsp.config('docker_compose_language_service', {})
+    vim.lsp.config('taplo', {})
+    vim.lsp.config('jsonls', {})
+
+    vim.lsp.config('yamlls', {
+      settings = {
+        yaml = {
+          schemaStore = { enable = true },
+        },
+      },
+    })
+
+    vim.lsp.config('lua_ls', {
+      settings = {
+        Lua = {
+          runtime = { version = 'LuaJIT' },
+          workspace = {
+            checkThirdParty = false,
+            library = { vim.env.VIMRUNTIME },
+          },
+          telemetry = { enable = false },
+        },
+      },
+    })
+
+    -- ── Mason auto-install + enable ─────────────────────────
+    local server_names = {
+      'basedpyright', 'ruff', 'rust_analyzer', 'marksman',
+      'dockerls', 'docker_compose_language_service',
+      'taplo', 'jsonls', 'yamlls', 'lua_ls',
+    }
+
+    require('mason-lspconfig').setup({
+      ensure_installed = server_names,
+      automatic_enable = false,
+    })
+
+    -- Enable all servers
+    vim.lsp.enable(server_names)
   end,
 }
 -- vim: ts=2 sts=2 sw=2 et

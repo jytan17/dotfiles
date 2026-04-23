@@ -14,6 +14,8 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
+vim.o.laststatus = 3             -- Global statusline (single bar across splits)
+vim.opt.fillchars = { vert = '│', horiz = '─', horizup = '┴', horizdown = '┬', vertleft = '┤', vertright = '├', verthoriz = '┼' }
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.splitright = true
@@ -26,8 +28,23 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 vim.o.termguicolors = true
 
+-- Folding: managed by nvim-ufo (za to toggle, zR/zM open/close all, zK to peek)
+vim.o.foldcolumn = '0'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 -- Sync clipboard
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+
+-- Python indent: hanging indent style (one shiftwidth) instead of alignment
+-- See :help ft-python-indent
+vim.g.python_indent = {
+  open_paren = 'shiftwidth()',
+  nested_paren = 'shiftwidth()',
+  continue = 'shiftwidth()',
+  closed_paren_align_last_line = false,
+}
 
 -- [[ Basic Keymaps ]]
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -40,6 +57,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking text',
   group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
+})
+
+-- Unlock Zellij when leaving Neovim (zellij-nav uses locked mode)
+vim.api.nvim_create_autocmd('VimLeave', {
+  pattern = '*',
+  command = 'silent !zellij action switch-mode normal',
 })
 
 -- [[ Install lazy.nvim ]]
