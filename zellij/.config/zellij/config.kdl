@@ -41,6 +41,16 @@ env {
 // Default layout (uses zjstatus status bar)
 default_layout "default"
 
+// Load autolock as a background plugin (not a layout pane) so it doesn't
+// interfere with swap layout cycling.
+load_plugins {
+    "https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
+        triggers "nvim|vim"
+        watch_triggers "fzf|zoxide|atuin"
+        watch_interval "1.0"
+    }
+}
+
 keybinds clear-defaults=true {
     // =====================
     // Normal mode (always active)

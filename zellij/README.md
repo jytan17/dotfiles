@@ -68,7 +68,7 @@ stow zellij
 
 | Keys | Action |
 |------|--------|
-| `/` | Cycle swap layout: vertical, horizontal, stacked, stacked-horizontal |
+| `/` | Cycle swap layout: vertical, horizontal, stacked |
 | `b` | Toggle pane frames (borders) |
 
 #### Session / Modes
@@ -113,7 +113,7 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
 | Plugin | Purpose |
 |--------|---------|
 | vim-zellij-navigator (v0.3.0) | Detects nvim in focused pane, routes Ctrl-h/j/k/l between zellij panes and nvim splits seamlessly |
-| zellij-autolock | Auto-locks Zellij when nvim/vim is focused so all keys go to the editor |
+| zellij-autolock | Auto-locks Zellij when nvim/vim is focused so all keys go to the editor. Loaded via `load_plugins` in config (not as a layout pane) to avoid interfering with swap layouts. |
 | zjstatus | Custom status bar with Catppuccin colors, git branch, datetime |
 
 ## Notable Settings
@@ -128,11 +128,12 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
 - **Session serialization** enabled (auto-save/restore)
 - **Pane frames** disabled by default
 - **Auto-accept plugin permissions** enabled
-- **Swap layouts:** Vertical, horizontal, stacked (main + accordion), stacked-horizontal (main above, accordion below). Cycled with prefix+/.
+- **Swap layouts:** Vertical, horizontal, stacked (main + accordion). Cycled with prefix+/.
 
 ## Quirks
 
-- **Layout pane ordering matters.** In `default.kdl`, plugin panes (autolock, zjstatus) must be placed AFTER `children` — otherwise they appear as visible rows at the top of the screen instead of being invisible/at the bottom.
+- **Layout pane ordering matters.** In `default.kdl`, plugin panes (zjstatus) must be placed AFTER `children` — otherwise they appear as visible rows at the top of the screen instead of being invisible/at the bottom.
+- **Autolock must NOT be a layout pane.** Loading `zellij-autolock` as a `pane` in the layout causes swap layout cycling to break (panes get pushed off-screen). It must be loaded via `load_plugins` in `config.kdl` instead.
 - **Zellij restart required for layout changes.** Detaching and reattaching is not enough — you must kill all Zellij sessions and start fresh for layout file changes to take effect.
 
 ## Theme / Appearance
