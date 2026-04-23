@@ -117,6 +117,8 @@ All keys pass through to the terminal. Exit with `Ctrl-Space`.
 ## Notable Settings
 
 - **Shell:** Fish
+- **TERM override:** `vte-256color` (required for undercurl in nvim inside zellij on WSL -- see [neovim/neovim#31698](https://github.com/neovim/neovim/issues/31698))
+- **Styled underlines** enabled (passthrough undercurl escape sequences)
 - **Mouse** enabled
 - **Copy on select** enabled
 - **Clickable URLs** enabled (Ctrl-click to open)
