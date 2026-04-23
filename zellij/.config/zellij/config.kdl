@@ -261,6 +261,6 @@ keybinds clear-defaults=true {
     // Locked mode (passthrough all keys)
     // =====================
     locked {
-        bind "Ctrl Space" { SwitchToMode "Normal"; }
+        bind "Ctrl Space" { SwitchToMode "tmux"; }
     }
 }

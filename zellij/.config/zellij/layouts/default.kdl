@@ -1,6 +1,14 @@
 layout {
     default_tab_template {
         children
+        // Auto-lock Zellij when nvim/vim is focused (for zellij-nav.nvim)
+        pane size=1 borderless=true {
+            plugin location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
+                triggers "nvim|vim"
+                watch_triggers "fzf|zoxide|atuin"
+                watch_interval "1.0"
+            }
+        }
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left   "{mode} #[fg=#89B4FA,bold]{session}"

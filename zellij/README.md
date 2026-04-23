@@ -105,13 +105,14 @@ Keys are repeatable -- no need to re-enter the mode.
 
 ### Locked Mode (`prefix + g`)
 
-All keys pass through to the terminal. Exit with `Ctrl-Space`.
+All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode (single tap, no need to unlock first). This is important for Neovim integration — `zellij-autolock` puts Zellij in locked mode when Neovim is focused, so `Ctrl-Space` is all you need to access Zellij actions from inside Neovim.
 
 ## Plugins
 
 | Plugin | Purpose |
 |--------|---------|
 | vim-zellij-navigator (v0.3.0) | Detects nvim in focused pane, routes Ctrl-h/j/k/l between zellij panes and nvim splits seamlessly |
+| zellij-autolock | Auto-locks Zellij when nvim/vim is focused so all keys go to the editor |
 | zjstatus | Custom status bar with Catppuccin colors, git branch, datetime |
 
 ## Notable Settings
@@ -127,6 +128,11 @@ All keys pass through to the terminal. Exit with `Ctrl-Space`.
 - **Pane frames** disabled by default
 - **Auto-accept plugin permissions** enabled
 - **Swap layouts:** Vertical (side by side), Horizontal (top to bottom), Stacked (main + accordion)
+
+## Quirks
+
+- **Layout pane ordering matters.** In `default.kdl`, plugin panes (autolock, zjstatus) must be placed AFTER `children` — otherwise they appear as visible rows at the top of the screen instead of being invisible/at the bottom.
+- **Zellij restart required for layout changes.** Detaching and reattaching is not enough — you must kill all Zellij sessions and start fresh for layout file changes to take effect.
 
 ## Theme / Appearance
 
