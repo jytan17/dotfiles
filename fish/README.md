@@ -68,7 +68,7 @@ stow fish
 | `lg` | `lazygit` |
 | `ld` | `lazydocker` |
 | `zj` | `zellij` |
-| `vim` / `nv` | `nvim` |
+| `vim` / `vi` / `nv` | `nvim` |
 | `oc` | `opencode` |
 
 ## Aliases
@@ -84,6 +84,6 @@ stow fish
 
 | Setting | Value |
 |---------|-------|
-| `EDITOR` / `VISUAL` | `zed` |
+| `EDITOR` / `VISUAL` | `nvim` |
 | `COLORTERM` | `truecolor` |
 | `LANG` / `LC_ALL` | `C.UTF-8` |

@@ -11,5 +11,5 @@ git:
     - colorArg: always
       pager: delta --dark --paging=never
 os:
-  edit: 'zed {{filename}}'
-  editAtLine: 'zed {{filename}}:{{line}}'
+  edit: 'nvim {{filename}}'
+  editAtLine: 'nvim +{{line}} {{filename}}'

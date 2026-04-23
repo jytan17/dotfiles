@@ -1,6 +1,6 @@
 # Lazygit
 
-Terminal UI for git. Configured with delta pager and Zed as external editor.
+Terminal UI for git. Configured with delta pager and Neovim as external editor.
 
 ## Setup
 
@@ -12,7 +12,7 @@ stow lazygit
 
 - [lazygit](https://github.com/jesseduffield/lazygit) -- `brew install lazygit`
 - [delta](https://github.com/dandavtimer/delta) -- diff pager (`brew install git-delta`)
-- [Zed](https://zed.dev/) -- external editor
+- [Neovim](https://neovim.io/) -- external editor (`brew install neovim`)
 
 ## File Structure
 
@@ -30,5 +30,5 @@ stow lazygit
 | Auto fetch | Enabled | Keeps remote state up-to-date |
 | Main branches | `main`, `master` | Both recognized as trunk |
 | Pager | `delta --dark --paging=never` | Syntax-highlighted diffs |
-| Editor | `zed {{filename}}` | Opens files in Zed |
-| Editor (at line) | `zed {{filename}}:{{line}}` | Opens at specific line in Zed |
+| Editor | `nvim {{filename}}` | Opens files in Neovim |
+| Editor (at line) | `nvim +{{line}} {{filename}}` | Opens at specific line in Neovim |
