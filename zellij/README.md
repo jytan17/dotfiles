@@ -39,6 +39,7 @@ stow zellij
 |------|--------|
 | `\|` | Vertical split |
 | `-` | Horizontal split |
+| `=` | Stacked split (accordion) |
 | `m` | Toggle pane zoom (fullscreen) |
 | `x` | Close pane |
 | `n` / `p` | Focus next / previous pane |
@@ -67,7 +68,7 @@ stow zellij
 
 | Keys | Action |
 |------|--------|
-| `/` | Cycle layout: vertical, horizontal, stacked |
+| `/` | Cycle swap layout: vertical, horizontal, stacked, stacked-horizontal |
 | `b` | Toggle pane frames (borders) |
 
 #### Session / Modes
@@ -127,7 +128,7 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
 - **Session serialization** enabled (auto-save/restore)
 - **Pane frames** disabled by default
 - **Auto-accept plugin permissions** enabled
-- **Swap layouts:** Vertical (side by side), Horizontal (top to bottom), Stacked (main + accordion)
+- **Swap layouts:** Vertical, horizontal, stacked (main + accordion), stacked-horizontal (main above, accordion below). Cycled with prefix+/.
 
 ## Quirks
 

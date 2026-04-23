@@ -117,9 +117,10 @@ keybinds clear-defaults=true {
     }
 
     tmux {
-        // Splits (matching tmux: | vertical, - horizontal)
+        // Splits: | vertical, - horizontal, = stacked
         bind "|" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "-" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "=" { NewPane "stacked"; SwitchToMode "Normal"; }
 
         // New tab (like tmux prefix+c)
         bind "c" { NewTab; SwitchToMode "Normal"; }
@@ -170,7 +171,7 @@ keybinds clear-defaults=true {
         // Toggle pane frames (borders with pane title)
         bind "b" { TogglePaneFrames; SwitchToMode "Normal"; }
 
-        // Stacked/layout (like aerospace alt+/ and alt+,)
+        // Layout cycling (prefix+/)
         bind "/" { NextSwapLayout; SwitchToMode "Normal"; }
         bind "," { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
         bind "e" { EditScrollback; SwitchToMode "Normal"; }

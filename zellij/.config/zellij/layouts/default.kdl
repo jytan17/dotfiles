@@ -48,26 +48,63 @@ layout {
         }
     }
 
-    // Swap layouts: prefix+/ cycles through these
-    // Mirrors aerospace: vertical tiles, horizontal tiles, stacked (accordion)
+    // Minimal swap layouts so Zellij can arrange panes when splitting.
+    // Without these, stacked splits and layout cycling can break.
     swap_tiled_layout name="vertical" {
-        tab {
-            pane split_direction="vertical" { children; }
+        tab max_panes=5 {
+            pane split_direction="vertical" {
+                pane
+                pane { children; }
+            }
+        }
+        tab max_panes=8 {
+            pane split_direction="vertical" {
+                pane { children; }
+                pane { pane; pane; pane; pane; }
+            }
+        }
+        tab max_panes=12 {
+            pane split_direction="vertical" {
+                pane { children; }
+                pane { pane; pane; pane; pane; }
+                pane { pane; pane; pane; pane; }
+            }
         }
     }
 
     swap_tiled_layout name="horizontal" {
-        tab {
-            pane split_direction="horizontal" { children; }
+        tab max_panes=4 {
+            pane
+            pane
+        }
+        tab max_panes=8 {
+            pane {
+                pane split_direction="vertical" { children; }
+                pane split_direction="vertical" { pane; pane; pane; pane; }
+            }
+        }
+        tab max_panes=12 {
+            pane {
+                pane split_direction="vertical" { children; }
+                pane split_direction="vertical" { pane; pane; pane; pane; }
+                pane split_direction="vertical" { pane; pane; pane; pane; }
+            }
         }
     }
 
     swap_tiled_layout name="stacked" {
-        tab {
+        tab min_panes=2 {
             pane split_direction="vertical" {
                 pane
                 pane stacked=true { children; }
             }
+        }
+    }
+
+    swap_tiled_layout name="stacked-horizontal" {
+        tab min_panes=2 {
+            pane
+            pane stacked=true { children; }
         }
     }
 
