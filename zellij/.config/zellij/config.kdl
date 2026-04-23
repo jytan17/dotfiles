@@ -32,7 +32,7 @@ pane_frames false
 // Styled underlines (undercurl) passthrough
 styled_underlines true
 
-// Set TERM to vte-256color for undercurl support in nvim inside zellij on WSL
+// Set TERM to vte-256color for undercurl support in nvim inside zellij
 // (xterm-256color doesn't work due to nvim TUI quirk - see neovim/neovim#31698)
 env {
     TERM "vte-256color"
