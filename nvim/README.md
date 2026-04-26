@@ -186,6 +186,23 @@ When multicursors are active: `<left>`/`<right>` to cycle, `<leader>x` to delete
 |------|--------|
 | `<leader>mp` | Toggle in-buffer markdown render |
 
+### Toggles (`<leader>u…`)
+
+Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
+
+| Keys | Action |
+|------|--------|
+| `<leader>uw` | Toggle line wrap |
+| `<leader>ul` | Toggle relative line numbers |
+| `<leader>us` | Toggle spell check |
+| `<leader>uc` | Toggle cursor line |
+| `<leader>ud` | Toggle diagnostics |
+| `<leader>uh` | Toggle LSP inlay hints |
+| `<leader>uT` | Toggle treesitter highlight |
+| `<leader>ug` | Toggle indent guides |
+| `<leader>uD` | Toggle dim (focus current scope) |
+| `<leader>uz` | Toggle zen mode |
+
 ## Plugins
 
 | Plugin | Purpose |
@@ -233,6 +250,7 @@ When multicursors are active: `<left>`/`<right>` to cycle, `<leader>x` to delete
 - **Undo persistence** across sessions
 - **Smart case** search
 - **Cursor line** highlighted, scroll offset of 10
+- **Line wrap** disabled (long lines scroll horizontally)
 - **Format on save** via conform (500ms timeout)
 - **Diagnostics:** virtual text with `●` prefix, undercurl underlines
 - **Signature help** disabled everywhere (too intrusive)

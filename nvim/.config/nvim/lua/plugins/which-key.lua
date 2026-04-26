@@ -19,6 +19,7 @@ return {
       { '<leader>t', group = 'terminal' },
       { '<leader>n', group = 'next' },
       { '<leader>p', group = 'prev' },
+      { '<leader>u', group = 'toggle' },
     },
   },
 }

@@ -23,10 +23,14 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.inccommand = 'split'
+vim.o.wildmode = 'longest:full,full' -- Tab cycles completion menu
+vim.opt.wildoptions = { 'pum', 'fuzzy' } -- Popup menu + fuzzy match in cmdline
+vim.o.pumheight = 12 -- Limit popup menu height
 vim.o.cursorline = true
 vim.o.scrolloff = 10
-vim.o.confirm = true
+vim.o.confirm = false  -- Use plain E37 error on :q with unsaved changes; use :q!/:wq explicitly
 vim.o.termguicolors = true
+vim.o.wrap = false
 
 -- Folding: managed by nvim-ufo (za to toggle, zR/zM open/close all, zK to peek)
 vim.o.foldcolumn = '0'

@@ -1,7 +1,7 @@
 return {
   'saghen/blink.cmp',
   version = '1.*',
-  event = 'InsertEnter',
+  event = { 'InsertEnter', 'CmdlineEnter' },
   dependencies = { 'rafamadriz/friendly-snippets' },
 
   ---@module 'blink.cmp'
@@ -48,6 +48,16 @@ return {
 
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+
+    -- Cmdline completion: as-you-type suggestions for `:`, `/`, `?`
+    cmdline = {
+      enabled = true,
+      keymap = { preset = 'cmdline' },
+      completion = {
+        menu = { auto_show = true },
+        list = { selection = { preselect = false, auto_insert = true } },
+      },
     },
 
     signature = { enabled = false },

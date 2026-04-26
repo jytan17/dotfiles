@@ -20,6 +20,19 @@ return {
     dashboard = { enabled = true },
     zen = { enabled = true },
   },
+  config = function(_, opts)
+    require('snacks').setup(opts)
+    Snacks.toggle.option('wrap', { name = 'Wrap' }):map('<leader>uw')
+    Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map('<leader>ul')
+    Snacks.toggle.option('spell', { name = 'Spell' }):map('<leader>us')
+    Snacks.toggle.option('cursorline', { name = 'Cursor Line' }):map('<leader>uc')
+    Snacks.toggle.diagnostics():map('<leader>ud')
+    Snacks.toggle.inlay_hints():map('<leader>uh')
+    Snacks.toggle.treesitter():map('<leader>uT')
+    Snacks.toggle.indent():map('<leader>ug')
+    Snacks.toggle.dim():map('<leader>uD')
+    Snacks.toggle.zen():map('<leader>uz')
+  end,
   keys = {
     -- Find (space f …)
     { '<leader>ff', function() Snacks.picker.files() end, desc = 'Find files' },
