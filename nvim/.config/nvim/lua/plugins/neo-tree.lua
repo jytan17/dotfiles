@@ -3,6 +3,7 @@ return {
   branch = 'v3.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
   },
   keys = {
@@ -43,9 +44,18 @@ return {
         end,
       },
     },
+    enable_diagnostics = true,
     default_component_configs = {
       indent = {
         with_expanders = true,
+      },
+      diagnostics = {
+        symbols = {
+          error = '\u{ea87} ',
+          warn = '\u{ea6c} ',
+          info = '\u{ea74} ',
+          hint = '\u{eb50} ',
+        },
       },
       git_status = {
         symbols = {

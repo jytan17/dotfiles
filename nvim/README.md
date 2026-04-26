@@ -27,7 +27,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/mini.lua` | mini.nvim modules: surround, comment, ai, diff, indentscope, notify, starter, icons |
 | `.config/nvim/lua/plugins/snacks.lua` | Fuzzy picker + smooth scrolling via snacks.nvim |
 | `.config/nvim/lua/plugins/which-key.lua` | Keybind hint popup (shows after 500ms delay) |
-| `.config/nvim/lua/plugins/neo-tree.lua` | Side-panel file explorer (Zed-style project panel, split open, copy path) |
+| `.config/nvim/lua/plugins/neo-tree.lua` | Side-panel file explorer (Zed-style project panel, split open, copy path, diagnostics) |
 | `.config/nvim/lua/plugins/flash.lua` | Flash jump navigation (type chars, labels appear, teleport) |
 | `.config/nvim/lua/plugins/multicursor.lua` | Multiple cursors (Zed-matching gl, gL, ga, g>, g<) |
 | `.config/nvim/lua/plugins/treesitter.lua` | Treesitter: highlight, indent, incremental selection, textobject move/swap |
@@ -193,7 +193,7 @@ When multicursors are active: `<left>`/`<right>` to cycle, `<leader>x` to delete
 | mini.nvim | Surround, comment, ai text objects, diff, indentscope, notify, starter, icons |
 | snacks.nvim | Fuzzy picker, smooth scrolling, zoom |
 | which-key.nvim | Keybind hints popup (500ms delay, rounded border) |
-| neo-tree.nvim | Side-panel file explorer |
+| neo-tree.nvim | Side-panel file explorer with diagnostic icons |
 | flash.nvim | Jump navigation with labels |
 | multicursor.nvim | Multiple cursors (Zed-matching keybindings) |
 | nvim-treesitter | Syntax highlighting, indent, incremental selection, textobject motions |
@@ -256,4 +256,4 @@ When multicursors are active: `<left>`/`<right>` to cycle, `<leader>x` to delete
 - **Diagnostics:** Nerd Font signs in gutter, undercurl underlines (requires terminal undercurl support)
 - **Fold column:** 1-character wide gutter indicator
 - **Indent guides:** indent-blankline for all levels, mini.indentscope for active scope animation
-- **File explorer:** Neo-tree left panel (35 chars wide), git status icons, follows current file
+- **File explorer:** Neo-tree left panel (35 chars wide), git status icons, diagnostic symbols (Codicons), follows current file
