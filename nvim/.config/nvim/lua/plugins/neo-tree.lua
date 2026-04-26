@@ -84,7 +84,7 @@ return {
           error = '\u{ea87} ',
           warn = '\u{ea6c} ',
           info = '\u{ea74} ',
-          hint = '\u{eb50} ',
+          hint = '\u{f0336} ',
         },
       },
       git_status = {
