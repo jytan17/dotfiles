@@ -25,6 +25,7 @@ return {
     notify = {
       enabled = true,
       view = 'mini',
+      replace = false, -- Don't deduplicate repeated notifications
     },
     -- Routes: suppress common noisy messages
     routes = {

@@ -256,4 +256,4 @@ When multicursors are active: `<left>`/`<right>` to cycle, `<leader>x` to delete
 - **Diagnostics:** Nerd Font signs in gutter, undercurl underlines (requires terminal undercurl support)
 - **Fold column:** 1-character wide gutter indicator
 - **Indent guides:** indent-blankline for all levels, mini.indentscope for active scope animation
-- **File explorer:** Neo-tree left panel (35 chars wide), git status icons, diagnostic symbols (Codicons), follows current file
+- **File explorer:** Neo-tree left panel (35 chars wide), natural sort order, git status icons, diagnostic symbols (Codicons), follows current file

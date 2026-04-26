@@ -12,6 +12,36 @@ return {
   },
   opts = {
     close_if_last_window = true,
+    sort_case_insensitive = true,
+    sort_function = function(a, b)
+      -- Natural sort: directories first, then numeric-aware comparison
+      if a.type ~= b.type then
+        return a.type < b.type
+      end
+      local a_name = a.path:match('[^/]+$') or a.path
+      local b_name = b.path:match('[^/]+$') or b.path
+      local a_parts, b_parts = {}, {}
+      for part in a_name:lower():gmatch('(%d+)') do a_parts[#a_parts + 1] = tonumber(part) end
+      for part in b_name:lower():gmatch('(%d+)') do b_parts[#b_parts + 1] = tonumber(part) end
+      -- Split into text and number segments for proper comparison
+      local a_segs, b_segs = {}, {}
+      for text, num in a_name:lower():gmatch('(%D*)(%d*)') do
+        if text ~= '' then a_segs[#a_segs + 1] = text end
+        if num ~= '' then a_segs[#a_segs + 1] = tonumber(num) end
+      end
+      for text, num in b_name:lower():gmatch('(%D*)(%d*)') do
+        if text ~= '' then b_segs[#b_segs + 1] = text end
+        if num ~= '' then b_segs[#b_segs + 1] = tonumber(num) end
+      end
+      for i = 1, math.max(#a_segs, #b_segs) do
+        local sa, sb = a_segs[i], b_segs[i]
+        if sa == nil then return true end
+        if sb == nil then return false end
+        if type(sa) ~= type(sb) then return type(sa) == 'number' end
+        if sa ~= sb then return sa < sb end
+      end
+      return false
+    end,
     filesystem = {
       follow_current_file = { enabled = true },
       use_libuv_file_watcher = true,

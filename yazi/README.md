@@ -51,6 +51,7 @@ All other bindings are yazi defaults.
 | Column ratio | 2:3:5 | Wide preview pane (50% of screen) |
 | Show hidden | `true` | Dotfiles always visible |
 | Sort dirs first | `true` | Directories listed before files |
+| Sort by | `natural` | Numeric-aware ordering (1, 2, 10 not 1, 10, 2) |
 
 ## Theme / Appearance
 
