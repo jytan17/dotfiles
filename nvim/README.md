@@ -42,7 +42,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/lualine.lua` | Statusline (bubbles style) |
 | `.config/nvim/lua/plugins/indent-blankline.lua` | Indent guide lines |
 | `.config/nvim/lua/plugins/zellij-nav.lua` | Seamless Neovim/Zellij pane navigation |
-| `.config/nvim/lua/plugins/markdown-preview.lua` | Browser-based markdown preview |
+| `.config/nvim/lua/plugins/render-markdown.lua` | In-buffer markdown rendering (headings, bullets, code, tables) |
 
 ## Key Bindings
 
@@ -184,7 +184,7 @@ When multicursors are active: `<left>`/`<right>` to cycle, `<leader>x` to delete
 
 | Keys | Action |
 |------|--------|
-| `<leader>mp` | Toggle markdown preview (opens in browser) |
+| `<leader>mp` | Toggle in-buffer markdown render |
 
 ## Plugins
 
@@ -208,7 +208,7 @@ When multicursors are active: `<left>`/`<right>` to cycle, `<leader>x` to delete
 | lualine.nvim | Statusline (bubbles style) |
 | indent-blankline.nvim | Indent guide lines |
 | zellij-nav.nvim | Neovim/Zellij pane navigation |
-| markdown-preview.nvim | Browser-based markdown preview (`<leader>mp`) |
+| render-markdown.nvim | In-buffer markdown rendering (`<leader>mp` toggle) |
 
 ## LSP Servers
 
