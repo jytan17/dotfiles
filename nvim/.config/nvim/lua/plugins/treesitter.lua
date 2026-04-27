@@ -95,9 +95,10 @@ return {
     require('nvim-treesitter').setup(opts)
 
     -- The new nvim-treesitter API doesn't auto-set indentexpr for buffers.
-    -- Apply treesitter indent for all languages EXCEPT Python (which uses
-    -- its own built-in indenter configured via g:python_indent in init.lua).
-    local ts_indent_exclude = { python = true }
+    -- Apply treesitter indent for all languages EXCEPT:
+    --   - Python: uses g:python_indent (init.lua) for IDE-style hanging indent
+    --   - Rust: built-in GetRustIndent() handles parens/braces better than TS
+    local ts_indent_exclude = { python = true, rust = true }
 
     local function apply_ts_indent()
       local ft = vim.bo.filetype

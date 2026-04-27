@@ -259,7 +259,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 
 ## Quirks
 
-- **Python indent uses built-in indenter**, not treesitter. Treesitter indent for Python uses alignment-style indentation (aligns with first argument after `(`). The built-in `python#GetIndent` with `g:python_indent` settings gives IDE-style hanging indent instead. All other languages use treesitter indent.
+- **Python and Rust use built-in indenters**, not treesitter. Treesitter Python indent gives alignment-style indentation; `g:python_indent` settings give IDE-style hanging indent instead. Treesitter Rust indent gives bad/zero indent inside parens, breaking the `map_cr` paren split — `GetRustIndent()` handles parens and braces correctly. All other languages use treesitter indent.
 - **Treesitter indentexpr requires a custom autocmd.** The new `nvim-treesitter` API (Neovim 0.12+) doesn't auto-set `indentexpr` on buffers like the old `nvim-treesitter.configs` did. A `FileType` autocmd in `treesitter.lua` handles this.
 - **nvim-ufo manages folding.** Don't set `foldmethod` or `foldexpr` manually — ufo overrides them to `manual` at runtime.
 - **Eagle.nvim `K` cycle:** press once to open float, again to enter it, again to close. `q`/`Esc` don't dismiss eagle floats.
