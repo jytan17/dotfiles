@@ -126,7 +126,7 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
 - **Clickable URLs** enabled (Ctrl-click to open)
 - **Scrollback:** 50,000 lines
 - **Session serialization** enabled (auto-save/restore)
-- **Pane frames** disabled by default
+- **Pane frames** enabled with rounded corners
 - **Auto-accept plugin permissions** enabled
 - **Swap layouts:** Vertical, horizontal, stacked (main + accordion). Cycled with prefix+/.
 
@@ -138,7 +138,12 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
 
 ## Theme / Appearance
 
-- **Theme:** Catppuccin Mocha (built-in)
+- **Theme:** Custom `catppuccin-mocha-contrast` (defined in `config.kdl`)
+  - Based on Catppuccin Mocha with high-contrast pane frames
+  - Focused frame: Catppuccin green (`#A6E3A1`) -- immediately obvious
+  - Unfocused frame: Surface0 (`#313244`) -- nearly invisible against background
+  - Mode-highlight frame: yellow (`#F9E2AF`) -- draws attention during Resize, Scroll, etc.
+  - Pane frames use rounded corners
 - **Status bar (zjstatus):**
   - **Left:** Mode indicator (color-coded) + session name
   - **Center:** Tab list (active tab highlighted)
