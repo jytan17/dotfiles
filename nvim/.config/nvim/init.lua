@@ -56,6 +56,14 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Move lines up/down (VS Code style: Opt+Up / Opt+Down)
+vim.keymap.set('n', '<A-Up>', '<cmd>m .-2<CR>==', { desc = 'Move line up' })
+vim.keymap.set('n', '<A-Down>', '<cmd>m .+1<CR>==', { desc = 'Move line down' })
+vim.keymap.set('i', '<A-Up>', '<Esc><cmd>m .-2<CR>==gi', { desc = 'Move line up' })
+vim.keymap.set('i', '<A-Down>', '<Esc><cmd>m .+1<CR>==gi', { desc = 'Move line down' })
+vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
+vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+
 -- Yank highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking text',
