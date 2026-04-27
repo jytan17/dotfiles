@@ -260,7 +260,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 ## Quirks
 
 - **Python and Rust use built-in indenters**, not treesitter. Treesitter Python indent gives alignment-style indentation; `g:python_indent` settings give IDE-style hanging indent instead. Treesitter Rust indent gives bad/zero indent inside parens, breaking the `map_cr` paren split — `GetRustIndent()` handles parens and braces correctly. All other languages use treesitter indent.
-- **Treesitter indentexpr requires a custom autocmd.** The new `nvim-treesitter` API (Neovim 0.12+) doesn't auto-set `indentexpr` on buffers like the old `nvim-treesitter.configs` did. A `FileType` autocmd in `treesitter.lua` handles this.
+- **Treesitter uses the v1 main-branch API.** The `nvim-treesitter` plugin pinned to `branch = main` (v1.0+) is incompatible with the legacy `master` branch. Old-style opts (`ensure_installed`, `highlight`, `indent`, `textobjects`, `incremental_selection`) are silently ignored. `treesitter.lua` instead calls `install({...})`, attaches highlight + indent via a `FileType` autocmd (`vim.treesitter.start()` + `indentexpr`), uses `nvim-treesitter-textobjects` with its own `setup()` for move/swap, and rolls its own incremental selection (the module was removed). See top-of-file comment in `treesitter.lua` for full notes.
 - **nvim-ufo manages folding.** Don't set `foldmethod` or `foldexpr` manually — ufo overrides them to `manual` at runtime.
 - **Eagle.nvim `K` cycle:** press once to open float, again to enter it, again to close. `q`/`Esc` don't dismiss eagle floats.
 - **Zellij integration:** `<C-h/j/k/l>` uses Zellij's locked mode. A `VimLeave` autocmd unlocks Zellij when exiting Neovim. Requires `zellij-autolock` plugin in the Zellij layout.
