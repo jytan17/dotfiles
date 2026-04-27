@@ -5,9 +5,10 @@ local right_bubble = '\238\130\180'  -- U+E0B4 (left half-circle, closes bubble)
 return {
   'nvim-lualine/lualine.nvim',
   event = 'VeryLazy',
+  dependencies = { 'catppuccin/nvim' },
   opts = {
     options = {
-      theme = 'catppuccin',
+      theme = 'catppuccin-mocha',
       component_separators = '',
       section_separators = { left = right_bubble, right = left_bubble },
       globalstatus = true,
