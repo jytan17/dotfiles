@@ -154,6 +154,7 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | Keys | Action |
 |------|--------|
 | `<Opt-Up>` / `<Opt-Down>` | Move line(s) up/down (works in normal, insert, visual) |
+| `<Opt-Backspace>` | Delete previous word (macOS-style, insert + command-line mode) |
 | `<leader>w` | Save file |
 | `<leader>q` | Close buffer |
 | `<leader>/` | Toggle comment |

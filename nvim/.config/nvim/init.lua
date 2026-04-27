@@ -64,6 +64,10 @@ vim.keymap.set('i', '<A-Down>', '<Esc><cmd>m .+1<CR>==gi', { desc = 'Move line d
 vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
 
+-- Opt+Backspace deletes previous word (macOS style, insert + command-line mode)
+vim.keymap.set('i', '<A-BS>', '<C-w>', { desc = 'Delete word backward' })
+vim.keymap.set('c', '<A-BS>', '<C-w>', { desc = 'Delete word backward' })
+
 -- Yank highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking text',

@@ -12,3 +12,7 @@ term = xterm-ghostty
 # Cursor
 cursor-style = block
 shell-integration-features = no-cursor
+
+# Treat Option as Alt/Meta so Opt+Backspace, Opt+Arrow, etc. send
+# proper escape sequences (e.g. \e\x7f for backward-kill-word)
+macos-option-as-alt = true

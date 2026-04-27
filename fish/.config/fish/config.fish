@@ -65,3 +65,4 @@ zoxide init fish | source
 bind \cp history-search-backward
 bind \cn history-search-forward
 bind \cy accept-autosuggestion
+bind \e\x7f backward-kill-word

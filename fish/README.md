@@ -37,6 +37,7 @@ stow fish
 | `Ctrl+P` | Search backward through history |
 | `Ctrl+N` | Search forward through history |
 | `Ctrl+Y` | Accept autosuggestion / fzf selection |
+| `Opt+Backspace` | Delete previous word (macOS-style) |
 
 ## Abbreviations
 

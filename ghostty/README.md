@@ -29,6 +29,7 @@ stow ghostty
 | `term` | `xterm-ghostty` | Enables styled underlines (curly, dotted, dashed) |
 | `cursor-style` | block | Always a block cursor |
 | `shell-integration-features` | `no-cursor` | Prevents shell from changing cursor style |
+| `macos-option-as-alt` | `true` | Option key sends Alt/Meta escape sequences (enables Opt+Backspace word delete, Opt+Arrow word jump, etc.) |
 
 ## Theme / Appearance
 
