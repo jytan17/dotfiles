@@ -101,6 +101,7 @@ return {
     vim.lsp.config('docker_compose_language_service', {})
     vim.lsp.config('taplo', {})
     vim.lsp.config('jsonls', {})
+    vim.lsp.config('just', {})
 
     vim.lsp.config('yamlls', {
       settings = {
@@ -127,7 +128,7 @@ return {
     local server_names = {
       'basedpyright', 'ruff', 'rust_analyzer', 'marksman',
       'dockerls', 'docker_compose_language_service',
-      'taplo', 'jsonls', 'yamlls', 'lua_ls',
+      'taplo', 'jsonls', 'yamlls', 'lua_ls', 'just',
     }
 
     require('mason-lspconfig').setup({

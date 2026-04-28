@@ -14,6 +14,7 @@ return {
       json = { 'jq' },
       yaml = { 'yamlfmt' },
       markdown = { 'mdformat' },
+      just = { 'just' },
       -- Trim trailing whitespace on any filetype without formatters
       ['_'] = { 'trim_whitespace' },
     },

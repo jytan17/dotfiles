@@ -33,7 +33,7 @@ return {
     require('nvim-treesitter').install({
       -- Languages I use
       'python', 'rust', 'markdown', 'markdown_inline', 'dockerfile',
-      'toml', 'json', 'yaml',
+      'toml', 'json', 'yaml', 'just',
       -- Always useful
       'lua', 'luadoc', 'vim', 'vimdoc', 'bash', 'fish',
       'html', 'css', 'regex', 'diff', 'gitcommit', 'git_rebase',

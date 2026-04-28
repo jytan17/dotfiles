@@ -17,6 +17,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 - [Zellij](https://zellij.dev/) -- terminal multiplexer (for `<C-h/j/k/l>` pane navigation)
 - [ripgrep](https://github.com/BurntSushi/ripgrep) -- required for snacks.nvim grep picker
 - [fd](https://github.com/sharkdp/fd) -- recommended for fast file finding (falls back to ripgrep)
+- [just](https://github.com/casey/just) -- required for `just --fmt` formatting of Justfiles
 - LSP servers are auto-installed via Mason on first launch
 
 ## File Structure
@@ -243,6 +244,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 | taplo | TOML | |
 | jsonls | JSON | |
 | yamlls | YAML | Schema store enabled |
+| just | Justfile | `just-lsp` (built on tree-sitter-just) |
 
 ## Notable Settings
 
