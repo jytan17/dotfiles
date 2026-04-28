@@ -3,10 +3,10 @@ return {
   lazy = true,
   event = 'VeryLazy',
   keys = {
-    { '<C-h>', '<cmd>ZellijNavigateLeftTab<CR>',  desc = 'Navigate left or tab' },
-    { '<C-j>', '<cmd>ZellijNavigateDown<CR>',     desc = 'Navigate down' },
-    { '<C-k>', '<cmd>ZellijNavigateUp<CR>',       desc = 'Navigate up' },
-    { '<C-l>', '<cmd>ZellijNavigateRightTab<CR>', desc = 'Navigate right or tab' },
+    { '<C-h>', '<cmd>ZellijNavigateLeft<CR>',  desc = 'Navigate left' },
+    { '<C-j>', '<cmd>ZellijNavigateDown<CR>',  desc = 'Navigate down' },
+    { '<C-k>', '<cmd>ZellijNavigateUp<CR>',    desc = 'Navigate up' },
+    { '<C-l>', '<cmd>ZellijNavigateRight<CR>', desc = 'Navigate right' },
   },
   opts = {},
 }
