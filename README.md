@@ -7,6 +7,7 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 | Package | Description |
 |---------|-------------|
 | [aerospace](aerospace/) | Tiling window manager (macOS) |
+| [claude](claude/) | Claude Code CLI (statusline, local settings) |
 | [fish](fish/) | Shell with abbreviations, aliases, integrations |
 | [ghostty](ghostty/) | Terminal emulator |
 | [git](git/) | Git config with delta pager |
