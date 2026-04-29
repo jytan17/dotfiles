@@ -15,6 +15,10 @@ return {
       formatters = {
         file = { filename_first = true },
       },
+      sources = {
+        files = { hidden = true },
+        grep = { hidden = true },
+      },
     },
     scroll = { enabled = true },
     dashboard = { enabled = true },

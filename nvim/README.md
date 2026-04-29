@@ -280,6 +280,10 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 
 ## Theme / Appearance
 
+- **Picker shows hidden (dot) files** by default for both file finder and grep. Toggle with `<Alt-h>` inside the picker.
+
+## Theme / Appearance
+
 - **Colorscheme:** Catppuccin Mocha
 - **Font:** JetBrainsMono Nerd Font, Medium weight
 - **Statusline:** Lualine with bubble-style rounded separators
