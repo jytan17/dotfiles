@@ -2,7 +2,6 @@ return {
   'saghen/blink.cmp',
   version = '1.*',
   event = { 'InsertEnter', 'CmdlineEnter' },
-  dependencies = { 'rafamadriz/friendly-snippets' },
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -47,7 +46,7 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'buffer' },
     },
 
     -- Cmdline completion: as-you-type suggestions for `:`, `/`, `?`
