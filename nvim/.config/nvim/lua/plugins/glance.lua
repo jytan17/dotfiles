@@ -16,8 +16,6 @@ return {
       before_open = function(results, open, jump, method)
         if #results == 0 then
           vim.notify('No ' .. method .. ' found', vim.log.levels.INFO)
-        elseif #results == 1 and method == 'definitions' then
-          jump(results[1])
         else
           open(results)
         end
