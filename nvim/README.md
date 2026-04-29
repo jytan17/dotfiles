@@ -44,6 +44,8 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/indent-blankline.lua` | Indent guide lines |
 | `.config/nvim/lua/plugins/zellij-nav.lua` | Seamless Neovim/Zellij pane navigation |
 | `.config/nvim/lua/plugins/render-markdown.lua` | In-buffer markdown rendering (headings, bullets, code, tables) |
+| `.config/nvim/lua/plugins/tint.lua` | Dim inactive windows for clearer focus indication |
+| `.config/nvim/lua/plugins/glance.lua` | Peek LSP definitions/references/implementations in side pane |
 
 ## Key Bindings
 
@@ -98,6 +100,10 @@ Leader key: `Space`
 | `<leader>lh` | Signature help |
 | `<leader>ls` / `gs` | Document symbols |
 | `<leader>lS` / `gS` | Workspace symbols |
+| `gpd` | Peek definitions (Glance, side pane) |
+| `gpA` | Peek references (Glance, side pane) |
+| `gpI` | Peek implementations (Glance, side pane) |
+| `gpy` | Peek type definitions (Glance, side pane) |
 
 ### Text Objects
 
@@ -229,6 +235,8 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 | indent-blankline.nvim | Indent guide lines |
 | zellij-nav.nvim | Neovim/Zellij pane navigation |
 | render-markdown.nvim | In-buffer markdown rendering (`<leader>mp` toggle) |
+| tint.nvim | Dims inactive windows so active pane stands out |
+| glance.nvim | Peek LSP results in floating side pane (Zed-style) |
 
 ## LSP Servers
 
@@ -279,3 +287,4 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 - **Fold column:** 1-character wide gutter indicator
 - **Indent guides:** indent-blankline for all levels, mini.indentscope for active scope animation
 - **File explorer:** Neo-tree left panel (35 chars wide), natural sort order, git status icons, diagnostic symbols (Codicons), follows current file
+- **Inactive windows dimmed** via tint.nvim (tint -45, fg only — background untouched, saturation preserved); neo-tree, noice, terminal, and floating windows excluded
