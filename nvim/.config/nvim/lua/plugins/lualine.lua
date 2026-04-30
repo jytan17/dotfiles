@@ -19,7 +19,18 @@ return {
       },
       lualine_b = { 'branch', 'diff', 'diagnostics' },
       lualine_c = { { 'filename', path = 1 } },
-      lualine_x = { 'filetype' },
+      lualine_x = {
+        {
+          function()
+            local count = 0
+            for _, b in ipairs(vim.api.nvim_list_bufs()) do
+              if vim.api.nvim_buf_is_valid(b) and vim.bo[b].buflisted then count = count + 1 end
+            end
+            return '󰈔 ' .. count
+          end,
+        },
+        'filetype',
+      },
       lualine_y = { 'progress' },
       lualine_z = {
         { 'location', separator = { right = right_bubble }, left_padding = 2 },

@@ -45,6 +45,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/zellij-nav.lua` | Seamless Neovim/Zellij pane navigation |
 | `.config/nvim/lua/plugins/render-markdown.lua` | In-buffer markdown rendering (headings, bullets, code, tables) |
 | `.config/nvim/lua/plugins/tint.lua` | Dim inactive windows for clearer focus indication |
+| `.config/nvim/lua/plugins/incline.lua` | Floating filename label at top-right of each window |
 | `.config/nvim/lua/plugins/glance.lua` | Peek LSP definitions/references/implementations in side pane |
 
 ## Key Bindings
@@ -236,6 +237,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 | zellij-nav.nvim | Neovim/Zellij pane navigation |
 | render-markdown.nvim | In-buffer markdown rendering (`<leader>mp` toggle) |
 | tint.nvim | Dims inactive windows so active pane stands out |
+| incline.nvim | Floating filename label per window (top-right corner) |
 | glance.nvim | Peek LSP results in floating side pane (Zed-style) |
 
 ## LSP Servers
@@ -292,3 +294,4 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 - **Indent guides:** indent-blankline for all levels, mini.indentscope for active scope animation
 - **File explorer:** Neo-tree left panel (35 chars wide), natural sort order, git status icons, diagnostic symbols (Codicons), follows current file
 - **Inactive windows dimmed** via tint.nvim (tint -45, fg only — background untouched, saturation preserved); neo-tree, noice, terminal, and floating windows excluded
+- **Floating filename labels** via incline.nvim — small label at top-right of each window showing filename with file-type icon; hidden when only one window is open; active/inactive windows have distinct highlight levels using catppuccin surface colors
