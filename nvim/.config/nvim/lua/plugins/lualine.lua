@@ -22,11 +22,26 @@ return {
       lualine_x = {
         {
           function()
-            local count = 0
+            local total, modified = 0, 0
             for _, b in ipairs(vim.api.nvim_list_bufs()) do
-              if vim.api.nvim_buf_is_valid(b) and vim.bo[b].buflisted then count = count + 1 end
+              if vim.api.nvim_buf_is_valid(b) and vim.bo[b].buflisted then
+                total = total + 1
+                if vim.bo[b].modified then modified = modified + 1 end
+              end
             end
-            return '󰈔 ' .. count
+            if modified > 0 then
+              return '󰈔 ' .. total .. '  ● ' .. modified
+            end
+            return '󰈔 ' .. total
+          end,
+          color = function()
+            local colors = require('catppuccin.palettes').get_palette 'mocha'
+            for _, b in ipairs(vim.api.nvim_list_bufs()) do
+              if vim.api.nvim_buf_is_valid(b) and vim.bo[b].buflisted and vim.bo[b].modified then
+                return { fg = colors.peach }
+              end
+            end
+            return {}
           end,
         },
         'filetype',
