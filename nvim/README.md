@@ -99,6 +99,7 @@ Leader key: `Space`
 | `<leader>lD` | Diagnostics list (location list) |
 | `<leader>lf` | Format file |
 | `<leader>lh` | Signature help |
+| `<leader>lR` | Restart LSP clients for current buffer |
 | `<leader>ls` / `gs` | Document symbols |
 | `<leader>lS` / `gS` | Workspace symbols |
 | `gpd` | Peek definitions (Glance, side pane) |

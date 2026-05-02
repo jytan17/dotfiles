@@ -138,6 +138,45 @@ return {
 
     -- Enable all servers
     vim.lsp.enable(server_names)
+
+    -- ── LspRestart command ──────────────────────────────────
+    -- Not provided by default with vim.lsp.config/enable API
+    -- Stops ALL matching clients (workspace-wide), not just buffer-local,
+    -- so the server process fully restarts and re-scans the project.
+    local function lsp_restart()
+      -- Get clients for current buffer first, fall back to all clients
+      local clients = vim.lsp.get_clients({ bufnr = 0 })
+      if #clients == 0 then
+        clients = vim.lsp.get_clients()
+      end
+      if #clients == 0 then
+        -- No clients anywhere — just re-edit to trigger LSP attach
+        vim.cmd('edit!')
+        vim.notify('No LSP clients found — retriggered attach', vim.log.levels.INFO)
+        return
+      end
+      -- Stop all unique servers (not just buffer-local instances)
+      local seen = {}
+      local names = {}
+      for _, client in ipairs(clients) do
+        if not seen[client.name] then
+          seen[client.name] = true
+          table.insert(names, client.name)
+        end
+      end
+      -- Stop every instance of these servers across all buffers
+      for _, c in ipairs(vim.lsp.get_clients()) do
+        if seen[c.name] then c:stop() end
+      end
+      -- Re-edit to trigger re-attach after servers have shut down
+      vim.defer_fn(function()
+        vim.cmd('edit!')
+        vim.notify('Restarted: ' .. table.concat(names, ', '), vim.log.levels.INFO)
+      end, 500)
+    end
+
+    vim.api.nvim_create_user_command('LspRestart', lsp_restart, { desc = 'Restart all LSP clients' })
+    vim.keymap.set('n', '<leader>lR', lsp_restart, { desc = 'Restart LSP' })
   end,
 }
 -- vim: ts=2 sts=2 sw=2 et
