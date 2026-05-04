@@ -6,7 +6,11 @@ return {
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
-    keymap = { preset = 'default' },
+    keymap = {
+      preset = 'default',
+      ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
+      ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
+    },
 
     appearance = {
       nerd_font_variant = 'mono',
@@ -16,6 +20,12 @@ return {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
+        window = {
+          direction_priority = {
+            menu_north = { 's', 'n' },
+            menu_south = { 's', 'n' },
+          },
+        },
       },
       ghost_text = { enabled = true },
       list = {

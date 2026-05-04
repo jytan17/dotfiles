@@ -33,7 +33,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/multicursor.lua` | Multiple cursors (Zed-matching gl, gL, ga, g>, g<) |
 | `.config/nvim/lua/plugins/treesitter.lua` | Treesitter: highlight, indent, incremental selection, textobject move/swap |
 | `.config/nvim/lua/plugins/lsp.lua` | LSP servers, Mason, diagnostics, LSP keybindings |
-| `.config/nvim/lua/plugins/blink.lua` | Autocompletion (ghost text, auto-docs, mini.icons) |
+| `.config/nvim/lua/plugins/blink.lua` | Autocompletion (ghost text, auto-docs anchored below menu, mini.icons) |
 | `.config/nvim/lua/plugins/conform.lua` | Format on save (ruff, rustfmt, stylua, etc.) |
 | `.config/nvim/lua/plugins/autopairs.lua` | Auto-close brackets/quotes, smart Enter between pairs |
 | `.config/nvim/lua/plugins/noice.lua` | Modern UI for cmdline, messages, notifications |
@@ -169,6 +169,7 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `<leader>/` | Toggle comment |
 | `gcc` | Toggle comment (line) |
 | `<leader>sv` / `<leader>sh` | Split vertical/horizontal |
+| `<C-u>` / `<C-d>` | Scroll completion docs up/down (insert, when menu open) |
 | `<C-Space>` | Expand selection (treesitter) |
 | `<BS>` | Shrink selection (treesitter) |
 | `<C-.>` | Toggle zoom (maximize pane) |
