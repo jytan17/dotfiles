@@ -77,7 +77,7 @@ Prefix: `Ctrl-Space`. Designed to match this repo's zellij bindings.
 
 | Keys | Action |
 |------|--------|
-| `f` | Toggle persistent floating shell (native `display-popup` against a long-lived `scratch` session — content survives across toggles). Inside the popup, `prefix + f` detaches and closes it. |
+| `f` | Toggle floating shell (native `display-popup`). Ctrl-d or `exit` closes it. |
 | `F` | Break current pane out into its own window |
 
 #### Layouts
@@ -91,7 +91,7 @@ Prefix: `Ctrl-Space`. Designed to match this repo's zellij bindings.
 
 | Keys | Action |
 |------|--------|
-| `w` | Session picker (tmux-sessionx — fzf + zoxide) |
+| `w` | Session picker (native `choose-tree`) |
 | `d` | Detach session |
 | `e` | Capture scrollback to a tempfile and open in `$EDITOR` |
 | `[` | Enter copy mode |
@@ -125,9 +125,7 @@ Vi-style.
 | tmux-sensible | Sensible defaults |
 | vim-tmux-navigator | nvim-aware `Ctrl-h/j/k/l` between tmux panes and nvim splits |
 | tmux-yank | Yank to system clipboard |
-| tmux-resurrect | Save/restore sessions across reboots |
-| tmux-continuum | Auto-save sessions on a 15-minute interval (zellij `session_serialization` analogue) |
-| tmux-sessionx | fzf-driven session picker with zoxide integration -- bound to `prefix + w` |
+| tmux-resurrect | Save/restore sessions across reboots (manual: `prefix + Ctrl-s` to save, `prefix + Ctrl-r` to restore) |
 | catppuccin/tmux | Status line theme (mocha flavor, rounded window separators) |
 
 ## Notable Settings
@@ -144,7 +142,7 @@ Vi-style.
 
 ## Quirks
 
-- **Floating shell is native, not a plugin.** `prefix + f` runs `display-popup -E` against a long-lived `scratch` session created on demand via `tmux new-session -A -s scratch`. The session keeps running between toggles, so cwd, history, and any background commands persist. Inside the popup, `prefix + f` detaches the client, ending the popup's foreground command and closing it. The `session-created` hook in `tmux.conf` turns `status off` for the `scratch` session so the popup doesn't render an inner status bar on top of the outer one. Border styling comes from the global `popup-border-style` / `popup-border-lines` (mauve, single line) -- so the float matches the rest of the catppuccin theme automatically. `F` still breaks the current pane into its own window.
+- **Floating shell is native, not a plugin.** `prefix + f` runs `display-popup -E` which spawns a shell in the current pane's directory. Ctrl-d or `exit` closes the popup cleanly. Border styling comes from `popup-border-style` / `popup-border-lines` (mauve, single line) -- matching the catppuccin theme. `F` still breaks the current pane into its own window.
 - **No native stacked/accordion layout.** `=` switches to `main-vertical` -- visually similar but mechanically different.
 - **No locked mode.** zellij's autolock isn't needed because vim-tmux-navigator detects nvim by process name (`#{pane_current_command}`), so `Ctrl-h/j/k/l` correctly stays inside nvim when nvim is focused.
 - **TPM lives outside the stow package.** It's cloned into `~/.config/tmux/plugins/tpm` directly. Stow folds in `tmux.conf` next to the existing `plugins/` dir without conflict.
