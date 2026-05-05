@@ -2,6 +2,7 @@ return {
   'swaits/zellij-nav.nvim',
   lazy = true,
   event = 'VeryLazy',
+  cond = function() return vim.env.ZELLIJ ~= nil end,
   keys = {
     { '<C-h>', '<cmd>ZellijNavigateLeft<CR>',  desc = 'Navigate left' },
     { '<C-j>', '<cmd>ZellijNavigateDown<CR>',  desc = 'Navigate down' },

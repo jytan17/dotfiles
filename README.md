@@ -16,6 +16,7 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 | [lazygit](lazygit/) | Terminal git UI |
 | [nvim](nvim/) | Neovim (kickstart.nvim based) |
 | [starship](starship/) | Shell prompt |
+| [tmux](tmux/) | Terminal multiplexer (image-passthrough capable) |
 | [yazi](yazi/) | Terminal file manager |
 | [zed](zed/) | Code editor with Vim mode |
 | [zellij](zellij/) | Terminal multiplexer (modern) |
@@ -26,7 +27,7 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 
 ```sh
 # Prerequisites
-brew install stow fish starship ghostty helix yazi lazygit git-delta fzf zoxide eza neovim zellij
+brew install stow fish starship ghostty helix yazi lazygit git-delta fzf zoxide eza neovim zellij tmux
 
 # macOS only
 brew install --cask nikitabobko/tap/aerospace karabiner-elements
