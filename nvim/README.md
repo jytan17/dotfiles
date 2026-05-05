@@ -168,7 +168,10 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `<leader>q` | Close buffer |
 | `<leader>/` | Toggle comment |
 | `gcc` | Toggle comment (line) |
-| `<leader>sv` / `<leader>sh` | Split vertical/horizontal |
+| `<leader>s|` / `<leader>s-` | Split vertical/horizontal |
+| `<leader>sh/j/k/l` | Resize split (left/down/up/right, tmux-aware) |
+| `<leader>sH/J/K/L` | Swap split with neighbor (left/down/up/right) |
+| `<leader>s=` | Balance split sizes |
 | `<C-u>` / `<C-d>` | Scroll completion docs up/down (insert, when menu open) |
 | `<C-Space>` | Expand selection (treesitter) |
 | `<BS>` | Shrink selection (treesitter) |
@@ -237,6 +240,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 | lualine.nvim | Statusline (bubbles style) |
 | indent-blankline.nvim | Indent guide lines |
 | zellij-nav.nvim | Neovim/Zellij pane navigation |
+| smart-splits.nvim | Tmux-aware resize, swap splits (stops at edges or resizes tmux pane) |
 | render-markdown.nvim | In-buffer markdown rendering (`<leader>mp` toggle) |
 | tint.nvim | Dims inactive windows so active pane stands out |
 | incline.nvim | Floating filename label per window (top-right corner) |

@@ -86,9 +86,9 @@ return {
     vim.keymap.set('n', '<leader>bc', '<cmd>bd<CR>', { desc = 'Close buffer' })
     vim.keymap.set('n', '<leader>bC', '<cmd>%bd|e#|bd#<CR>', { desc = 'Close other buffers' })
 
-    -- Splits (matching Zed: space s …)
-    vim.keymap.set('n', '<leader>sv', '<cmd>vsplit<CR>', { desc = 'Split right' })
-    vim.keymap.set('n', '<leader>sh', '<cmd>split<CR>', { desc = 'Split down' })
+    -- Splits (matches tmux | and -)
+    vim.keymap.set('n', '<leader>s|', '<cmd>vsplit<CR>', { desc = 'Split right' })
+    vim.keymap.set('n', '<leader>s-', '<cmd>split<CR>', { desc = 'Split down' })
 
     -- Terminal (matching Zed: space t …)
     vim.keymap.set('n', '<leader>tf', '<cmd>terminal<CR>', { desc = 'Open terminal' })

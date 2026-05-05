@@ -45,7 +45,7 @@ Prefix: `Ctrl-Space`. Designed to match this repo's zellij bindings.
 | Keys | Action |
 |------|--------|
 | `Ctrl-h/j/k/l` | Navigate panes (nvim-aware via vim-tmux-navigator). Hard stop at edges -- pressing toward the boundary on the outermost pane does nothing. |
-| `prefix + Up/Down/Left/Right` | Resize pane (repeatable -- after prefix, tap arrows freely within 600ms) |
+| `prefix + h/j/k/l` | Resize pane left/down/up/right (repeatable within 600ms) |
 
 ### Prefix mode (`Ctrl-Space` then...)
 
