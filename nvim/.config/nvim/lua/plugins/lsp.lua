@@ -67,6 +67,10 @@ return {
         basedpyright = {
           analysis = {
             typeCheckingMode = 'standard',
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+            autoImportCompletions = true,
+            diagnosticMode = 'workspace',
           },
         },
       },
