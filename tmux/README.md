@@ -35,6 +35,9 @@ To pick tmux as your multiplexer for a given Ghostty window, just launch `tmux`.
 | File | Purpose |
 |------|---------|
 | `.config/tmux/tmux.conf` | All tmux config: keybindings, terminal features, plugins, theme |
+| `.config/tmux/scripts/stash_park.sh` | Park (move) focused pane into the hidden `_stash` window |
+| `.config/tmux/scripts/stash_menu.sh` | Dynamic menu to pick a stash pane to swap in |
+| `.config/tmux/scripts/stash_cycle.sh` | Cycle next stash pane into current slot |
 
 ## Key Bindings
 
@@ -79,6 +82,16 @@ Prefix: `Ctrl-Space`. Designed to match this repo's zellij bindings.
 |------|--------|
 | `f` | Toggle floating shell (native `display-popup`). Ctrl-d or `exit` closes it. |
 | `F` | Break current pane out into its own window |
+
+#### Pane stash (Zellij-like stacked panes)
+
+Swap between multiple terminals in a single pane slot. Park panes into a hidden `_stash` window; swap them back in when needed. Both panes keep running -- processes never stop.
+
+| Keys | Action |
+|------|--------|
+| `S` | Park focused pane into stash (creates `_stash` window if needed) |
+| `s` | Menu: pick which stash pane to swap into current slot |
+| `Tab` | Cycle: swap next stash pane in (round-robin) |
 
 #### Layouts
 
@@ -143,7 +156,7 @@ Vi-style.
 ## Quirks
 
 - **Floating shell is native, not a plugin.** `prefix + f` runs `display-popup -E` which spawns a shell in the current pane's directory. Ctrl-d or `exit` closes the popup cleanly. Border styling comes from `popup-border-style` / `popup-border-lines` (mauve, single line) -- matching the catppuccin theme. `F` still breaks the current pane into its own window.
-- **No native stacked/accordion layout.** `=` switches to `main-vertical` -- visually similar but mechanically different.
+- **No native stacked/accordion layout.** `=` switches to `main-vertical` -- visually similar but mechanically different. However, the **pane stash** (`prefix + S/s/Tab`) provides a Zellij-like workflow: park panes into a hidden window and swap them in/out of a single slot on demand.
 - **No locked mode.** zellij's autolock isn't needed because vim-tmux-navigator detects nvim by process name (`#{pane_current_command}`), so `Ctrl-h/j/k/l` correctly stays inside nvim when nvim is focused.
 - **TPM lives outside the stow package.** It's cloned into `~/.config/tmux/plugins/tpm` directly. Stow folds in `tmux.conf` next to the existing `plugins/` dir without conflict.
 - **`xterm-ghostty` terminfo is a separate install.** macOS ncurses doesn't ship with it; copy the compiled entry from the Ghostty app bundle into `~/.terminfo/` (see Setup).
