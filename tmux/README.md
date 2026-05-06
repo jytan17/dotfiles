@@ -105,6 +105,7 @@ Swap between multiple terminals in a single pane slot. Park panes into a hidden 
 | Keys | Action |
 |------|--------|
 | `w` | Session picker (native `choose-tree`) |
+| `N` | New session (prompts for name, starts in current directory) |
 | `d` | Detach session |
 | `e` | Capture scrollback to a tempfile and open in `$EDITOR` |
 | `[` | Enter copy mode |
