@@ -11,6 +11,14 @@ return {
   init = function()
     vim.g.tmux_navigator_no_mappings = 1
     vim.g.tmux_navigator_no_wrap = 1
+
+    -- Fallback: Ctrl-hjkl for split navigation when no multiplexer is active.
+    if not vim.env.TMUX and not vim.env.ZELLIJ then
+      vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Navigate left' })
+      vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Navigate down' })
+      vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Navigate up' })
+      vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Navigate right' })
+    end
   end,
 }
 -- vim: ts=2 sts=2 sw=2 et
