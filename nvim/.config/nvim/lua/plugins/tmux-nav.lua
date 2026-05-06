@@ -10,6 +10,7 @@ return {
   },
   init = function()
     vim.g.tmux_navigator_no_mappings = 1
+    vim.g.tmux_navigator_no_wrap = 1
   end,
 }
 -- vim: ts=2 sts=2 sw=2 et
