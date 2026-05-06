@@ -43,10 +43,13 @@ abbr c clear
 abbr lg lazygit
 abbr ld lazydocker
 abbr zj zellij
+abbr tm tmux
 abbr vi nvim
 abbr vim nvim
 abbr nv nvim
+abbr nf 'nvim $(fzf)'
 abbr oc opencode
+abbr cc claude
 
 # Aliases (for commands with flags)
 alias ls='eza --icons=always --color=always'
