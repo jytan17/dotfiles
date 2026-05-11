@@ -12,7 +12,7 @@ return {
         local buftype = vim.api.nvim_get_option_value('buftype', { buf = bufid })
         local filetype = vim.api.nvim_get_option_value('filetype', { buf = bufid })
         if buftype == 'terminal' or buftype == 'prompt' then return true end
-        if filetype == 'neo-tree' or filetype == 'noice' or filetype == 'snacks_picker_list' then return true end
+        if filetype == 'oil' or filetype == 'noice' or filetype == 'snacks_picker_list' then return true end
         return vim.api.nvim_win_get_config(winid).relative ~= ''
       end,
     }

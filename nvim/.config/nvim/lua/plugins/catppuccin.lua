@@ -26,7 +26,7 @@ return {
       blink_cmp = true,
       snacks = true,
       flash = true,
-      neotree = true,
+      oil = true,
       ufo = true,
     },
   },
