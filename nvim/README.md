@@ -28,7 +28,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/mini.lua` | mini.nvim modules: surround, comment, ai, diff, indentscope, notify, starter, icons |
 | `.config/nvim/lua/plugins/snacks.lua` | Fuzzy picker + smooth scrolling via snacks.nvim |
 | `.config/nvim/lua/plugins/which-key.lua` | Keybind hint popup (shows after 500ms delay) |
-| `.config/nvim/lua/plugins/oil.lua` | Buffer-based file explorer (edit filenames to rename, delete lines to remove, splits, copy path) |
+| `.config/nvim/lua/plugins/neo-tree.lua` | Side-panel file explorer (Zed-style project panel, split open, copy path, diagnostics) |
 | `.config/nvim/lua/plugins/flash.lua` | Flash jump navigation (type chars, labels appear, teleport) |
 | `.config/nvim/lua/plugins/multicursor.lua` | Multiple cursors (Zed-matching gl, gL, ga, g>, g<) |
 | `.config/nvim/lua/plugins/treesitter.lua` | Treesitter: highlight, indent, incremental selection, textobject move/swap |
@@ -135,24 +135,17 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `zM` | Close all folds |
 | `zK` | Peek inside fold |
 
-### File Explorer (oil.nvim)
+### File Explorer (Neo-tree)
 
 | Keys | Action |
 |------|--------|
-| `<leader>e` / `-` | Open parent directory of current file |
-| `<leader>o` | Open project root directory |
-| `<CR>` / `l` | Open file or enter directory |
-| `h` / `-` | Go to parent directory |
+| `<leader>e` | Toggle side panel (reveals current file) |
+| `<leader>o` | Toggle side panel (project root) |
+| `l` / `h` | Open / collapse node |
 | `s` | Open in horizontal split |
 | `v` | Open in vertical split |
-| `<C-p>` | Preview file |
-| `q` / `<Esc>` | Close oil buffer |
 | `yp` | Copy relative path |
 | `yP` | Copy absolute path |
-| Edit text | Rename files (just edit the filename) |
-| `dd` | Delete file (moves to trash) |
-| `o` + type name | Create new file (append `/` for directory) |
-| `:w` | Apply all pending changes |
 
 ### Git
 
@@ -232,7 +225,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 | mini.nvim | Surround, comment, ai text objects, diff, indentscope, notify, starter, icons |
 | snacks.nvim | Fuzzy picker, smooth scrolling, zoom |
 | which-key.nvim | Keybind hints popup (500ms delay, rounded border) |
-| oil.nvim | Buffer-based file explorer (edit filenames as text, delete to trash) |
+| neo-tree.nvim | Side-panel file explorer with diagnostic icons |
 | flash.nvim | Jump navigation with labels |
 | multicursor.nvim | Multiple cursors (Zed-matching keybindings) |
 | nvim-treesitter | Syntax highlighting, indent, incremental selection, textobject motions |
@@ -305,6 +298,6 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 - **Diagnostics:** Nerd Font signs in gutter, undercurl underlines (requires terminal undercurl support)
 - **Fold column:** 1-character wide gutter indicator
 - **Indent guides:** indent-blankline for all levels, mini.indentscope for active scope animation
-- **File explorer:** oil.nvim buffer-based explorer (replaces current buffer, natural sort, hidden files shown, `.git` hidden, delete to trash)
-- **Inactive windows dimmed** via tint.nvim (tint -45, fg only — background untouched, saturation preserved); oil, noice, terminal, and floating windows excluded
+- **File explorer:** Neo-tree left panel (35 chars wide), natural sort order, git status icons, diagnostic symbols (Codicons), follows current file
+- **Inactive windows dimmed** via tint.nvim (tint -45, fg only — background untouched, saturation preserved); neo-tree, noice, terminal, and floating windows excluded
 - **Floating filename labels** via incline.nvim — small label at top-right of each window showing filename with file-type icon; hidden when only one window is open; active/inactive windows have distinct highlight levels using catppuccin surface colors
