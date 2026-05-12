@@ -35,6 +35,7 @@ ya pack -i
 | Keys | Action |
 |------|--------|
 | `l` | Smart enter -- opens file or enters directory (via smart-enter plugin) |
+| `<Enter>` | Smart enter -- opens file or enters directory (via smart-enter plugin) |
 
 All other bindings are yazi defaults.
 
