@@ -18,6 +18,8 @@ stow ghostty
 | File | Purpose |
 |------|---------|
 | `.config/ghostty/config` | Main Ghostty configuration |
+| `.config/ghostty/shaders/cursor_warp.glsl` | Faded warp trail shader (Neovide-like) |
+| `.config/ghostty/shaders/ripple_cursor.glsl` | Ripple effect on cursor mode change |
 
 ## Notable Settings
 
@@ -30,6 +32,8 @@ stow ghostty
 | `cursor-style` | block | Always a block cursor |
 | `shell-integration-features` | `no-cursor` | Prevents shell from changing cursor style |
 | `macos-option-as-alt` | `true` | Option key sends Alt/Meta escape sequences (enables Opt+Backspace word delete, Opt+Arrow word jump, etc.) |
+| `custom-shader` | `cursor_warp.glsl`, `ripple_cursor.glsl` | Faded warp trail + ripple on mode change |
+| `custom-shader-animation` | `always` | Keeps animation running even when unfocused |
 
 ## Theme / Appearance
 

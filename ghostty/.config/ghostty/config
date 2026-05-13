@@ -13,6 +13,11 @@ term = xterm-ghostty
 cursor-style = block
 shell-integration-features = no-cursor
 
+# Shaders
+custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/ripple_cursor.glsl
+custom-shader-animation = always
+
 # Treat Option as Alt/Meta so Opt+Backspace, Opt+Arrow, etc. send
 # proper escape sequences (e.g. \e\x7f for backward-kill-word)
 macos-option-as-alt = true
