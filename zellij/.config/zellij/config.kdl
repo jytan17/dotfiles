@@ -378,9 +378,9 @@ themes {
             emphasis_2 137 180 250
             emphasis_3 203 166 247
         }
-        // Mode-active frame (e.g. Resize, Scroll): Yellow — draws attention
+        // Mode-active frame (e.g. Resize, Scroll): Red — matches prefix mode
         frame_highlight {
-            base 249 226 175
+            base 243 139 168
             background 30 30 46
             emphasis_0 243 139 168
             emphasis_1 249 226 175
