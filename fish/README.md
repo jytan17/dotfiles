@@ -39,7 +39,7 @@ Vi mode is enabled (`fish_vi_key_bindings`). Default fish `[I]`/`[N]` prompt is 
 |------|--------|
 | Insert (success) | `>` green |
 | Insert (last cmd error) | `x` red |
-| Normal (vicmd) | `<` green |
+| Normal (vicmd) | `<` blue |
 | Visual | `<` yellow |
 | Replace | `<` mauve |
 

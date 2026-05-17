@@ -11,7 +11,7 @@ continuation_prompt = "[.](bright-black) "
 [character]
 success_symbol = "[>](bold #a6e3a1)"
 error_symbol = "[x](bold #f38ba8)"
-vimcmd_symbol = "[<](bold #a6e3a1)"
+vimcmd_symbol = "[<](bold #89b4fa)"
 vimcmd_visual_symbol = "[<](bold #f9e2af)"
 vimcmd_replace_symbol = "[<](bold #cba6f7)"
 vimcmd_replace_one_symbol = "[<](bold #cba6f7)"
