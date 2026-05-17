@@ -27,6 +27,8 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/init.lua` | Options, folding, Python indent config, keymaps, lazy.nvim bootstrap |
 | `.config/nvim/lua/plugins/mini.lua` | mini.nvim modules: surround, comment, ai, diff, indentscope, notify, starter, icons |
 | `.config/nvim/lua/plugins/gitsigns.lua` | Inline current-line git blame (Zed-style virt text) + popup blame |
+| `.config/nvim/lua/plugins/diffview.lua` | Side-by-side diffs and file/repo history viewer |
+| `.config/nvim/lua/plugins/lazygit.lua` | Floating lazygit inside nvim |
 | `.config/nvim/lua/plugins/snacks.lua` | Fuzzy picker + smooth scrolling via snacks.nvim |
 | `.config/nvim/lua/plugins/which-key.lua` | Keybind hint popup (shows after 500ms delay) |
 | `.config/nvim/lua/plugins/neo-tree.lua` | Side-panel file explorer (Zed-style project panel, split open, copy path, diagnostics) |
@@ -154,7 +156,17 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 |------|--------|
 | `<leader>gs` | Git status (picker) |
 | `<leader>gl` | Git log (picker) |
-| `<leader>gd` | Toggle diff overlay |
+| `<leader>gd` | Toggle diff overlay (mini.diff) |
+| `<leader>gv` / `<leader>gV` | Diffview open / close |
+| `<leader>gt` / `<leader>gT` | Diffview file history (current / repo) |
+| `<leader>gg` | LazyGit (repo) |
+| `<leader>gf` | LazyGit (current file's repo) |
+| `<leader>ghp` | Hunk: preview |
+| `<leader>ghs` | Hunk: stage |
+| `<leader>ghr` | Hunk: reset (restore) |
+| `<leader>ghu` | Hunk: undo stage |
+| `<leader>gS` | Stage entire buffer |
+| `<leader>gR` | Reset entire buffer |
 | `<leader>gb` | Git blame line (popup with full commit + diff) |
 | `<leader>gB` | Toggle inline current-line blame (virt text) |
 | `do` | Expand diff hunk (overlay) |

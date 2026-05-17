@@ -25,10 +25,17 @@ return {
     },
     on_attach = function(bufnr)
       local gs = require('gitsigns')
-      vim.keymap.set('n', '<leader>gb', function() gs.blame_line({ full = true }) end,
-        { buffer = bufnr, desc = 'Git blame line (popup)' })
-      vim.keymap.set('n', '<leader>gB', gs.toggle_current_line_blame,
-        { buffer = bufnr, desc = 'Toggle inline blame' })
+      local map = function(lhs, rhs, desc)
+        vim.keymap.set('n', lhs, rhs, { buffer = bufnr, desc = desc })
+      end
+      map('<leader>gb', function() gs.blame_line({ full = true }) end, 'Git blame line (popup)')
+      map('<leader>gB', gs.toggle_current_line_blame, 'Toggle inline blame')
+      map('<leader>ghp', gs.preview_hunk,    'Hunk: preview')
+      map('<leader>ghs', gs.stage_hunk,      'Hunk: stage')
+      map('<leader>ghr', gs.reset_hunk,      'Hunk: reset (restore)')
+      map('<leader>ghu', gs.undo_stage_hunk, 'Hunk: undo stage')
+      map('<leader>gS',  gs.stage_buffer,    'Stage entire buffer')
+      map('<leader>gR',  gs.reset_buffer,    'Reset entire buffer')
     end,
   },
 }
