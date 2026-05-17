@@ -64,8 +64,17 @@ fzf --fish | source
 # Zoxide
 zoxide init fish | source
 
-# Keybindings
-bind \cp history-search-backward
-bind \cn history-search-forward
-bind \cy accept-autosuggestion
-bind \e\x7f backward-kill-word
+# Vi mode key bindings (mode indicator shown by Starship's character module)
+set -g fish_key_bindings fish_vi_key_bindings
+
+# Suppress fish's built-in [I]/[N] mode prompt; Starship handles the indicator
+function fish_mode_prompt; end
+
+# Custom keybindings (applied on top of vi bindings)
+function fish_user_key_bindings
+    fish_vi_key_bindings
+    bind -M insert \cp history-search-backward
+    bind -M insert \cn history-search-forward
+    bind -M insert \cy accept-autosuggestion
+    bind -M insert \e\x7f backward-kill-word
+end
