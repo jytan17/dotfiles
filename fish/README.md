@@ -16,6 +16,7 @@ stow fish
 - [zoxide](https://github.com/ajeetdsouza/zoxide) -- smart `cd` (`brew install zoxide`)
 - [starship](https://starship.rs/) -- prompt (`brew install starship`)
 - [yazi](https://github.com/sxyazi/yazi) -- terminal file manager (`brew install yazi`)
+- [chafa](https://hpjansson.org/chafa/) -- image preview fallback inside Zellij (`brew install chafa`)
 - [Rust/Cargo](https://rustup.rs/) -- sourced from `~/.cargo/env.fish`
 - [Homebrew](https://brew.sh/) -- auto-detected on macOS and Linux
 
@@ -28,7 +29,7 @@ stow fish
 | `.config/fish/conf.d/rustup.fish` | Auto-sources Rust/Cargo environment |
 | `.config/fish/functions/bedrock-login.fish` | AWS SSO login helper for bedrock profile |
 | `.config/fish/functions/mkcd.fish` | `mkdir -p` + `cd` in one command |
-| `.config/fish/functions/y.fish` | Yazi wrapper with CWD sync on exit |
+| `.config/fish/functions/y.fish` | Yazi wrapper with CWD sync on exit; inside Zellij strips Ghostty/Kitty env so yazi falls back to chafa (Zellij no passthrough Kitty graphics) |
 
 ## Key Bindings
 
