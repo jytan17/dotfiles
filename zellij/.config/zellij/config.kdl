@@ -360,16 +360,16 @@ themes {
             emphasis_2 137 180 250
             emphasis_3 203 166 247
         }
-        // Unfocused pane border: Surface0 — very dim, nearly invisible
+        // Unfocused pane border: Blue
         frame_unselected {
-            base 49 50 68
+            base 137 180 250
             background 30 30 46
             emphasis_0 243 139 168
             emphasis_1 249 226 175
             emphasis_2 137 180 250
             emphasis_3 203 166 247
         }
-        // Focused pane border: Green — bright and obvious
+        // Focused pane border: Green
         frame_selected {
             base 166 227 161
             background 30 30 46
