@@ -1,6 +1,5 @@
 layout {
     default_tab_template {
-        children
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left   "{mode} #[fg=#89B4FA,bold]{session}"
@@ -38,10 +37,10 @@ layout {
                 datetime_timezone "America/Chicago"
             }
         }
+        children
     }
 
     tab_template name="ui" {
-        children
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left   "{mode} #[fg=#89B4FA,bold]{session}"
@@ -77,9 +76,10 @@ layout {
                 datetime          "#[fg=#BAC2DE] {format} "
                 datetime_format   "%H:%M"
                 datetime_timezone "America/Chicago"
-            
+
             }
         }
+        children
     }
 
     swap_tiled_layout name="vertical" {

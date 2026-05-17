@@ -132,7 +132,7 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
 
 ## Quirks
 
-- **Layout pane ordering matters.** In `default.kdl`, plugin panes (zjstatus) must be placed AFTER `children` — otherwise they appear as visible rows at the top of the screen instead of being invisible/at the bottom.
+- **Layout pane ordering controls status bar position.** In `default.kdl`, placing the zjstatus plugin pane BEFORE `children` puts the bar at the top; AFTER `children` puts it at the bottom. Currently placed before → top.
 - **Autolock must NOT be a layout pane.** Loading `zellij-autolock` as a `pane` in the layout causes swap layout cycling to break (panes get pushed off-screen). It must be loaded via `load_plugins` in `config.kdl` instead.
 - **Zellij restart required for layout changes.** Detaching and reattaching is not enough — you must kill all Zellij sessions and start fresh for layout file changes to take effect.
 - **`hide_frame_for_single_pane` causes flickering in Ghostty.** This zjstatus option triggers constant layout redraws that Ghostty's GPU renderer exposes as flickering in the main content area. It is set to `false`.
