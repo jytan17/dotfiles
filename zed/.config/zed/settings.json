@@ -1,12 +1,10 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
   "agent_servers": {
     "codex-acp": {
       "type": "registry",
@@ -25,9 +23,11 @@
     "inactive_opacity": 0.7,
   },
   "agent": {
+    "dock": "right",
+    "sidebar_side": "right",
     "default_model": {
-      "provider": "amazon-bedrock",
-      "model": "claude-sonnet-4-thinking",
+      "provider": "opencode",
+      "model": "zen/claude-sonnet-4",
     },
     "favorite_models": [
       {
@@ -38,9 +38,13 @@
     "model_parameters": [],
   },
   "vim_mode": true,
-  "ui_font_size": 20,
-  "buffer_font_size": 17,
-  "theme": "Catppuccin Mocha - No Italics",
+  "ui_font_size": 17,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha",
+  },
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "terminal": {
@@ -48,7 +52,11 @@
     "font_family": "JetBrainsMono Nerd Font Mono",
     "blinking": "on",
   },
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
   "format_on_save": "on",
   "languages": {
     "Python": {
@@ -61,31 +69,8 @@
       },
     },
   },
-  "lsp": {
-    "ruff": {
-      "initialization_options": {
-        "settings": {
-          "lineLength": 120,
-          "lint": {
-            "select": ["E", "F", "I"],
-            "ignore": [],
-          },
-          "format": {
-            "quote-style": "double",
-            "indent-style": "space",
-          },
-        },
-      },
-    },
-  },
-  "title_bar": {
-    "show_onboarding_banner": false,
-    "show_project_items": false,
-    "show_branch_name": false,
-    "show_user_picture": false,
-  },
   "tab_bar": {
-    "show": true,
+    "show": false,
   },
   "project_panel": {
     "dock": "left",
