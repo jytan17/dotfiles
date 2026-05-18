@@ -1,17 +1,10 @@
 {
+  "disable_ai": true,
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "outline_panel": {
-    "dock": "left"
-  },
-  "agent_servers": {
-    "codex-acp": {
-      "type": "registry",
-    },
-    "claude-acp": {
-      "type": "registry",
-    },
+    "dock": "left",
   },
   "diagnostics": {
     "inline": {
@@ -21,21 +14,6 @@
   "show_edit_predictions": false,
   "active_pane_modifiers": {
     "inactive_opacity": 0.7,
-  },
-  "agent": {
-    "dock": "right",
-    "sidebar_side": "right",
-    "default_model": {
-      "provider": "opencode",
-      "model": "zen/claude-sonnet-4",
-    },
-    "favorite_models": [
-      {
-        "provider": "amazon-bedrock",
-        "model": "claude-sonnet-4-thinking",
-      },
-    ],
-    "model_parameters": [],
   },
   "vim_mode": true,
   "ui_font_size": 17,
