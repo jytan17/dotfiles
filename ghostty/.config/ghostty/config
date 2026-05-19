@@ -1,7 +1,7 @@
 # Font configuration
 font-family = "JetBrainsMono Nerd Font"
 font-size = 15
-font-style = "Medium"
+font-style = "Bold"
 
 # Theme
 theme = Catppuccin Mocha
