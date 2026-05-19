@@ -53,7 +53,7 @@ return {
   },
   config = function(_, opts)
     -- Style the fold line background to be subtle
-    vim.api.nvim_set_hl(0, 'Folded', { bg = 'NONE', fg = '#6c7086', italic = true })
+    vim.api.nvim_set_hl(0, 'Folded', { bg = 'NONE', fg = '#6c7086' })
     vim.api.nvim_set_hl(0, 'UfoFoldedEllipsis', { fg = '#6c7086' })
     require('ufo').setup(opts)
   end,

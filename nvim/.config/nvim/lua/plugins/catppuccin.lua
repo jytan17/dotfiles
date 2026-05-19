@@ -4,6 +4,7 @@ return {
   priority = 1000, -- Load before other plugins
   opts = {
     flavour = 'mocha',
+    no_italic = true,
     custom_highlights = function(colors)
       return {
         NormalFloat = { bg = colors.base },

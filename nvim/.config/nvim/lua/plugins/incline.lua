@@ -24,7 +24,7 @@ return {
         end
         table.insert(result, {
           filename,
-          gui = modified and 'bold,italic' or nil,
+          gui = modified and 'bold' or nil,
         })
         if modified then
           table.insert(result, { ' ●', guifg = colors.peach })
