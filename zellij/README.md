@@ -147,6 +147,7 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
   - Pane frames use rounded corners
 - **Status bar (zjstatus):**
   - **Left:** Mode indicator (color-coded) + session name
-  - **Center:** Tab list (active tab highlighted)
+  - **Center:** Tab list (active tab highlighted) with contextual indicators
   - **Right:** Git branch + time
+- **Tab indicators:** Zoom/fullscreen `[]`, sync `<>` -- plain text appended to tab name when active
 - **Mode colors:** Normal (blue), Prefix (red), Locked (red), Scroll (green), Search (pink), Rename (peach), Resize (mauve)
