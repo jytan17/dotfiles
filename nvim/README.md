@@ -45,6 +45,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/catppuccin.lua` | Catppuccin Mocha colorscheme |
 | `.config/nvim/lua/plugins/lualine.lua` | Statusline (bubbles style) |
 | `.config/nvim/lua/plugins/indent-blankline.lua` | Indent guide lines |
+| `.config/nvim/lua/plugins/rainbow-delimiters.lua` | Rainbow-colored matching brackets/parens via treesitter |
 | `.config/nvim/lua/plugins/zellij-nav.lua` | Seamless Neovim/Zellij pane navigation |
 | `.config/nvim/lua/plugins/render-markdown.lua` | In-buffer markdown rendering (headings, bullets, code, tables) |
 | `.config/nvim/lua/plugins/tint.lua` | Dim inactive windows for clearer focus indication |
@@ -253,6 +254,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 | catppuccin | Mocha colorscheme |
 | lualine.nvim | Statusline (bubbles style) |
 | indent-blankline.nvim | Indent guide lines |
+| rainbow-delimiters.nvim | Rainbow-colored matching brackets/parens (treesitter-based) |
 | zellij-nav.nvim | Neovim/Zellij pane navigation |
 | smart-splits.nvim | Tmux-aware resize, swap splits (stops at edges or resizes tmux pane) |
 | render-markdown.nvim | In-buffer markdown rendering (`<leader>mp` toggle) |
