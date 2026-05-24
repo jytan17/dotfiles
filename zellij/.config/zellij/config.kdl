@@ -360,9 +360,9 @@ themes {
             emphasis_2 137 180 250
             emphasis_3 203 166 247
         }
-        // Unfocused pane border: Blue
+        // Unfocused pane border: Red
         frame_unselected {
-            base 137 180 250
+            base 243 139 168
             background 30 30 46
             emphasis_0 243 139 168
             emphasis_1 249 226 175
@@ -378,9 +378,9 @@ themes {
             emphasis_2 137 180 250
             emphasis_3 203 166 247
         }
-        // Mode-active frame (e.g. Resize, Scroll): Red — matches prefix mode
+        // Mode-active frame (e.g. Resize, Scroll): Peach (orange)
         frame_highlight {
-            base 243 139 168
+            base 250 179 135
             background 30 30 46
             emphasis_0 243 139 168
             emphasis_1 249 226 175

@@ -142,12 +142,12 @@ All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode
 - **Theme:** Custom `catppuccin-mocha-contrast` (defined in `config.kdl`)
   - Based on Catppuccin Mocha with high-contrast pane frames
   - Focused frame: Catppuccin green (`#A6E3A1`)
-  - Unfocused frame: Catppuccin blue (`#89B4FA`)
-  - Mode-highlight frame: red (`#F38BA8`) -- draws attention during Resize, Scroll, etc.
+  - Unfocused frame: Catppuccin red (`#F38BA8`)
+  - Mode-highlight frame: peach/orange (`#FAB387`) -- draws attention during Resize, Scroll, etc.
   - Pane frames use rounded corners
 - **Status bar (zjstatus):**
   - **Left:** Mode indicator (color-coded) + session name
   - **Center:** Tab list (active tab highlighted) with contextual indicators
   - **Right:** Git branch + time
 - **Tab indicators:** Zoom/fullscreen `[]`, sync `<>` -- plain text appended to tab name when active
-- **Mode colors:** Normal (blue), Prefix (red), Locked (red), Scroll (green), Search (pink), Rename (peach), Resize (mauve)
+- **Mode colors:** Normal (blue), Prefix (peach), Locked (peach), Scroll (green), Search (pink), Rename (peach), Resize (mauve)

@@ -11,8 +11,8 @@ layout {
                 hide_frame_for_single_pane "false"
 
                 mode_normal       "#[bg=#89B4FA,fg=#1E1E2E,bold] NORMAL "
-                mode_tmux         "#[bg=#F38BA8,fg=#1E1E2E,bold] PREFIX "
-                mode_locked       "#[bg=#F38BA8,fg=#1E1E2E,bold] LOCKED "
+                mode_tmux         "#[bg=#FAB387,fg=#1E1E2E,bold] PREFIX "
+                mode_locked       "#[bg=#FAB387,fg=#1E1E2E,bold] LOCKED "
                 mode_scroll       "#[bg=#A6E3A1,fg=#1E1E2E,bold] SCROLL "
                 mode_enter_search "#[bg=#F5C2E7,fg=#1E1E2E,bold] SEARCH "
                 mode_search       "#[bg=#F5C2E7,fg=#1E1E2E,bold] SEARCH "
@@ -56,8 +56,8 @@ layout {
                 hide_frame_for_single_pane "false"
 
                 mode_normal       "#[bg=#89B4FA,fg=#1E1E2E,bold] NORMAL "
-                mode_tmux         "#[bg=#F38BA8,fg=#1E1E2E,bold] PREFIX "
-                mode_locked       "#[bg=#F38BA8,fg=#1E1E2E,bold] LOCKED "
+                mode_tmux         "#[bg=#FAB387,fg=#1E1E2E,bold] PREFIX "
+                mode_locked       "#[bg=#FAB387,fg=#1E1E2E,bold] LOCKED "
                 mode_scroll       "#[bg=#A6E3A1,fg=#1E1E2E,bold] SCROLL "
                 mode_enter_search "#[bg=#F5C2E7,fg=#1E1E2E,bold] SEARCH "
                 mode_search       "#[bg=#F5C2E7,fg=#1E1E2E,bold] SEARCH "
