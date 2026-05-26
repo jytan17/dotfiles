@@ -74,6 +74,7 @@
     "context": "Workspace",
     "bindings": {
       "ctrl-,": "terminal_panel::Toggle",
+      "ctrl-.": "agent::Toggle",
     },
   },
   {

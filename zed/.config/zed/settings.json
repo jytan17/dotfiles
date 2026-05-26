@@ -33,7 +33,7 @@
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "ui_font_family": "JetBrainsMono Nerd Font Mono",
   "terminal": {
-    "dock": "right",
+    "dock": "bottom",
     "font_family": "JetBrainsMono Nerd Font Mono",
     "blinking": "on",
   },
