@@ -1,6 +1,12 @@
 {
+  "agent": {
+    "dock": "right",
+    "sidebar_side": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "cli_default_open_behavior": "new_window",
-  "disable_ai": true,
+  "disable_ai": false,
   "git_panel": {
     "dock": "left",
   },
