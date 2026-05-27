@@ -1,0 +1,116 @@
+;; kanata config — laptop HRM mirror for Voyager
+;; GACS home-row mods via tap-hold-release-keys (same-hand suppression),
+;; concurrent-tap-hold for better release-order, space-thumb nav layer,
+;; chordsv2 for Shift+letter so capitals never misfire.
+
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd yes
+  concurrent-tap-hold yes
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+    "Air75 V3-2"
+  )
+)
+
+(defvar
+  tap-time 200
+  hold-time 170
+  chord-time 35   ;; keys within this window = chord
+
+  right-keys (
+    6 7 8 9 0 - =
+    y u i o p [ ] \
+    h j k l ; '
+    n m , . /
+  )
+
+  left-keys (
+    grv 1 2 3 4 5
+    q w e r t
+    a s d f g
+    z x c v b
+    spc
+  )
+)
+
+(defalias
+  cap     esc
+  a-gui   (tap-hold-release-keys $tap-time $hold-time a   lmet $right-keys)
+  s-alt   (tap-hold-release-keys $tap-time $hold-time s   lalt $right-keys)
+  d-ctl   (tap-hold-release-keys $tap-time $hold-time d   lctl $right-keys)
+  f-sft   (tap-hold-release-keys $tap-time $hold-time f   lsft $right-keys)
+  j-sft   (tap-hold-release-keys $tap-time $hold-time j   rsft $left-keys)
+  k-ctl   (tap-hold-release-keys $tap-time $hold-time k   rctl $left-keys)
+  l-alt   (tap-hold-release-keys $tap-time $hold-time l   ralt $left-keys)
+  ;-gui   (tap-hold-release-keys $tap-time $hold-time ;   rmet $left-keys)
+
+  spc-nav (tap-hold-release $tap-time $hold-time spc (layer-while-held nav))
+)
+
+;; chordsv2: simultaneous-press detection for Shift+letter.
+;; If F + opposite-hand key pressed within chord-time, emit Shift+key.
+;; first-release = chord ends when any chord key released.
+;; disabled-layers (nav) = chord inactive while nav layer held.
+(defchordsv2
+  (f y) S-y $chord-time first-release (nav)
+  (f u) S-u $chord-time first-release (nav)
+  (f i) S-i $chord-time first-release (nav)
+  (f o) S-o $chord-time first-release (nav)
+  (f p) S-p $chord-time first-release (nav)
+  (f h) S-h $chord-time first-release (nav)
+  (f j) S-j $chord-time first-release (nav)
+  (f k) S-k $chord-time first-release (nav)
+  (f l) S-l $chord-time first-release (nav)
+  (f n) S-n $chord-time first-release (nav)
+  (f m) S-m $chord-time first-release (nav)
+  (f 6) S-6 $chord-time first-release (nav)
+  (f 7) S-7 $chord-time first-release (nav)
+  (f 8) S-8 $chord-time first-release (nav)
+  (f 9) S-9 $chord-time first-release (nav)
+  (f 0) S-0 $chord-time first-release (nav)
+  (f -) S-- $chord-time first-release (nav)
+  (f =) S-= $chord-time first-release (nav)
+  (f [) S-[ $chord-time first-release (nav)
+  (f ]) S-] $chord-time first-release (nav)
+  (f ;) S-; $chord-time first-release (nav)
+  (f ') S-' $chord-time first-release (nav)
+  (f ,) S-, $chord-time first-release (nav)
+  (f .) S-. $chord-time first-release (nav)
+  (f /) S-/ $chord-time first-release (nav)
+
+  (j q) S-q $chord-time first-release (nav)
+  (j w) S-w $chord-time first-release (nav)
+  (j e) S-e $chord-time first-release (nav)
+  (j r) S-r $chord-time first-release (nav)
+  (j t) S-t $chord-time first-release (nav)
+  (j a) S-a $chord-time first-release (nav)
+  (j s) S-s $chord-time first-release (nav)
+  (j d) S-d $chord-time first-release (nav)
+  ;; (j f) intentionally omitted: same key set as (f j) -> S-j wins.
+  ;; For capital F, use real Shift key or hold F via HRM tap-hold.
+  (j g) S-g $chord-time first-release (nav)
+  (j z) S-z $chord-time first-release (nav)
+  (j x) S-x $chord-time first-release (nav)
+  (j c) S-c $chord-time first-release (nav)
+  (j v) S-v $chord-time first-release (nav)
+  (j b) S-b $chord-time first-release (nav)
+  (j 1) S-1 $chord-time first-release (nav)
+  (j 2) S-2 $chord-time first-release (nav)
+  (j 3) S-3 $chord-time first-release (nav)
+  (j 4) S-4 $chord-time first-release (nav)
+  (j 5) S-5 $chord-time first-release (nav)
+  (j grv) S-grv $chord-time first-release (nav)
+)
+
+(defsrc
+  caps a s d f h j k l ; spc
+)
+
+(deflayer base
+  @cap @a-gui @s-alt @d-ctl @f-sft h @j-sft @k-ctl @l-alt @;-gui @spc-nav
+)
+
+(deflayer nav
+  _    _      _      _      _      left  down   up     right  _      _
+)

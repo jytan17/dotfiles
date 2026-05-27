@@ -12,7 +12,7 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 | [ghostty](ghostty/) | Terminal emulator |
 | [git](git/) | Git config with delta pager |
 | [helix](helix/) | Modal text editor with LSP |
-| [karabiner](karabiner/) | Keyboard customizer (macOS) |
+| [kanata](kanata/) | Keyboard remapper -- home-row mods (macOS) |
 | [lazygit](lazygit/) | Terminal git UI |
 | [nvim](nvim/) | Neovim (kickstart.nvim based) |
 | [starship](starship/) | Shell prompt |
@@ -30,8 +30,8 @@ Personal configuration files managed with [GNU Stow](https://www.gnu.org/softwar
 brew install stow fish starship ghostty helix yazi lazygit git-delta fzf zoxide eza neovim zellij tmux
 
 # macOS only
-brew install --cask nikitabobko/tap/aerospace karabiner-elements
-brew install borders
+brew install --cask nikitabobko/tap/aerospace
+brew install borders kanata
 
 # Font
 brew install --cask font-jetbrains-mono-nerd-font
