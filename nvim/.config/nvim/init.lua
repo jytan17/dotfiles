@@ -51,6 +51,7 @@ vim.g.python_indent = {
 }
 
 -- [[ Basic Keymaps ]]
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file' })
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Exit terminal mode
