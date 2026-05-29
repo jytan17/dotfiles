@@ -57,6 +57,8 @@ return {
       mappings = {
         ['l'] = 'open',
         ['h'] = 'close_node',
+        ['<Right>'] = 'open',
+        ['<Left>'] = 'close_node',
         ['s'] = 'open_split',
         ['v'] = 'open_vsplit',
         ['<space>'] = 'none', -- Don't conflict with leader

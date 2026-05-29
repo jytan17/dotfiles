@@ -146,6 +146,7 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `<leader>e` | Toggle side panel (reveals current file) |
 | `<leader>o` | Toggle side panel (project root) |
 | `l` / `h` | Open / collapse node |
+| `<Right>` / `<Left>` | Open / collapse node (mirrors `l`/`h`; lets `<space>l`/`<space>h` work via kanata nav layer) |
 | `s` | Open in horizontal split |
 | `v` | Open in vertical split |
 | `yp` | Copy relative path |
