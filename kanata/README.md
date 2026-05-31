@@ -108,7 +108,7 @@ Use the nav layer for vim-style movement so you do not pay HRM release-latency o
 - **`concurrent-tap-hold yes`** -- allows multiple HRM keys to overlap cleanly (e.g. Ctrl+Shift+T via D+F+T).
 - **`chordsv2`** for Shift+letter so capitals do not depend on tap-hold release order. `chord-time` (35ms) governs how close together the two keys must be pressed to count as a chord; above the threshold, behaviour falls back to `tap-hold-release-keys`.
 - **`process-unmapped-keys yes`** -- every key not listed in `defsrc` passes through untouched. Only the keys in `defsrc` are remapped.
-- **`macos-dev-names-include`** -- whitelist of keyboards kanata grabs. Voyager is intentionally not listed so its firmware HRM remains the source of truth when it is plugged in. External BT keyboards may appear with different slot suffixes (e.g. `Air75 V3-1`) -- add entries as needed.
+- **`macos-dev-names-include`** -- whitelist of keyboards kanata grabs. Voyager is intentionally not listed so its firmware HRM remains the source of truth when it is plugged in. Air75 V3 appears with different names depending on connection: `Air75 V3-1/-2/-3` for its three BT slots and `Air75 V3 Dongle` for 2.4GHz wireless; all four are whitelisted.
 
 ## Tuning Knobs
 

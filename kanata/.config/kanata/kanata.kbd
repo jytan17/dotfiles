@@ -12,7 +12,10 @@
   concurrent-tap-hold yes
   macos-dev-names-include (
     "Apple Internal Keyboard / Trackpad"
+    "Air75 V3-1"
     "Air75 V3-2"
+    "Air75 V3-3"
+    "Air75 V3 Dongle"
   )
 )
 
