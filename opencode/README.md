@@ -31,6 +31,7 @@ Select **Google** > **OAuth with Google (Gemini CLI)**. A browser window will op
 | File | Purpose |
 |------|---------|
 | `.config/opencode/opencode.json` | Main config with plugin and provider settings |
+| `.config/opencode/tui.json` | TUI-specific settings (scroll, mouse, attention) |
 | `.config/opencode/themes/catppuccin-mocha.json` | Custom Catppuccin Mocha color theme |
 
 ## Plugins
@@ -43,6 +44,7 @@ Select **Google** > **OAuth with Google (Gemini CLI)**. A browser window will op
 
 - **Google OAuth via plugin**: Uses `opencode-gemini-auth` to authenticate with your Google AI Plus account, allowing use of your subscription quotas directly in OpenCode without separate API billing.
 - **No `projectId` configured**: Individual Google AI Plus accounts typically don't need this; the plugin auto-provisions a managed project. Set `provider.google.options.projectId` if you hit quota issues or want to force a specific project.
+- **Scroll acceleration enabled**: macOS-style adaptive scroll acceleration for smooth, natural scrolling in the TUI. Overrides fixed `scroll_speed` when enabled.
 
 ## Theme / Appearance
 
