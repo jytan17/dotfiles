@@ -19,16 +19,15 @@ Stow links `claude/.claude/*` into `~/.claude/`. `~/.claude/settings.json` (mach
 
 ## Statusline
 
-`statusline-command.sh` reads JSON from stdin (Claude Code passes `workspace`, `model`, `vim` fields) and prints a one-line status:
+`statusline-command.sh` reads JSON from stdin (Claude Code passes `workspace`, `model` fields) and prints a one-line status:
 
 ```
-<model>  <dir>  git <branch> <status>  [INSERT|NORMAL]
+<model>  <dir>  git <branch> <status>
 ```
 
 - **Model name** — bold, Catppuccin Mocha Peach.
 - **Directory** — bold blue, `$HOME` collapsed to `~`, truncated to 40 chars from the right.
 - **Git** — bold green branch; bold yellow status counters (`+staged !modified ?untracked`) matching the Starship glyph set.
-- **Vim mode badge** — `INSERT` (green bg) / `NORMAL` (blue bg), only when Vim mode plugin active.
 
 Wired up in `~/.claude/settings.json`:
 

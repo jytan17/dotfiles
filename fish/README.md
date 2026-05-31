@@ -33,17 +33,7 @@ stow fish
 
 ## Key Bindings
 
-Vi mode is enabled (`fish_vi_key_bindings`). Default fish `[I]`/`[N]` prompt is suppressed via an empty `fish_mode_prompt`; Starship's `character` module shows the mode instead:
-
-| Mode | Symbol |
-|------|--------|
-| Insert (success) | `>` green |
-| Insert (last cmd error) | `x` red |
-| Normal (vicmd) | `<` blue |
-| Visual | `<` yellow |
-| Replace | `<` mauve |
-
-Custom bindings (applied to insert mode on top of vi defaults):
+Default emacs-style key bindings (fish default). Custom bindings:
 
 | Keys | Action |
 |------|--------|

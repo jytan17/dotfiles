@@ -18,7 +18,6 @@ DIM="\033[38;2;88;91;112m"
 input=$(cat)
 
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
-vim_mode=$(echo "$input" | jq -r '.vim.mode // empty')
 model=$(echo "$input" | jq -r '.model.display_name // empty')
 
 # Shorten directory path
@@ -53,17 +52,6 @@ if [ -n "$model" ]; then
   model_info=$(printf "${BOLD}${ORANGE}%s${RESET}" "$model")
 fi
 
-# Vim mode badges — black text (bold) on colored background
-# INSERT: black bold on Catppuccin Mocha green #a6e3a1 (truecolor bg 166;227;161)
-# NORMAL: black on blue
-# \033[30m = black fg, \033[48;2;R;G;Bm = truecolor bg, \033[44m = blue bg
-vim_indicator=""
-if [ "$vim_mode" = "INSERT" ]; then
-  vim_indicator=$(printf " \033[1;30;48;2;166;227;161m INSERT \033[0m")
-elif [ "$vim_mode" = "NORMAL" ]; then
-  vim_indicator=$(printf " \033[1;30;44m NORMAL \033[0m")
-fi
-
-# Layout: model  bold-blue-dir  git-info  vim-badge
-printf "%s ${BOLD}${BLUE}%s${RESET}%s%s" \
-  "$model_info" "$dir" "$git_info" "$vim_indicator"
+# Layout: model  bold-blue-dir  git-info
+printf "%s ${BOLD}${BLUE}%s${RESET}%s" \
+  "$model_info" "$dir" "$git_info"

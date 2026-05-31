@@ -3,6 +3,9 @@ set -gx COLORTERM truecolor
 set -gx LANG C.UTF-8
 set -gx LC_ALL C.UTF-8
 
+# uv settings
+set -gx UV_SYSTEM_CERTS true
+
 # Default editor
 set -gx EDITOR nvim
 set -gx VISUAL nvim
@@ -64,17 +67,10 @@ fzf --fish | source
 # Zoxide
 zoxide init fish | source
 
-# Vi mode key bindings (mode indicator shown by Starship's character module)
-set -g fish_key_bindings fish_vi_key_bindings
-
-# Suppress fish's built-in [I]/[N] mode prompt; Starship handles the indicator
-function fish_mode_prompt; end
-
-# Custom keybindings (applied on top of vi bindings)
+# Custom keybindings
 function fish_user_key_bindings
-    fish_vi_key_bindings
-    bind -M insert \cp history-search-backward
-    bind -M insert \cn history-search-forward
-    bind -M insert \cy accept-autosuggestion
-    bind -M insert \e\x7f backward-kill-word
+    bind \cp history-search-backward
+    bind \cn history-search-forward
+    bind \cy accept-autosuggestion
+    bind \e\x7f backward-kill-word
 end
