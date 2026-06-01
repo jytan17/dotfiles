@@ -1,6 +1,6 @@
 # Kanata
 
-Cross-platform keyboard remapper. Used on the laptop's built-in keyboard (and an external Air75 V3 in BT slot 2) to mirror the home-row mods (HRM) layout configured in firmware on the ZSA Voyager, so typing feels consistent across both.
+Cross-platform keyboard remapper. Used on the laptop's built-in keyboard and external Air75 V3 for two things only: Caps as Esc/Ctrl and a Space-held nav layer for vim-style arrows. Home-row mods live in firmware on the ZSA Voyager and are not mirrored here.
 
 Replaces a previous Karabiner-Elements + goku setup.
 
@@ -65,30 +65,7 @@ tail -f /opt/homebrew/var/log/kanata.log
 
 | Tap | Hold |
 |-----|------|
-| Esc | (no hold action -- redundant with HRM Ctrl on D) |
-
-### Home-row mods (GACS layout)
-
-Tap = letter. Hold + opposite-hand key = modifier.
-
-| Key | Tap | Hold |
-|-----|-----|------|
-| A | `a` | LCmd  |
-| S | `s` | LOpt  |
-| D | `d` | LCtrl |
-| F | `f` | LShift |
-| J | `j` | RShift |
-| K | `k` | RCtrl |
-| L | `l` | ROpt  |
-| `;` | `;` | RCmd  |
-
-Outside -> inside: Cmd, Opt, Ctrl, Shift. Shift on strongest finger (index), Cmd on weakest (pinky).
-
-### Shift via chord (chordsv2)
-
-For guaranteed capitals without release-order issues, simultaneous press of `F` or `J` with an opposite-hand key (within `chord-time`, default 35ms) emits Shift+key directly. Covers all opposite-hand letters, digits, and symbols.
-
-The set `{f, j}` resolves to `Shift+J` (capital J). For capital F, use the real Shift key.
+| Esc | LCtrl |
 
 ### Space-thumb nav layer
 
@@ -100,14 +77,10 @@ The set `{f, j}` resolves to `Shift+J` (capital J). For capital F, use the real 
 | Hold Space + K | Up    |
 | Hold Space + L | Right |
 
-Use the nav layer for vim-style movement so you do not pay HRM release-latency on repeated `jk` navigation. Chord (Shift) detection is disabled while the nav layer is held.
-
 ## Notable Settings
 
-- **`tap-hold-release-keys`** for HRM letters. Hold engages when a key from the opposite-hand list is pressed and released while the HRM key is still held. Suppresses early hold on same-hand rolls (e.g. `fd`, `as`). Note: the hold-time timeout still engages hold after 170ms regardless of which key follows -- raise `hold-time` if same-hand typing rolls misfire as mods.
-- **`concurrent-tap-hold yes`** -- allows multiple HRM keys to overlap cleanly (e.g. Ctrl+Shift+T via D+F+T).
-- **`chordsv2`** for Shift+letter so capitals do not depend on tap-hold release order. `chord-time` (35ms) governs how close together the two keys must be pressed to count as a chord; above the threshold, behaviour falls back to `tap-hold-release-keys`.
-- **`process-unmapped-keys yes`** -- every key not listed in `defsrc` passes through untouched. Only the keys in `defsrc` are remapped.
+- **`process-unmapped-keys yes`** -- every key not listed in `defsrc` passes through untouched.
+- **`concurrent-tap-hold yes`** -- allows tap-hold keys to overlap cleanly (e.g. Ctrl from Caps held while Space taps).
 - **`macos-dev-names-include`** -- whitelist of keyboards kanata grabs. Voyager is intentionally not listed so its firmware HRM remains the source of truth when it is plugged in. Air75 V3 appears with different names depending on connection: `Air75 V3-1/-2/-3` for its three BT slots and `Air75 V3 Dongle` for 2.4GHz wireless; all four are whitelisted.
 
 ## Tuning Knobs
@@ -117,18 +90,9 @@ In `defvar`:
 | Var | Default | Effect of raising | Effect of lowering |
 |-----|---------|-------------------|--------------------|
 | `tap-time`   | 200ms | More forgiving tap window | Fast keypresses turn into holds |
-| `hold-time`  | 170ms | Fewer same-hand misfires when typing slowly; mods feel laggy when held alone | Faster mod engagement; more risk of mid-roll misfires |
-| `chord-time` | 35ms  | More combos counted as chords (easier capitals) | Tighter overlap required (fewer accidental capitals) |
-
-## Behaviour Summary
-
-- Fast typing rolls on the same hand never produce mods.
-- Cross-hand keypresses within 35ms produce Shift+letter via chord (e.g. F+J -> capital J).
-- Cross-hand keypresses past the chord window still produce mods via tap-hold, but require releasing the trigger key before the HRM key.
-- Holding an HRM key alone past 170ms engages the mod (for shift+arrow, cmd+click drag, ctrl+wheel, etc.).
-- Holding space turns hjkl into arrow keys with no HRM delay -- the preferred path for vim-style navigation.
+| `hold-time`  | 170ms | Mods feel laggy when held alone | Faster mod engagement; tap may misfire as hold |
 
 ## Related
 
-- The Voyager firmware (Oryx/QMK) is the source of truth for the HRM layout; this config mirrors it on the laptop.
+- The Voyager firmware (Oryx/QMK) handles home-row mods; the laptop does not mirror them anymore.
 - Karabiner-Elements has been uninstalled. Its DriverKit-VirtualHIDDevice extension remains because kanata depends on it.

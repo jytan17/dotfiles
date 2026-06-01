@@ -1,10 +1,6 @@
-;; kanata config — laptop HRM mirror for Voyager.
-;; HOME-ROW GACS variant: mods on A S D F / J K L ;
-;;
-;; tap-hold-release-keys = same-hand suppression for HRM letters.
-;; concurrent-tap-hold   = HRM keys can stack (e.g. D+F+t for Ctrl+Shift+T).
-;; chordsv2              = simultaneous press for guaranteed Shift+letter.
-;; nav layer (space hold) = hjkl arrows without HRM latency for vim.
+;; kanata config — laptop.
+;; Caps: tap = Esc, hold = LCtrl.
+;; Space: tap = Space, hold = nav layer (hjkl arrows).
 
 (defcfg
   process-unmapped-keys yes
@@ -22,98 +18,21 @@
 (defvar
   tap-time 200
   hold-time 170
-  chord-time 35
-
-  right-keys (
-    6 7 8 9 0 - =
-    y u i o p [ ] \
-    h j k l ; '
-    n m , . /
-  )
-
-  left-keys (
-    grv 1 2 3 4 5
-    q w e r t
-    a s d f g
-    z x c v b
-    spc
-  )
 )
 
 (defalias
-  cap        esc
-  a-gui      (tap-hold-release-keys $tap-time $hold-time a lmet $right-keys)
-  s-alt      (tap-hold-release-keys $tap-time $hold-time s lalt $right-keys)
-  d-ctl      (tap-hold-release-keys $tap-time $hold-time d lctl $right-keys)
-  f-sft      (tap-hold-release-keys $tap-time $hold-time f lsft $right-keys)
-  j-sft      (tap-hold-release-keys $tap-time $hold-time j rsft $left-keys)
-  k-ctl      (tap-hold-release-keys $tap-time $hold-time k rctl $left-keys)
-  l-alt      (tap-hold-release-keys $tap-time $hold-time l ralt $left-keys)
-  semi-gui   (tap-hold-release-keys $tap-time $hold-time ; rmet $left-keys)
-
-  spc-nav    (tap-hold-release $tap-time $hold-time spc (layer-while-held nav))
-)
-
-;; chordsv2: simultaneous-press Shift+letter via F (left shift) or J (right shift).
-;; Each chord = (HRM-shift + opposite-hand key) within chord-time -> emit S-key.
-(defchordsv2
-  (f y) S-y $chord-time first-release (nav)
-  (f u) S-u $chord-time first-release (nav)
-  (f i) S-i $chord-time first-release (nav)
-  (f o) S-o $chord-time first-release (nav)
-  (f p) S-p $chord-time first-release (nav)
-  (f h) S-h $chord-time first-release (nav)
-  (f j) S-j $chord-time first-release (nav)
-  (f k) S-k $chord-time first-release (nav)
-  (f l) S-l $chord-time first-release (nav)
-  (f n) S-n $chord-time first-release (nav)
-  (f m) S-m $chord-time first-release (nav)
-  (f 6) S-6 $chord-time first-release (nav)
-  (f 7) S-7 $chord-time first-release (nav)
-  (f 8) S-8 $chord-time first-release (nav)
-  (f 9) S-9 $chord-time first-release (nav)
-  (f 0) S-0 $chord-time first-release (nav)
-  (f -) S-- $chord-time first-release (nav)
-  (f =) S-= $chord-time first-release (nav)
-  (f [) S-[ $chord-time first-release (nav)
-  (f ]) S-] $chord-time first-release (nav)
-  (f ;) S-; $chord-time first-release (nav)
-  (f ') S-' $chord-time first-release (nav)
-  (f ,) S-, $chord-time first-release (nav)
-  (f .) S-. $chord-time first-release (nav)
-  (f /) S-/ $chord-time first-release (nav)
-
-  (j q) S-q $chord-time first-release (nav)
-  (j w) S-w $chord-time first-release (nav)
-  (j e) S-e $chord-time first-release (nav)
-  (j r) S-r $chord-time first-release (nav)
-  (j t) S-t $chord-time first-release (nav)
-  (j a) S-a $chord-time first-release (nav)
-  (j s) S-s $chord-time first-release (nav)
-  (j d) S-d $chord-time first-release (nav)
-  ;; (j f) intentionally omitted: same key set as (f j) -> S-j wins.
-  (j g) S-g $chord-time first-release (nav)
-  (j z) S-z $chord-time first-release (nav)
-  (j x) S-x $chord-time first-release (nav)
-  (j c) S-c $chord-time first-release (nav)
-  (j v) S-v $chord-time first-release (nav)
-  (j b) S-b $chord-time first-release (nav)
-  (j 1) S-1 $chord-time first-release (nav)
-  (j 2) S-2 $chord-time first-release (nav)
-  (j 3) S-3 $chord-time first-release (nav)
-  (j 4) S-4 $chord-time first-release (nav)
-  (j 5) S-5 $chord-time first-release (nav)
-  (j grv) S-grv $chord-time first-release (nav)
+  cap-ctl  (tap-hold $tap-time $hold-time esc lctl)
+  spc-nav  (tap-hold-release $tap-time $hold-time spc (layer-while-held nav))
 )
 
 (defsrc
-  caps a s d f h j k l ; spc
+  caps h j k l spc
 )
 
 (deflayer base
-  @cap @a-gui @s-alt @d-ctl @f-sft h @j-sft @k-ctl @l-alt @semi-gui @spc-nav
+  @cap-ctl h    j    k     l     @spc-nav
 )
 
 (deflayer nav
-  _    _      _      _      _     left down up    right _        _
+  _        left down up    right _
 )
