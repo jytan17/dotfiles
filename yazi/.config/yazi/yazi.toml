@@ -5,3 +5,15 @@ ratio = [2, 3, 5]
 show_hidden = true
 sort_by = "natural"
 sort_dir_first = true
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*/"
+run   = "git"
+group = "git"

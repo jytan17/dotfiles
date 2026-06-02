@@ -11,7 +11,7 @@ stow yazi
 Install plugins after stowing:
 
 ```sh
-ya pack -i
+ya pkg install
 ```
 
 ## Dependencies / External Setup
@@ -27,6 +27,7 @@ ya pack -i
 | `.config/yazi/keymap.toml` | Custom key binding overrides |
 | `.config/yazi/theme.toml` | Flavor/theme selection |
 | `.config/yazi/package.toml` | Plugin/flavor dependency manifest |
+| `.config/yazi/init.lua` | Plugin initialization (git status setup) |
 | `.config/yazi/plugins/smart-enter.yazi/` | Plugin: unified open/enter on `l` |
 | `.config/yazi/flavors/catppuccin-mocha.yazi/` | Full Catppuccin Mocha color definitions |
 
@@ -44,6 +45,7 @@ All other bindings are yazi defaults.
 | Plugin | Description |
 |--------|-------------|
 | smart-enter | Unifies `l` key: enters directories, opens files |
+| git | Shows git status indicators (modified, staged, untracked, etc.) next to files |
 
 ## Notable Settings
 

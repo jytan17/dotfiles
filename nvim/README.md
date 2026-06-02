@@ -18,6 +18,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) -- required for snacks.nvim grep picker
 - [fd](https://github.com/sharkdp/fd) -- recommended for fast file finding (falls back to ripgrep)
 - [just](https://github.com/casey/just) -- required for `just --fmt` formatting of Justfiles
+- [yazi](https://github.com/sxyazi/yazi) -- terminal file manager (`brew install yazi`)
 - LSP servers are auto-installed via Mason on first launch
 
 ## File Structure
@@ -29,6 +30,7 @@ On first launch, lazy.nvim will auto-install all plugins and treesitter parsers.
 | `.config/nvim/lua/plugins/gitsigns.lua` | Inline current-line git blame (Zed-style virt text) + popup blame |
 | `.config/nvim/lua/plugins/diffview.lua` | Side-by-side diffs and file/repo history viewer |
 | `.config/nvim/lua/plugins/lazygit.lua` | Floating lazygit inside nvim |
+| `.config/nvim/lua/plugins/yazi.lua` | Floating yazi file manager inside nvim |
 | `.config/nvim/lua/plugins/snacks.lua` | Fuzzy picker + smooth scrolling via snacks.nvim |
 | `.config/nvim/lua/plugins/which-key.lua` | Keybind hint popup (shows after 500ms delay) |
 | `.config/nvim/lua/plugins/neo-tree.lua` | Side-panel file explorer (Zed-style project panel, split open, copy path, diagnostics) |
@@ -162,6 +164,7 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `<leader>gt` / `<leader>gT` | Diffview file history (current / repo) |
 | `<leader>gg` | LazyGit (repo) |
 | `<leader>gf` | LazyGit (current file's repo) |
+| `<leader>y` | Yazi (current file) |
 | `<leader>ghp` | Hunk: preview |
 | `<leader>ghs` | Hunk: stage |
 | `<leader>ghr` | Hunk: reset (restore) |
@@ -258,6 +261,7 @@ Powered by `Snacks.toggle`. Press `<leader>u` to see all options via which-key.
 | catppuccin | Mocha colorscheme |
 | lualine.nvim | Statusline (bubbles style) |
 | indent-blankline.nvim | Indent guide lines |
+| yazi.nvim | Floating terminal file manager (yazi) |
 | zellij-nav.nvim | Neovim/Zellij pane navigation |
 | smart-splits.nvim | Tmux-aware resize, swap splits (stops at edges or resizes tmux pane) |
 | render-markdown.nvim | In-buffer markdown rendering (`<leader>mp` toggle) |
