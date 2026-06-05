@@ -1,5 +1,5 @@
 // Zellij configuration
-// Replicates tmux experience with Ctrl-Space prefix
+// Replicates tmux experience with Ctrl-, prefix
 
 // Auto-grant plugin permissions (skip permission prompts)
 auto_accept_plugin_permissions true
@@ -125,12 +125,12 @@ keybinds clear-defaults=true {
     }
 
     // =====================
-    // Ctrl-Space prefix bindings (tmux-like)
+    // Ctrl-, prefix bindings (tmux-like)
     // Using "tmux" mode as a prefix layer
     // =====================
     shared_except "locked" {
-        // Prefix key: Ctrl-Space enters tmux mode
-        bind "Ctrl Space" { SwitchToMode "tmux"; }
+        // Prefix key: Ctrl-, enters tmux mode
+        bind "Ctrl ," { SwitchToMode "tmux"; }
     }
 
     tmux {
@@ -217,7 +217,7 @@ keybinds clear-defaults=true {
 
         // Cancel prefix
         bind "Esc" { SwitchToMode "Normal"; }
-        bind "Ctrl Space" { SwitchToMode "Normal"; }
+        bind "Ctrl ," { SwitchToMode "Normal"; }
     }
 
     // =====================
@@ -279,7 +279,7 @@ keybinds clear-defaults=true {
     // Locked mode (passthrough all keys)
     // =====================
     locked {
-        bind "Ctrl Space" { SwitchToMode "tmux"; }
+        bind "Ctrl ," { SwitchToMode "tmux"; }
     }
 }
 
