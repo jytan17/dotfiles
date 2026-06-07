@@ -1,6 +1,6 @@
 # Zellij
 
-Terminal multiplexer with built-in session management. Uses `Ctrl-,` as prefix (tmux-like mode) with vim-style navigation.
+Terminal multiplexer with built-in session management. Uses `Ctrl-Space` as prefix (tmux-like mode) with vim-style navigation.
 
 ## Setup
 
@@ -31,7 +31,7 @@ stow zellij
 | `Ctrl-h/j/k/l` | Navigate panes (nvim-aware via vim-zellij-navigator) |
 | `Alt-h/j/k/l` | Resize panes (nvim-aware via smart-splits) |
 
-### Prefix Mode (`Ctrl-,` then...)
+### Prefix Mode (`Ctrl-Space` then...)
 
 #### Panes
 
@@ -106,7 +106,7 @@ Keys are repeatable -- no need to re-enter the mode.
 
 ### Locked Mode (`prefix + g`)
 
-All keys pass through to the terminal. `Ctrl-,` goes directly to prefix mode (single tap, no need to unlock first). This is important for Neovim integration — `zellij-autolock` puts Zellij in locked mode when Neovim is focused, so `Ctrl-,` is all you need to access Zellij actions from inside Neovim.
+All keys pass through to the terminal. `Ctrl-Space` goes directly to prefix mode (single tap, no need to unlock first). This is important for Neovim integration — `zellij-autolock` puts Zellij in locked mode when Neovim is focused, so `Ctrl-Space` is all you need to access Zellij actions from inside Neovim.
 
 ## Plugins
 
