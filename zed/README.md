@@ -72,8 +72,8 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 
 | Keys | Action |
 |------|--------|
-| `Up` / `Down` | Next / previous completion |
-| `Tab` | Confirm completion |
+| `Tab` / `Shift-Tab` | Next / previous completion |
+| `Ctrl-y` | Confirm completion |
 
 ## Plugins
 

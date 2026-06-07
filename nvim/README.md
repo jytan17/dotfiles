@@ -190,10 +190,6 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `<leader>sh/j/k/l` | Resize split (left/down/up/right, tmux-aware) |
 | `<leader>sH/J/K/L` | Swap split with neighbor (left/down/up/right) |
 | `<leader>s=` | Balance split sizes |
-| `<Tab>` | Accept completion / jump snippet (insert, when menu open) |
-| `<S-Tab>` | Select previous completion (insert, when menu open) |
-| `<Up>` / `<Down>` | Navigate completion menu (insert, when menu open) |
-| `<M-Tab>` / `<M-S-Tab>` | Jump next/prev snippet placeholder (Option-Tab) |
 | `<C-u>` / `<C-d>` | Scroll completion docs up/down (insert, when menu open) |
 | `<C-Space>` | Expand selection (treesitter) |
 | `<BS>` | Shrink selection (treesitter) |
