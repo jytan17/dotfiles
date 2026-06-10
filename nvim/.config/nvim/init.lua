@@ -52,7 +52,14 @@ vim.g.python_indent = {
 
 -- [[ Basic Keymaps ]]
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file' })
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', function()
+  vim.cmd.nohlsearch()
+  for name, ns in pairs(vim.api.nvim_get_namespaces()) do
+    if name:match('^flash') then
+      vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+    end
+  end
+end, { desc = 'Clear search + flash highlights' })
 
 -- Exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -64,6 +71,12 @@ vim.keymap.set('i', '<A-Up>', '<Esc><cmd>m .-2<CR>==gi', { desc = 'Move line up'
 vim.keymap.set('i', '<A-Down>', '<Esc><cmd>m .+1<CR>==gi', { desc = 'Move line down' })
 vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+
+-- PageUp/PageDown scroll half-page instead of full-page (keeps context visible)
+vim.keymap.set({ 'n', 'v' }, '<PageUp>', '<C-u>', { desc = 'Scroll half-page up' })
+vim.keymap.set({ 'n', 'v' }, '<PageDown>', '<C-d>', { desc = 'Scroll half-page down' })
+vim.keymap.set('i', '<PageUp>', '<C-o><C-u>', { desc = 'Scroll half-page up' })
+vim.keymap.set('i', '<PageDown>', '<C-o><C-d>', { desc = 'Scroll half-page down' })
 
 -- Opt+Backspace deletes previous word (macOS style, insert + command-line mode)
 vim.keymap.set('i', '<A-BS>', '<C-w>', { desc = 'Delete word backward' })

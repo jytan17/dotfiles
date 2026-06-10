@@ -181,6 +181,7 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | Keys | Action |
 |------|--------|
 | `<Opt-Up>` / `<Opt-Down>` | Move line(s) up/down (works in normal, insert, visual) |
+| `<PageUp>` / `<PageDown>` | Scroll half-page up/down (instead of full-page; easier to keep place) |
 | `<Opt-Backspace>` | Delete previous word (macOS-style, insert + command-line mode) |
 | `<leader>w` | Save file |
 | `<leader>q` | Close buffer |
