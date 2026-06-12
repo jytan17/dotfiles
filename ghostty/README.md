@@ -27,7 +27,7 @@ stow ghostty
 |---------|-------|-------|
 | `font-family` | JetBrainsMono Nerd Font | Includes ligatures and Nerd Font icons |
 | `font-size` | 15 | |
-| `font-style` | Bold | All regular text renders bold |
+| `font-style` | default | Ghostty built-in default style |
 | `term` | `xterm-ghostty` | Enables styled underlines (curly, dotted, dashed) |
 | `cursor-style` | block | Always a block cursor |
 | `shell-integration-features` | `no-cursor` | Prevents shell from changing cursor style |
@@ -38,5 +38,5 @@ stow ghostty
 ## Theme / Appearance
 
 - **Theme:** Catppuccin Mocha (built-in)
-- **Font:** JetBrainsMono Nerd Font, size 15, bold
+- **Font:** JetBrainsMono Nerd Font, size 15, default style
 - **Cursor:** Block, never changes (shell integration cursor disabled)
