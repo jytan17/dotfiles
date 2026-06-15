@@ -74,12 +74,6 @@
     "context": "Workspace",
     "bindings": {
       "ctrl-,": "terminal_panel::Toggle",
-      "ctrl-.": "agent::Toggle",
-    },
-  },
-  {
-    "bindings": {
-      "ctrl-/": "workspace::ToggleZoom",
     },
   },
   {

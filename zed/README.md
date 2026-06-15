@@ -16,57 +16,45 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 |------|---------|
 | `.config/zed/settings.json` | Editor settings -- behavior, AI, theme, fonts, LSP, languages |
 | `.config/zed/keymap.json` | Custom key bindings (Vim modes, terminal, project panel, pane nav) |
-| `.config/zed/tasks.json` | Runnable tasks (lazygit, lazydocker) |
+| `.config/zed/tasks.json` | Runnable tasks (lazygit, lazydocker, yazi) |
 
 ## Key Bindings
 
-### Pane Navigation (no prefix)
+### Pane Navigation
 
 | Keys | Action |
 |------|--------|
 | `Ctrl-h/j/k/l` | Navigate panes left/down/up/right |
-| `Ctrl-,` | Toggle terminal panel |
-| `Ctrl-.` | Toggle zoom (maximize pane) |
+| `Ctrl-Shift-h/j/k/l` | Resize pane left/down/up/right |
+| `Ctrl-Shift-0` | Reset pane sizes |
 
-### Leader (`Space`) Bindings (Vim Normal Mode)
+### Panels
 
 | Keys | Action |
 |------|--------|
-| `Space e` | Toggle file explorer |
-| `Space o` | Toggle project panel focus |
-| `Space w` | Save file |
-| `Space q` | Close active item |
-| `Space /` | Toggle comments |
-| `Space f f` | File finder |
-| `Space f w` | Project-wide search |
-| `Space f b` | Buffer switcher |
-| `Space b c` | Close buffer |
-| `Space b C` | Close other buffers |
-| `Space l a` | Code actions |
-| `Space l r` | Rename symbol |
-| `Space l d` | Diagnostics panel |
-| `Space l f` | Format buffer |
-| `Space l h` | Signature help |
-| `Space l s/S` | File/project symbols |
-| `Space g g` | Git panel |
-| `Space g b` | Git blame |
-| `Space g d` | Toggle diff hunks |
-| `Space t f` | Toggle terminal focus |
-| `Space t t` | New terminal |
-| `Space s v/h` | Split right/down |
-| `Space n/p + h/d/f/c` | Next/prev hunk/diagnostic/function/class |
+| `Ctrl-,` | Toggle terminal panel |
+
+### Vim
+
+| Keys | Action |
+|------|--------|
+| `g w` | Helix-style jump to word (normal mode) |
+| `Shift-s` | Add surrounds (visual mode) |
 
 ### Project Panel
 
 | Keys | Action |
 |------|--------|
-| `l` / `o` | Open entry |
+| `l` | Open entry |
 | `h` | Collapse entry |
 | `-` | Parent directory |
+| `s` / `v` | Open in horizontal / vertical split |
 | `a` / `Shift-a` | New file / directory |
 | `r` / `d` | Rename / delete |
 | `y` / `x` / `p` | Copy / cut / paste |
-| `s` / `v` | Open in horizontal / vertical split |
+| `y p` / `y Shift-p` | Copy relative / absolute path |
+| `q` | Toggle left dock |
+| `Escape` | Activate next pane |
 
 ### Autocomplete (Insert Mode)
 
