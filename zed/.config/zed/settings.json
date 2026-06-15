@@ -1,4 +1,12 @@
 {
+  "collaboration_panel": {
+    "button": false
+  },
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    }
+  },
   "agent": {
     "dock": "right",
     "sidebar_side": "right",
@@ -55,7 +63,7 @@
     },
   },
   "tab_bar": {
-    "show": false,
+    "show": true,
   },
   "project_panel": {
     "dock": "left",
