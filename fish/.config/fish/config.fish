@@ -7,8 +7,8 @@ set -gx LC_ALL C.UTF-8
 set -gx UV_SYSTEM_CERTS true
 
 # Default editor
-set -gx EDITOR zed
-set -gx VISUAL zed
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 
 # Lazygit config
 set -gx LG_CONFIG_FILE "$HOME/.config/lazygit/config.yml"
@@ -47,7 +47,7 @@ abbr lg lazygit
 abbr ld lazydocker
 abbr zj zellij
 abbr tm tmux
-abbr e zed
+abbr e nvim
 abbr vi nvim
 abbr vim nvim
 abbr nv nvim

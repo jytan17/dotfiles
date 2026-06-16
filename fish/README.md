@@ -69,7 +69,7 @@ Default emacs-style key bindings (fish default). Custom bindings:
 | Abbr | Expands To |
 |------|-----------|
 | `c` | `clear` |
-| `e` | `zed` |
+| `e` | `nvim` |
 | `lg` | `lazygit` |
 | `ld` | `lazydocker` |
 | `zj` | `zellij` |
@@ -89,6 +89,6 @@ Default emacs-style key bindings (fish default). Custom bindings:
 
 | Setting | Value |
 |---------|-------|
-| `EDITOR` / `VISUAL` | `zed` |
+| `EDITOR` / `VISUAL` | `nvim` |
 | `COLORTERM` | `truecolor` |
 | `LANG` / `LC_ALL` | `C.UTF-8` |
