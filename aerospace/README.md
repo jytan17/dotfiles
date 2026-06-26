@@ -1,6 +1,6 @@
 # AeroSpace
 
-Tiling window manager for macOS. Uses `alt` as the primary modifier with arrow-key navigation.
+Tiling window manager for macOS. Uses `alt` as the primary modifier with vim-style `hjkl` navigation.
 
 ## Setup
 
@@ -25,8 +25,8 @@ stow aerospace
 
 | Keys | Action |
 |------|--------|
-| `alt + ←/↓/↑/→` | Focus window left/down/up/right |
-| `alt + shift + ←/↓/↑/→` | Move window left/down/up/right |
+| `alt + h/j/k/l` | Focus window left/down/up/right |
+| `alt + shift + h/j/k/l` | Move window left/down/up/right |
 | `alt + 1-9` | Switch to workspace 1-9 |
 | `alt + shift + 1-9` | Move window to workspace 1-9 |
 | `alt + m` | Toggle fullscreen |
@@ -37,8 +37,8 @@ stow aerospace
 | `alt + shift + -/=` | Shrink/grow window by 50 |
 | `alt + v` | Join with right window (vertical) |
 | `alt + s` | Join with bottom window (horizontal) |
-| `alt + ctrl + ←/→` | Focus left/right monitor |
-| `alt + ctrl + shift + ←/→` | Move window to left/right monitor |
+| `alt + ctrl + h/l` | Focus left/right monitor |
+| `alt + ctrl + shift + h/l` | Move window to left/right monitor |
 | `alt + shift + ;` | Enter service mode |
 
 ### Service Mode
@@ -47,7 +47,7 @@ stow aerospace
 |------|--------|
 | `esc` | Reload config, return to main mode |
 | `r` | Flatten workspace tree, return to main mode |
-| `alt + shift + ←/↓/↑/→` | Join with adjacent window, return to main mode |
+| `alt + shift + h/j/k/l` | Join with adjacent window, return to main mode |
 
 ## Notable Settings
 

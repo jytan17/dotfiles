@@ -93,36 +93,6 @@ keybinds clear-defaults=true {
             };
         }
 
-        // Navigation: Ctrl-arrow aliases (forwarded to nvim as Ctrl-hjkl by plugin)
-        bind "Ctrl Left" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "left";
-                move_mod "ctrl";
-            };
-        }
-        bind "Ctrl Down" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "down";
-                move_mod "ctrl";
-            };
-        }
-        bind "Ctrl Up" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "up";
-                move_mod "ctrl";
-            };
-        }
-        bind "Ctrl Right" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "move_focus";
-                payload "right";
-                move_mod "ctrl";
-            };
-        }
-
         // Resize: Alt-h/j/k/l (vim-zellij-navigator aware)
         bind "Alt h" {
             MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
@@ -146,36 +116,6 @@ keybinds clear-defaults=true {
             };
         }
         bind "Alt l" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "resize";
-                payload "right";
-                resize_mod "alt";
-            };
-        }
-
-        // Resize: Alt-arrow aliases
-        bind "Alt Left" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "resize";
-                payload "left";
-                resize_mod "alt";
-            };
-        }
-        bind "Alt Down" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "resize";
-                payload "down";
-                resize_mod "alt";
-            };
-        }
-        bind "Alt Up" {
-            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
-                name "resize";
-                payload "up";
-                resize_mod "alt";
-            };
-        }
-        bind "Alt Right" {
             MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
                 name "resize";
                 payload "right";

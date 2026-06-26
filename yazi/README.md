@@ -35,9 +35,8 @@ ya pkg install
 
 | Keys | Action |
 |------|--------|
-| `l` / `<Right>` | Smart enter -- opens file or enters directory (via smart-enter plugin) |
+| `l` | Smart enter -- opens file or enters directory (via smart-enter plugin) |
 | `<Enter>` | Smart enter -- opens file or enters directory (via smart-enter plugin) |
-| `<Left>` | Leave to parent directory |
 
 All other bindings are yazi defaults.
 
