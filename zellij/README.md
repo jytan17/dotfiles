@@ -28,8 +28,8 @@ stow zellij
 
 | Keys | Action |
 |------|--------|
-| `Ctrl-h/j/k/l` | Navigate panes (nvim-aware via vim-zellij-navigator) |
-| `Alt-h/j/k/l` | Resize panes (nvim-aware via smart-splits) |
+| `Ctrl-h/j/k/l` or `Ctrl-←/↓/↑/→` | Navigate panes (nvim-aware via vim-zellij-navigator) |
+| `Alt-h/j/k/l` or `Alt-←/↓/↑/→` | Resize panes (nvim-aware via smart-splits) |
 
 ### Prefix Mode (`Ctrl-Space` then...)
 

@@ -7,3 +7,13 @@ desc = "Enter directory or open file"
 on   = "<Enter>"
 run  = "plugin smart-enter"
 desc = "Enter directory or open file"
+
+[[mgr.prepend_keymap]]
+on   = "<Right>"
+run  = "plugin smart-enter"
+desc = "Enter directory or open file"
+
+[[mgr.prepend_keymap]]
+on   = "<Left>"
+run  = "leave"
+desc = "Go to parent directory"

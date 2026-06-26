@@ -61,7 +61,7 @@ Leader key: `Space`
 
 | Keys | Action |
 |------|--------|
-| `<C-h/j/k/l>` | Navigate splits / Zellij panes |
+| `<C-h/j/k/l>` or `<C-Left/Down/Up/Right>` | Navigate splits / tmux + Zellij panes |
 | `gd` | Go to definition (with preview picker) |
 | `gD` | Go to declaration |
 | `gy` | Go to type definition |

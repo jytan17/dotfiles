@@ -26,17 +26,17 @@ outer.right = 10
 # Main keybindings
 [mode.main.binding]
 
-# Focus windows: alt + hjkl (like ctrl+hjkl in tmux)
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+# Focus windows: alt + arrows
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
 
-# Move windows: alt + shift + hjkl
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+# Move windows: alt + shift + arrows
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
 
 # Join windows (like prefix+v / prefix+s splits in tmux)
 alt-v = 'join-with right'
@@ -81,13 +81,13 @@ alt-shift-f = 'layout floating tiling'
 # Balance window sizes
 alt-shift-b = 'balance-sizes'
 
-# Focus monitor: alt + ctrl + h/l
-alt-ctrl-h = 'focus-monitor left'
-alt-ctrl-l = 'focus-monitor right'
+# Focus monitor: alt + ctrl + left/right
+alt-ctrl-left = 'focus-monitor left'
+alt-ctrl-right = 'focus-monitor right'
 
-# Move window to monitor: alt + ctrl + shift + h/l
-alt-ctrl-shift-h = 'move-node-to-monitor --focus-follows-window left'
-alt-ctrl-shift-l = 'move-node-to-monitor --focus-follows-window right'
+# Move window to monitor: alt + ctrl + shift + left/right
+alt-ctrl-shift-left = 'move-node-to-monitor --focus-follows-window left'
+alt-ctrl-shift-right = 'move-node-to-monitor --focus-follows-window right'
 
 # Enter service mode: alt + shift + semicolon
 alt-shift-semicolon = 'mode service'
@@ -96,7 +96,7 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+alt-shift-left = ['join-with left', 'mode main']
+alt-shift-down = ['join-with down', 'mode main']
+alt-shift-up = ['join-with up', 'mode main']
+alt-shift-right = ['join-with right', 'mode main']
