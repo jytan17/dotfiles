@@ -10,6 +10,7 @@ return {
       preset = 'default',
       ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
       ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
+      ['<CR>'] = { 'accept', 'fallback' },
     },
 
     appearance = {

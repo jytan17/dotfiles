@@ -192,6 +192,7 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `<leader>sH/J/K/L` | Swap split with neighbor (left/down/up/right) |
 | `<leader>s=` | Balance split sizes |
 | `<C-u>` / `<C-d>` | Scroll completion docs up/down (insert, when menu open) |
+| `<CR>` / `<C-y>` | Accept completion suggestion (insert, when menu open) |
 | `<C-Space>` | Expand selection (treesitter) |
 | `<BS>` | Shrink selection (treesitter) |
 | `<C-.>` | Toggle zoom (maximize pane) |
