@@ -1,13 +1,11 @@
 # AeroSpace Config
 
-# Start AeroSpace at login
 start-at-login = true
 
 # Start JankyBorders with AeroSpace for focused window highlight
 after-startup-command = ['exec-and-forget borders active_color=0xff58a6ff inactive_color=0xff494d64 width=8.0']
 
 # Normalizations
-# See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
@@ -23,30 +21,17 @@ outer.bottom = 10
 outer.top = 10
 outer.right = 10
 
-# Main keybindings
+# ── Main bindings ───────────────────────────────────────────────────────────
+# Prefix = alt. Colemak-DH: mnei = physical hjkl (right home row) = directions.
 [mode.main.binding]
 
-# Focus windows: alt + hjkl (like ctrl+hjkl in tmux)
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+# Focus window
+alt-m = 'focus left'
+alt-n = 'focus down'
+alt-e = 'focus up'
+alt-i = 'focus right'
 
-# Move windows: alt + shift + hjkl
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
-
-# Join windows (like prefix+v / prefix+s splits in tmux)
-alt-v = 'join-with right'
-alt-s = 'join-with down'
-
-# Resize windows: alt + shift + minus/equal
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
-
-# Switch between workspaces: alt + number (like prefix+number in tmux)
+# Switch workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -57,46 +42,80 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 
-# Move window to workspace: alt + shift + number
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
+# Enter move mode (border orange)
+alt-shift-m = ['exec-and-forget borders active_color=0xffff9e64', 'mode move']
 
-# Fullscreen (like shift+escape zoom in tmux)
-alt-m = 'fullscreen'
+# Window ops (single-shot)
+alt-z = 'fullscreen'
+alt-b = 'balance-sizes'
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
 
-# Layout controls
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
+# ── Move mode ───────────────────────────────────────────────────────────────
+# Unified mode. Sticky.
+#   mnei          → focus window       shift+mnei    → move window
+#   ctrl+mnei     → join with pane in direction (restructure tree)
+#   arrows        → focus monitor      shift+arrows  → move to monitor
+#   1-9           → switch workspace   shift+1-9     → move to workspace
+#   h/v/a         → layout             f → float, x → flatten, r → reload
+# Esc/enter exits.
+[mode.move.binding]
 
-# Float/unfloat
-alt-shift-f = 'layout floating tiling'
+# Windows — focus / move / join
+m = 'focus left'
+n = 'focus down'
+e = 'focus up'
+i = 'focus right'
 
-# Balance window sizes
-alt-shift-b = 'balance-sizes'
+shift-m = 'move left'
+shift-n = 'move down'
+shift-e = 'move up'
+shift-i = 'move right'
 
-# Focus monitor: alt + ctrl + h/l
-alt-ctrl-h = 'focus-monitor left'
-alt-ctrl-l = 'focus-monitor right'
+ctrl-m = 'join-with left'
+ctrl-n = 'join-with down'
+ctrl-e = 'join-with up'
+ctrl-i = 'join-with right'
 
-# Move window to monitor: alt + ctrl + shift + h/l
-alt-ctrl-shift-h = 'move-node-to-monitor --focus-follows-window left'
-alt-ctrl-shift-l = 'move-node-to-monitor --focus-follows-window right'
+# Monitors
+left  = 'focus-monitor left'
+down  = 'focus-monitor down'
+up    = 'focus-monitor up'
+right = 'focus-monitor right'
+shift-left  = 'move-node-to-monitor --focus-follows-window left'
+shift-down  = 'move-node-to-monitor --focus-follows-window down'
+shift-up    = 'move-node-to-monitor --focus-follows-window up'
+shift-right = 'move-node-to-monitor --focus-follows-window right'
 
-# Enter service mode: alt + shift + semicolon
-alt-shift-semicolon = 'mode service'
+# Workspaces
+1 = 'workspace 1'
+2 = 'workspace 2'
+3 = 'workspace 3'
+4 = 'workspace 4'
+5 = 'workspace 5'
+6 = 'workspace 6'
+7 = 'workspace 7'
+8 = 'workspace 8'
+9 = 'workspace 9'
+shift-1 = 'move-node-to-workspace 1'
+shift-2 = 'move-node-to-workspace 2'
+shift-3 = 'move-node-to-workspace 3'
+shift-4 = 'move-node-to-workspace 4'
+shift-5 = 'move-node-to-workspace 5'
+shift-6 = 'move-node-to-workspace 6'
+shift-7 = 'move-node-to-workspace 7'
+shift-8 = 'move-node-to-workspace 8'
+shift-9 = 'move-node-to-workspace 9'
 
-# Service mode for less common actions
-[mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main']
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+# Layout / structure
+h = 'layout tiles horizontal'
+v = 'layout tiles vertical'
+a = 'layout accordion horizontal vertical'
+f = 'layout floating tiling'
+b = 'balance-sizes'
+x = 'flatten-workspace-tree'
+w = 'close'
+r = 'reload-config'
+
+esc   = ['exec-and-forget borders active_color=0xff58a6ff', 'mode main']
+enter = ['exec-and-forget borders active_color=0xff58a6ff', 'mode main']
