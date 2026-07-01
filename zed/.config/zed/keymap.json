@@ -14,6 +14,10 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-left":  "workspace::ActivatePaneLeft",
+      "ctrl-right": "workspace::ActivatePaneRight",
+      "ctrl-up":    "workspace::ActivatePaneUp",
+      "ctrl-down":  "workspace::ActivatePaneDown",
     },
   },
   {
@@ -29,6 +33,10 @@
       "ctrl-shift-j": "vim::ResizePaneDown",
       "ctrl-shift-k": "vim::ResizePaneUp",
       "ctrl-shift-l": "vim::ResizePaneRight",
+      "ctrl-shift-left":  "vim::ResizePaneLeft",
+      "ctrl-shift-down":  "vim::ResizePaneDown",
+      "ctrl-shift-up":    "vim::ResizePaneUp",
+      "ctrl-shift-right": "vim::ResizePaneRight",
       "ctrl-shift-0": "vim::ResetPaneSizes",
     },
   },
@@ -38,6 +46,8 @@
       // Navigation
       "l": "project_panel::OpenPermanent",
       "h": "project_panel::CollapseSelectedEntry",
+      "right": "project_panel::OpenPermanent",
+      "left": "project_panel::CollapseSelectedEntry",
       "-": "project_panel::SelectParent",
 
       // Splits

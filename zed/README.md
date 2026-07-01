@@ -24,8 +24,8 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 
 | Keys | Action |
 |------|--------|
-| `Ctrl-h/j/k/l` | Navigate panes left/down/up/right |
-| `Ctrl-Shift-h/j/k/l` | Resize pane left/down/up/right |
+| `Ctrl-h/j/k/l` (or arrows) | Navigate panes left/down/up/right |
+| `Ctrl-Shift-h/j/k/l` (or arrows) | Resize pane left/down/up/right |
 | `Ctrl-Shift-0` | Reset pane sizes |
 
 ### Panels
@@ -45,8 +45,8 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 
 | Keys | Action |
 |------|--------|
-| `l` | Open entry |
-| `h` | Collapse entry |
+| `l` / `right` | Open entry |
+| `h` / `left` | Collapse entry |
 | `-` | Parent directory |
 | `s` / `v` | Open in horizontal / vertical split |
 | `a` / `Shift-a` | New file / directory |

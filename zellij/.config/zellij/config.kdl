@@ -93,6 +93,36 @@ keybinds clear-defaults=true {
             };
         }
 
+        // Navigation: Ctrl-Arrow mirrors (vim-zellij-navigator aware)
+        bind "Ctrl Left" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "left";
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl Down" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "down";
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl Up" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "up";
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl Right" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "right";
+                move_mod "ctrl";
+            };
+        }
+
         // Resize: Alt-h/j/k/l (vim-zellij-navigator aware)
         bind "Alt h" {
             MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
@@ -116,6 +146,36 @@ keybinds clear-defaults=true {
             };
         }
         bind "Alt l" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "resize";
+                payload "right";
+                resize_mod "alt";
+            };
+        }
+
+        // Resize: Alt-Arrow mirrors (vim-zellij-navigator aware)
+        bind "Alt Left" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "resize";
+                payload "left";
+                resize_mod "alt";
+            };
+        }
+        bind "Alt Down" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "resize";
+                payload "down";
+                resize_mod "alt";
+            };
+        }
+        bind "Alt Up" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "resize";
+                payload "up";
+                resize_mod "alt";
+            };
+        }
+        bind "Alt Right" {
             MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
                 name "resize";
                 payload "right";
@@ -202,6 +262,10 @@ keybinds clear-defaults=true {
         bind "J" { MovePane "Down"; SwitchToMode "Normal"; }
         bind "K" { MovePane "Up"; SwitchToMode "Normal"; }
         bind "L" { MovePane "Right"; SwitchToMode "Normal"; }
+        bind "Left"  { MovePane "Left";  SwitchToMode "Normal"; }
+        bind "Down"  { MovePane "Down";  SwitchToMode "Normal"; }
+        bind "Up"    { MovePane "Up";    SwitchToMode "Normal"; }
+        bind "Right" { MovePane "Right"; SwitchToMode "Normal"; }
 
         // Enter resize mode (for fine-grained control)
         bind "r" { SwitchToMode "Resize"; }
@@ -257,6 +321,10 @@ keybinds clear-defaults=true {
         bind "J" { Resize "Decrease Down"; }
         bind "K" { Resize "Decrease Up"; }
         bind "L" { Resize "Decrease Right"; }
+        bind "Shift Left"  { Resize "Decrease Left"; }
+        bind "Shift Down"  { Resize "Decrease Down"; }
+        bind "Shift Up"    { Resize "Decrease Up"; }
+        bind "Shift Right" { Resize "Decrease Right"; }
         bind "=" { Resize "Increase"; }
         bind "-" { Resize "Decrease"; }
         bind "Esc" "Enter" { SwitchToMode "Normal"; }

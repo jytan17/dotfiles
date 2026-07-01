@@ -61,7 +61,7 @@ Leader key: `Space`
 
 | Keys | Action |
 |------|--------|
-| `<C-h/j/k/l>` | Navigate splits / Zellij panes |
+| `<C-h/j/k/l>` (or `<C-Arrow>`) | Navigate splits / Zellij panes |
 | `gd` | Go to definition (with preview picker) |
 | `gD` | Go to declaration |
 | `gy` | Go to type definition |
@@ -188,8 +188,8 @@ Swap arguments: `<leader>a` (next), `<leader>A` (previous).
 | `<leader>/` | Toggle comment |
 | `gcc` | Toggle comment (line) |
 | `<leader>s|` / `<leader>s-` | Split vertical/horizontal |
-| `<leader>sh/j/k/l` | Resize split (left/down/up/right, tmux-aware) |
-| `<leader>sH/J/K/L` | Swap split with neighbor (left/down/up/right) |
+| `<leader>sh/j/k/l` (or arrows) | Resize split (left/down/up/right, tmux-aware) |
+| `<leader>sH/J/K/L` (or shift-arrows) | Swap split with neighbor (left/down/up/right) |
 | `<leader>s=` | Balance split sizes |
 | `<C-u>` / `<C-d>` | Scroll completion docs up/down (insert, when menu open) |
 | `<CR>` / `<C-y>` | Accept completion suggestion (insert, when menu open) |

@@ -28,8 +28,8 @@ stow zellij
 
 | Keys | Action |
 |------|--------|
-| `Ctrl-h/j/k/l` | Navigate panes (nvim-aware via vim-zellij-navigator) |
-| `Alt-h/j/k/l` | Resize panes (nvim-aware via smart-splits) |
+| `Ctrl-h/j/k/l` (or `Ctrl-Arrow`) | Navigate panes (nvim-aware via vim-zellij-navigator) |
+| `Alt-h/j/k/l` (or `Alt-Arrow`) | Resize panes (nvim-aware via smart-splits) |
 
 ### Prefix Mode (`Ctrl-Space` then...)
 
@@ -43,7 +43,7 @@ stow zellij
 | `m` | Toggle pane zoom (fullscreen) |
 | `x` | Close pane |
 | `n` / `p` | Focus next / previous pane |
-| `H/J/K/L` | Move focused pane left/down/up/right |
+| `H/J/K/L` (or arrows) | Move focused pane left/down/up/right |
 | `.` | Rename pane |
 
 #### Tabs
@@ -89,8 +89,8 @@ Keys are repeatable -- no need to re-enter the mode.
 
 | Keys | Action |
 |------|--------|
-| `h/j/k/l` | Increase size left/down/up/right |
-| `H/J/K/L` | Decrease size left/down/up/right |
+| `h/j/k/l` (or arrows) | Increase size left/down/up/right |
+| `H/J/K/L` (or shift-arrows) | Decrease size left/down/up/right |
 | `=` / `-` | Increase / decrease evenly |
 | `Esc` / `Enter` | Exit resize mode |
 
