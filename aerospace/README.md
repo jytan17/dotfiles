@@ -27,7 +27,7 @@ stow aerospace
 |------|--------|
 | `alt + m/n/e/i` | Focus window left/down/up/right |
 | `alt + 1-9` | Switch workspace 1-9 |
-| `alt + z` | Zoom (fullscreen toggle) |
+| `alt + o` | Zoom (fullscreen toggle) |
 | `alt + b` | Balance sizes |
 | `alt + shift + -/=` | Shrink/grow window by 50 |
 | `alt + shift + M` | Enter **move** mode |
