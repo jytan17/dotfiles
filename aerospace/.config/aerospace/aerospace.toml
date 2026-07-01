@@ -46,7 +46,7 @@ alt-9 = 'workspace 9'
 alt-shift-m = ['exec-and-forget borders active_color=0xffff9e64', 'mode move']
 
 # Window ops (single-shot)
-alt-o = 'fullscreen'
+alt-h = 'fullscreen'
 alt-b = 'balance-sizes'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
