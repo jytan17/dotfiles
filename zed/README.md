@@ -33,6 +33,11 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 | Keys | Action |
 |------|--------|
 | `Ctrl-,` | Toggle terminal panel |
+| `Alt-p` | Toggle command palette |
+| `Alt-g` | Spawn Lazygit task |
+| `Alt-d` | Spawn Lazydocker task |
+| `Alt-y` | Spawn Yazi task |
+| `Alt-t` | Spawn Terminal task |
 
 ### Vim
 
