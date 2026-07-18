@@ -38,6 +38,7 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 | `Alt-d` | Spawn Lazydocker task |
 | `Alt-y` | Spawn Yazi task |
 | `Alt-t` | Spawn Terminal task |
+| `Alt-v` | Open markdown preview |
 
 ### Vim
 
