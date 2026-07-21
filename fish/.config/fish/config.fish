@@ -45,7 +45,7 @@ abbr gswc 'git switch -c'
 abbr c clear
 abbr lg lazygit
 abbr ld lazydocker
-abbr zj zellij
+abbr zl zellij
 abbr tm tmux
 abbr e zed
 abbr vi nvim

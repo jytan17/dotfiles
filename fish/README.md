@@ -72,7 +72,7 @@ Default emacs-style key bindings (fish default). Custom bindings:
 | `e` | `zed` |
 | `lg` | `lazygit` |
 | `ld` | `lazydocker` |
-| `zj` | `zellij` |
+| `zl` | `zellij` |
 | `vim` / `vi` / `nv` | `nvim` |
 | `oc` | `opencode` |
 
