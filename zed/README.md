@@ -86,7 +86,7 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 | Line numbers | Relative |
 | Format on save | Enabled |
 | Inline diagnostics | Enabled |
-| Inactive pane opacity | 0.7 |
+| Inactive pane opacity | 0.85 |
 | AI agent model | Claude Sonnet 4 (thinking) via Amazon Bedrock |
 | Python LSP | basedpyright + ruff (line length 120, rules E/F/I) |
 

@@ -28,7 +28,7 @@
   },
   "show_edit_predictions": false,
   "active_pane_modifiers": {
-    "inactive_opacity": 0.7,
+    "inactive_opacity": 0.85,
   },
   "vim_mode": true,
   "ui_font_size": 17,
