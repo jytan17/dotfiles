@@ -29,14 +29,4 @@
     "hide": "always",
     "shell": "system",
   },
-  {
-    "label": "Terminal",
-    "command": "exec $SHELL",
-    "use_new_terminal": true,
-    "allow_concurrent_runs": true,
-    "reveal": "always",
-    "reveal_target": "center",
-    "hide": "always",
-    "shell": "system",
-  },
 ]
