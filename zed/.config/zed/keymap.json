@@ -93,6 +93,12 @@
     },
   },
   {
+    // No context = global; alt-s works in every context (editor, terminal, panels).
+    "bindings": {
+      "alt-s": "text_finder::Toggle",
+    },
+  },
+  {
     "context": "MarkdownPreview",
     "bindings": {
       "j": "markdown::ScrollDown",

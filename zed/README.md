@@ -39,6 +39,7 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 | `Alt-y` | Spawn Yazi task |
 | `Alt-t` | New terminal in center pane |
 | `Alt-v` | Open markdown preview |
+| `Alt-s` | Toggle text finder (live-preview project text search); global, all contexts |
 
 ### Vim
 
