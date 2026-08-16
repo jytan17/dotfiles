@@ -69,6 +69,7 @@ Default emacs-style key bindings (fish default). Custom bindings:
 | Abbr | Expands To |
 |------|-----------|
 | `c` | `clear` |
+| `k` | `kubectl` |
 | `e` | `zed` |
 | `lg` | `lazygit` |
 | `ld` | `lazydocker` |

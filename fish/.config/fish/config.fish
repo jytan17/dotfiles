@@ -42,6 +42,7 @@ abbr grs 'git restore'
 abbr gs 'git status'
 abbr gsw 'git switch'
 abbr gswc 'git switch -c'
+abbr k kubectl
 abbr c clear
 abbr lg lazygit
 abbr ld lazydocker
