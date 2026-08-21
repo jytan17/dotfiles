@@ -75,4 +75,7 @@
   "relative_line_numbers": "enabled",
   "auto_signature_help": false,
   "show_signature_help_after_edits": false,
+  "markdown_preview": {
+    "limit_content_width": false,
+  },
 }

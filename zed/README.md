@@ -88,6 +88,7 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 | Format on save | Enabled |
 | Inline diagnostics | Enabled |
 | Inactive pane opacity | 0.85 |
+| Markdown preview max width | 1000px (content width limited) |
 | AI agent model | Claude Sonnet 4 (thinking) via Amazon Bedrock |
 | Python LSP | basedpyright + ruff (line length 120, rules E/F/I) |
 
