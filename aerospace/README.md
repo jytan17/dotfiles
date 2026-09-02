@@ -1,6 +1,6 @@
 # AeroSpace
 
-Tiling window manager for macOS. Prefix is `alt`. Colemak-DH `mnei` (right home row = physical hjkl) always means a direction. One unified **move mode** handles all pane relocation, monitor jumps, workspace moves, and tree restructuring.
+Tiling window manager for macOS. Prefix is `alt`. Directions bound to both Colemak-DH `mnei` and QWERTY `hjkl` (same physical keys on right home row) so bindings work on external Colemak-DH keyboard and laptop QWERTY keyboard. One unified **move mode** handles all pane relocation, monitor jumps, workspace moves, and tree restructuring.
 
 ## Setup
 
@@ -25,9 +25,9 @@ stow aerospace
 
 | Keys | Action |
 |------|--------|
-| `alt + m/n/e/i` | Focus window left/down/up/right |
+| `alt + m/n/e/i` or `alt + h/j/k/l` | Focus window left/down/up/right |
 | `alt + 1-9` | Switch workspace 1-9 |
-| `alt + h` | Zoom (fullscreen toggle) |
+| `alt + f` | Zoom (fullscreen toggle) |
 | `alt + b` | Balance sizes |
 | `alt + shift + -/=` | Shrink/grow window by 50 |
 | `alt + shift + M` | Enter **move** mode |
@@ -37,20 +37,20 @@ stow aerospace
 Border turns **orange** (`#ff9e64`). Sticky.
 
 Rules inside the mode:
-- **plain `mnei`** = focus window (look)
-- **`shift + mnei`** = move window (commit)
-- **`ctrl + mnei`** = join with pane in that direction (restructure tree)
+- **plain `mnei` / `hjkl`** = focus window (look)
+- **`shift + mnei` / `shift + hjkl`** = move window (commit)
+- **`ctrl + mnei` / `ctrl + hjkl`** = join with pane in that direction (restructure tree)
 
 | Keys | Action |
 |------|--------|
-| `m/n/e/i` | Focus window left/down/up/right |
-| `shift + m/n/e/i` | Move window left/down/up/right |
-| `ctrl + m/n/e/i` | Join with pane left/down/up/right |
+| `m/n/e/i` or `h/j/k/l` | Focus window left/down/up/right |
+| `shift + m/n/e/i` or `shift + h/j/k/l` | Move window left/down/up/right |
+| `ctrl + m/n/e/i` or `ctrl + h/j/k/l` | Join with pane left/down/up/right |
 | `←/↓/↑/→` | Focus monitor left/down/up/right |
 | `shift + ←/↓/↑/→` | Move window to monitor left/down/up/right |
 | `1-9` | Switch workspace 1-9 |
 | `shift + 1-9` | Move window to workspace 1-9 |
-| `h` | Layout horizontal tiles |
+| `t` | Layout horizontal tiles |
 | `v` | Layout vertical tiles |
 | `a` | Layout accordion toggle |
 | `f` | Toggle float/tile |
@@ -62,7 +62,7 @@ Rules inside the mode:
 
 ## Notable Settings
 
-- **Modal design** — `mnei` always means a direction; base layer focuses windows, move mode extends with shift (move) and ctrl (join) tiers.
+- **Modal design** — `mnei` (Colemak-DH) and `hjkl` (QWERTY) both mean directions; base layer focuses windows, move mode extends with shift (move) and ctrl (join) tiers.
 - **Sticky move mode** — chain multiple ops without re-entering. `esc`/`enter` exits.
 - **Border feedback** — active border swaps to orange in move mode.
 - **Start at login** enabled

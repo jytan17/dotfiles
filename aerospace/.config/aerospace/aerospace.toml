@@ -25,11 +25,15 @@ outer.right = 10
 # Prefix = alt. Colemak-DH: mnei = physical hjkl (right home row) = directions.
 [mode.main.binding]
 
-# Focus window
+# Focus window (mnei = Colemak-DH, hjkl = QWERTY fallback)
 alt-m = 'focus left'
 alt-n = 'focus down'
 alt-e = 'focus up'
 alt-i = 'focus right'
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
 
 # Switch workspace
 alt-1 = 'workspace 1'
@@ -46,7 +50,7 @@ alt-9 = 'workspace 9'
 alt-shift-m = ['exec-and-forget borders active_color=0xffff9e64', 'mode move']
 
 # Window ops (single-shot)
-alt-h = 'fullscreen'
+alt-f = 'fullscreen'
 alt-b = 'balance-sizes'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
@@ -61,21 +65,33 @@ alt-shift-equal = 'resize smart +50'
 # Esc/enter exits.
 [mode.move.binding]
 
-# Windows — focus / move / join
+# Windows — focus / move / join (mnei = Colemak-DH, hjkl = QWERTY fallback)
 m = 'focus left'
 n = 'focus down'
 e = 'focus up'
 i = 'focus right'
+h = 'focus left'
+j = 'focus down'
+k = 'focus up'
+l = 'focus right'
 
 shift-m = 'move left'
 shift-n = 'move down'
 shift-e = 'move up'
 shift-i = 'move right'
+shift-h = 'move left'
+shift-j = 'move down'
+shift-k = 'move up'
+shift-l = 'move right'
 
 ctrl-m = 'join-with left'
 ctrl-n = 'join-with down'
 ctrl-e = 'join-with up'
 ctrl-i = 'join-with right'
+ctrl-h = 'join-with left'
+ctrl-j = 'join-with down'
+ctrl-k = 'join-with up'
+ctrl-l = 'join-with right'
 
 # Monitors
 left  = 'focus-monitor left'
@@ -108,7 +124,7 @@ shift-8 = 'move-node-to-workspace 8'
 shift-9 = 'move-node-to-workspace 9'
 
 # Layout / structure
-h = 'layout tiles horizontal'
+t = 'layout tiles horizontal'
 v = 'layout tiles vertical'
 a = 'layout accordion horizontal vertical'
 f = 'layout floating tiling'
