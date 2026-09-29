@@ -69,6 +69,9 @@
       "y p": "workspace::CopyRelativePath",
       "y shift-p": "workspace::CopyPath",
 
+      // Context menu
+      "m": "project_panel::OpenContextMenu",
+
       // Panel management
       "q": "workspace::ToggleLeftDock",
       "escape": "workspace::ActivateNextPane",

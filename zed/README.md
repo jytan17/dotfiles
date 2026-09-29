@@ -60,6 +60,7 @@ Install extensions from the Zed marketplace: Catppuccin theme, Material Icon The
 | `r` / `d` | Rename / delete |
 | `y` / `x` / `p` | Copy / cut / paste |
 | `y p` / `y Shift-p` | Copy relative / absolute path |
+| `m` | Open context menu |
 | `q` | Toggle left dock |
 | `Escape` | Activate next pane |
 
